@@ -36,19 +36,15 @@
 							src="/kimsaemERP/images/kim.jpg"  style="width: 70px;height: 70px;padding: 0px"/>
 							</a></li> -->
 				<% if(loginUser==null){ %>
-				<li><a href="/kimsaemERP/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
+				<li style="width: 60px;height: 60px;"><a href="/kimsaemERP/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
 						</span>Login</a></li>
 				<%}else{ %>
-				<li><a href="#"><span class="glyphicon glyphicon-log-out" ></span>
+				<li style="padding-bottom: 28px"><img  class="img-circle" style="width: 60px;height: 60px;"
+							src="/kimsaemERP/images/go.png"  /></li>
+				<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out" ></span>
 						Logout</a></li>
 				<%} %>
 			</ul>
-			<% if(loginUser!=null){ %>
-			<span  class="navbar-form pull-right" >
-				<img  class="img-circle" style="width: 60px;height: 60px;"
-							src="/kimsaemERP/images/go.png"  />
-			</span>  
-			<%} %>
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">

@@ -40,10 +40,11 @@
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
 				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
-				       
+				       <jsp:include page="/layout/insa_menu.jsp"/>
       				 </div>
 			 	</div>
 			 	<div class="col-sm-8" style="background-color: white;height: 800px;">
+			 		<jsp:include page="/emp/mypage.jsp"/>
 			 	</div>
 			</div>
 	</div>
