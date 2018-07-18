@@ -1,3 +1,4 @@
+<%@page import="emp.dto.EmpDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -23,6 +24,9 @@
 	} */
 </style>
 <title>Insert title here</title>
+	<%
+		EmpDTO loginUser = (EmpDTO)session.getAttribute("loginUser");
+	%>
 </head>
 <body>
 	<div style="height:90px" style="padding:10px">
@@ -32,16 +36,22 @@
 				<!-- <li ><a href="#"><span></span><img  class="img-circle"
 							src="/kimsaemERP/images/kim.jpg"  style="width: 70px;height: 70px;padding: 0px"/>
 							</a></li> -->
-				<li><a href="#"><span class="glyphicon glyphicon-log-in">
+				<%if(loginUser==null){ %>
+				<li><a href="/kimsaemERP/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
 						</span>Login</a></li>
-			
-				<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+				<%}else{ %>
+				<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
 						Logout</a></li>
-						
+				<%} %>		
 			</ul>
 			<span  class="navbar-form pull-right" >
+			<%if(loginUser!=null){ %>
 				<img  class="img-circle" style="width: 60px;height: 60px"
-							src="/kimsaemERP/images/kim.jpg"  />
+							src="/kimsaemERP/images/I.jpg"  />
+			<%}else{ %>
+				<img  class="img-circle" style="width: 60px;height: 60px"
+							src=""  />
+			<%} %>
 			</span>  
 			
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">
@@ -59,7 +69,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/kimsaemERP/index.jsp">Home</a></li>
-					<li><a href="/kimsaemERP/job/jobMain.jsp">诀公包府</a></li>
+					<li><a href="/kimsaemERP/template/mainLayout.jsp">诀公包府</a></li>
 					<li><a href="#">磊盔包府</a></li>
 					<li><a href="#">目孤聪萍</a></li>
 					<li><a href="#">老沥包府</a></li>
