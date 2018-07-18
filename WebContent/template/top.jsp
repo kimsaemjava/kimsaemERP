@@ -1,3 +1,4 @@
+<%@page import="emp.dto.EmpDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -25,6 +26,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<% EmpDTO loginUser = (EmpDTO)session.getAttribute("loginUser"); %>
+
 	<div style="height:90px" style="padding:10px">
 		<div id="toparea"  class="navbar navbar-inverse">
 			<a href="#" style="position:absolute;top:30px;font-size: 18pt; font-weight: bolder;text-decoration: none;padding-left: 10px">KimSaemERP</a>
@@ -32,17 +35,24 @@
 				<!-- <li ><a href="#"><span></span><img  class="img-circle"
 							src="/kimsaemERP/images/kim.jpg"  style="width: 70px;height: 70px;padding: 0px"/>
 							</a></li> -->
-				<li><a href="#"><span class="glyphicon glyphicon-log-in">
+							
+				<%//그나마 복잡하지만  실무에서는 사용안함 %>
+				<%if(loginUser==null) {%>			
+				<li style="width: 60px; height:"><a href="/kimsaemERP/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
 						</span>Login</a></li>
-			
-				<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+				<%}else{ %>
+				
+				<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
 						Logout</a></li>
-						
+				<%} %>
 			</ul>
+			
+			<%if(loginUser!=null) {%>
 			<span  class="navbar-form pull-right" >
 				<img  class="img-circle" style="width: 60px;height: 60px"
-							src="/kimsaemERP/images/kim.jpg"  />
+							src="/kimsaemERP/images/myphoto.jpg"  />
 			</span>  
+			<%} %>
 			
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">
 				<input class="form-control mr-sm-2" type="search"
@@ -59,7 +69,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/kimsaemERP/index.jsp">Home</a></li>
-					<li><a href="/kimsaemERP/job/jobMain.jsp">업무관리</a></li>
+					<li><a href="/kimsaemERP/template/mainLayout.jsp">업무관리</a></li>
 					<li><a href="#">자원관리</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="#">일정관리</a></li>
