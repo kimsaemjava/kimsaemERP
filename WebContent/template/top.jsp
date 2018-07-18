@@ -31,6 +31,7 @@
 	<div style="height:90px" style="padding:10px">
 		<div id="toparea"  class="navbar navbar-inverse">
 			<a href="#" style="position:absolute;top:30px;font-size: 18pt; font-weight: bolder;text-decoration: none;padding-left: 10px">KimSaemERP</a>
+<<<<<<< HEAD
 			<ul class="nav navbar-nav navbar-right" 
 			 style="position:relative ;top:20px" >
 				<!-- <li ><a href="#"><span></span><img  class="img-circle"
@@ -48,8 +49,15 @@
 				<%}else{ %>
 					<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
 							Logout</a></li>
-						
-				</ul>
+
+			<ul class="nav navbar-nav navbar-right"  style="position:relative ;top:20px" >
+				
+				<li><a href="#"><span class="glyphicon glyphicon-log-in">
+						</span>Login</a></li>
+			
+				<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+						Logout</a></li>
+			</ul>
 			
 				<span  class="navbar-form pull-right" >
 					<img  class="img-circle" style="width: 60px;height: 60px"
