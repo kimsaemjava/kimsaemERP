@@ -1,5 +1,4 @@
 package query;
-
 public class EmpQuery {
 	public static String EMP_INSERT =
 		"insert into kitriemp values(?,?,?,?,sysdate,?,?,?)";

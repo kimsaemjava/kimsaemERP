@@ -1,13 +1,12 @@
 package emp.dao;
-
-import static emp.dao.DBUtil.close;
+import static fw.DBUtil.*;
 import static query.EmpQuery.*;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import emp.dto.EmpDTO;
