@@ -41,7 +41,7 @@
 			</ul>
 			<span  class="navbar-form pull-right" >
 				<img  class="img-circle" style="width: 60px;height: 60px"
-							src="/kimsaemERP/images/kim.jpg"  />
+							src="/kimsaemERP/images/myphoto.jpg"  />
 			</span>  
 			
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">
