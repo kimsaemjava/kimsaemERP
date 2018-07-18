@@ -20,4 +20,5 @@ public class EmpQuery {
 		= "select * from kitriemp where addr like ?";
 	public static String EMP_SEARCH3 
 		= "select * from kitriemp where id like ?";
+	
 }
