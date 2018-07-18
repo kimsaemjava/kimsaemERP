@@ -1,4 +1,4 @@
-부서 테이블
+#부서 테이블
 drop table dept CASCADE CONSTRAINTS;
 create table dept{
 	deptno varchar2(15) primary key,
@@ -13,7 +13,7 @@ create table dept{
 	deptaddr varchar2(50),
 	depttel varchar2(15),
 }
-인사 테이블
+#인사 테이블
 drop table member CASCADE CONSTRAINTS;
 create table member(
 	id varchar2(20) primary key,
@@ -46,7 +46,7 @@ create table job(
 	job_category varchar2(15),
 	menupath varchar2(50))
 
-제약조건
+#제약조건
 alter table member
 add constraint member_fk foreign key(deptno) references dept(deptno)
 
@@ -56,5 +56,29 @@ add constraint dept_fk foreign key(mgr_id) references member(id)
 
 alter table dept
 add constraint job_fk foreign key(job_category) references job(job_category)
+
+#데이터
+
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+insert into dept values('d001','인사팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩7층','02-225-1111');
+
+
+
+
+
+
 
 
