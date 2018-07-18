@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ViewTemplateServlet
  */
+
 @WebServlet(name = "view", urlPatterns = { "/view.html" })
 public class ViewTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
