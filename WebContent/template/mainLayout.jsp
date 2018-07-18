@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,9 +16,6 @@
 		margin-bottom: 0;
 		border-radius: 0;	
 	}
-	body{
-		color: black;
-	}
 	/*  #toparea{
 		padding: 30px;
 	}  */
@@ -30,28 +26,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<div style="background-color: #edeef1;padding: 20px;height: 800px">
-		
-			<div class="row" style="margin-left: auto;margin-right: auto;">
-			 	<div class="col-sm-3" 
-			 	style="background-color: white;margin-right:10px;padding: 0px ">
-			 		 <div
-			 		 style="border-color:white;height: 800px;">
-				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
-				       <jsp:include page="/layout/insa_menu.jsp"></jsp:include>
-      				 </div>
-			 	</div>
-			 	<div class="col-sm-8" style="background-color: white;height: 800px;">
-			 		<jsp:include page="/emp/mypage.jsp"></jsp:include>
-			 	</div>
-			</div>
+	<div id="top">
+		<jsp:include page="/template/top.jsp"/>
 	</div>
-	
+	<div id="content">
+		<jsp:include page="/template/content.jsp"></jsp:include>
+	</div>
 </body>
 </html>
-
-
-
-

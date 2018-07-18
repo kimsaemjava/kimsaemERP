@@ -10,6 +10,7 @@ public class DBUtil {
 	public static void main(String[] args){
 		System.out.println(getConnect());
 	}
+	
 	//1. 드라이버로딩
 	//==> 메소드마다 드라이버를 로딩하는 작업을 구현하지 않고 클래스로더가 작업클래스를 로딩할때
 	//    한 번만 실행되도록 작업하기 위해서 static블럭을 선언하고 코드를 작성
@@ -24,7 +25,7 @@ public class DBUtil {
 	//2. DB서버 연결 - 커넥션설정
 	public static Connection getConnect(){
 		Connection con = null;
-		String url = "jdbc:oracle:thin:@211.42.204.107:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "scott";
 		String password = "tiger";
 		try{
