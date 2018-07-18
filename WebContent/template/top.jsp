@@ -48,8 +48,15 @@
 				<%}else{ %>
 					<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
 							Logout</a></li>
-						
-				</ul>
+
+			<ul class="nav navbar-nav navbar-right"  style="position:relative ;top:20px" >
+				
+				<li><a href="#"><span class="glyphicon glyphicon-log-in">
+						</span>Login</a></li>
+			
+				<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+						Logout</a></li>
+			</ul>
 			
 				<span  class="navbar-form pull-right" >
 					<img  class="img-circle" style="width: 60px;height: 60px"
