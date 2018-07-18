@@ -1,13 +1,19 @@
 package emp.dao;
 
-import static emp.dao.DBUtil.close;
-import static query.EmpQuery.*;
-
+import static query.EmpQuery.EMP_DELETE;
+import static query.EmpQuery.EMP_INSERT;
+import static query.EmpQuery.EMP_LIST;
+import static query.EmpQuery.EMP_READ;
+import static query.EmpQuery.EMP_SEARCH1;
+import static query.EmpQuery.EMP_SEARCH2;
+import static query.EmpQuery.EMP_SEARCH3;
+import static query.EmpQuery.EMP_UPDATE;
+import static query.EmpQuery.LOGIN;
+import static fw.DBUtil.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import emp.dto.EmpDTO;
