@@ -1,4 +1,4 @@
-package fw;
+package query;
 
 import emp.dao.EmpDAOImpl;
 
@@ -24,5 +24,8 @@ public class EmpQuery {
 					="update kitriemp set addr=?, grade=?, point=? where id=?";
 	
 	public static final String LOGIN
-					="select * from kitriemp where id=? and pass=?";
+					="select m.*,j.job_category,j.menupath "
+					+ "from member m, dept d, job j "
+					+ "where m.deptno=d.deptno and d.job_category=j.job_id "
+					+ "and id=? and pass=?";
 }

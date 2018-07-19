@@ -1,10 +1,9 @@
 package emp.service;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import emp.dto.EmpDTO;
+import emp.dto.LoginDTO;
 
 public interface EmpService {
 	int insert(EmpDTO user);
@@ -13,6 +12,6 @@ public interface EmpService {
 	EmpDTO read(String id);
 	ArrayList<EmpDTO> search(String column, String search, String pass);
 	int update(EmpDTO user);
-	EmpDTO login(String id, String pass);
+	LoginDTO login(String id, String pass);
 	
 }
