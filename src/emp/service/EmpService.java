@@ -2,6 +2,7 @@ package emp.service;
 
 import java.util.ArrayList;
 import emp.dto.EmpDTO;
+import emp.dto.LoginDTO;
 
 public interface EmpService {
 
@@ -12,6 +13,6 @@ public interface EmpService {
 	ArrayList<EmpDTO> search(String column, String search);
 	int update(EmpDTO emp);
 	
-	EmpDTO login(String id, String pass);
+	LoginDTO login(String id, String pass);
 
 }
