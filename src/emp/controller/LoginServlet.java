@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//로그인 성공하면 세션을 생성하고 세션에 로그인 유저의 정보를 추가한다.
 		//4. 요청재지정
-		String url = "";
+		/*String url = "";
 		if(loginUser!=null){
 			url="/index.jsp";	//로그인 성공
 			HttpSession ses = request.getSession();
@@ -54,9 +54,21 @@ public class LoginServlet extends HttpServlet {
 
 		}else{
 			url="/emp/login.jsp";	//로그인 실패
-		}
+		}*/
+		String url = "";
+		if(loginUser!=null){//로그인성공
+			request.setAttribute("menupath", "/menu/insa_menu.jsp");
+			request.setAttribute("viewpath", "/emp/mypage.jsp");
+			HttpSession ses = request.getSession();
+			ses.setAttribute("loginUser", loginUser);
 
-		RequestDispatcher rd = request.getRequestDispatcher(url); 
+		}else{//로그인실패
+			request.setAttribute("menupath", "/menu/pub_menu.jsp");
+			request.setAttribute("viewpath", "/emp/login.jsp");
+		}
+	
+		RequestDispatcher rd = request.getRequestDispatcher("/template/mainLayout.jsp");
 		rd.forward(request, response);
+
 	}
 }
