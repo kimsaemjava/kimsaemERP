@@ -7,7 +7,7 @@ public class EmpQuery {
 	public static String EMP_READ
 			= "select * from kitriemp where id = ?";
 	public static String LOGIN
-		= "select * from employee where id = ? and pass =?";
+		= "select * from kitriemp where id = ? and pass =?";
 	
 	public static String EMP_UPDATE
 		= "update kitriemp "
