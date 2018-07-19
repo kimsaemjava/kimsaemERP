@@ -32,6 +32,5 @@
 	<div id="content">
 		<jsp:include page="/template/content.jsp"/>
 	</div>
-
 </body>
 </html>

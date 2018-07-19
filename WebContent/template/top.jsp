@@ -43,7 +43,7 @@
 				<%if(loginUser==null){%>
 
 
-				<li><a href="/kimsaemERP/emp/login.jsp"><span
+				<li><a href="/kimsaemERP/View.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span
 						class="glyphicon glyphicon-log-in"> </span>Login</a></li>
 				<%}else{%>
 				<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
