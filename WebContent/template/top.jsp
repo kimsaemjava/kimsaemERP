@@ -39,7 +39,7 @@
 		EmpDTO loginUser = (EmpDTO)session.getAttribute("loginUser");
 		if(loginUser == null){
 	%>
-				<li><a href="/kimsaemERP/emp/login.jsp"><span
+				<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span
 						class="glyphicon glyphicon-log-in"> </span>Login</a></li>
 					</ul>
 			<span  class="navbar-form pull-right" >
@@ -72,9 +72,9 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/kimsaemERP/index.jsp">Home</a></li>
-					<li><a href="/kimsaemERP/template/mainLayout.jsp">诀公包府</a></li>
+					<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp">诀公包府</a></li>
 					<li><a href="#">磊盔包府</a></li>
-					<li><a href="#">目孤聪萍</a></li>
+					<li><a href="/kimsaemERP/view.html?menupath=/menu/board_menu.jsp&viewpath=/board/boardlist.jsp">目孤聪萍</a></li>
 					<li><a href="#">老沥包府</a></li>
 					<li><a href="#">绒啊包府</a></li>
 					<li><a href="#">搬犁</a></li>

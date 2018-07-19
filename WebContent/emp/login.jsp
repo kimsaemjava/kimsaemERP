@@ -19,9 +19,7 @@
 </head>
 
 <body>
-	<div>
-		<jsp:include page="/template/top.jsp"/>
-	</div>
+
 	<form name="login_frm" action="/kimsaemERP/login.do" method="post">
 		<table cellpadding="0" cellspacing=5 width="815" bgcolor=#f3f3f3 border=0>
 			<tr>
@@ -46,20 +44,20 @@
 
 																		<tr>
 																			<td colspan=3><img
-																				src="/serverweb/images/page_login.gif"></td>
+																				src="/kimsaemERP/images/page_login.gif"></td>
 																		</tr>
 																		<tr>
 																			<td height=25></td>
 																		</tr>
 																		<tr>
-																			<td background="/serverweb/images/inputBg.gif"><img
-																				src="/serverweb/images/login_id.gif"></td>
-																			<td background="/serverweb/images/inputBg.gif"><input
+																			<td background="/kimsaemERP/images/inputBg.gif"><img
+																				src="/kimsaemERP/images/login_id.gif"></td>
+																			<td background="/kimsaemERP/images/inputBg.gif"><input
 																				type="text" name="id" size="15" class="grayinput"
 																				tabindex=1 style="width: 156;" value="<%= id %>"></td>
 																			<td rowspan=3 style="padding-left: 10" valign=bottom>
 																				<input type='image'
-																				src="/serverweb/images/btn_login.gif" border="0"
+																				src="/kimsaemERP/images/btn_login.gif" border="0"
 																				tabindex=3>
 																			</td>
 																		</tr>
@@ -67,9 +65,9 @@
 																			<td height=10></td>
 																		</tr>
 																		<tr>
-																			<td background="/serverweb/images/inputBg.gif"><img
-																				src="/serverweb/images/login_pass.gif"></td>
-																			<td background="/serverweb/images/inputBg.gif"><input
+																			<td background="/kimsaemERP/images/inputBg.gif"><img
+																				src="/kimsaemERP/images/login_pass.gif"></td>
+																			<td background="/kimsaemERP/images/inputBg.gif"><input
 																				type="password" name="pass" size="15"
 																				class="grayinput" tabindex='2' style='width: 156;'>
 																			</td>
