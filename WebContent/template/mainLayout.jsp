@@ -26,11 +26,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="top">
-		<jsp:include page="/template/top.jsp"/>
-	</div>
-	<div id="content">
-		<jsp:include page="/template/content.jsp"/>
+	<jsp:include page="/template/top.jsp"></jsp:include>
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-sm-2 sidenav">
+			<%System.out.println("ºäÁ¤º¸=>"+request.getAttribute("menupath")); %>
+				<jsp:include page="${menupath }"></jsp:include>
+			</div>
+			<div class="col-sm-10">
+				<jsp:include page="${viewpath }"></jsp:include>
+			</div>
+		</div>	
 	</div>
 </body>
 </html>

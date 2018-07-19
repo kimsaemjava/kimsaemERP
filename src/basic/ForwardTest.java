@@ -25,11 +25,13 @@ public class ForwardTest extends HttpServlet {
 		//요청 범위안에서 "mydata"라는 이름으로 dto가 공유될 수 있도록 공유 작업
 		request.setAttribute("mydata", dto);
 		
-		//2. 요청 재지정 - forward
-		//서블릿이 요청되고 response되지 않은 상태로 다시 jsp가 요청되는 것이므로 현재
-		//context안에서 작업이 이루어 진다. 따라서 context빼고 경로를 지정한다.
-		RequestDispatcher rd= request.getRequestDispatcher("/servlettest/result.jsp");
-		rd.forward(request,response);
+		request.setAttribute("menupath", "/menu/pub_menu.jsp");
+		request.setAttribute("viewpath", "/emp/login.jsp");
+		
+		//3. 요청재지정 - forward
+		RequestDispatcher rd =
+			request.getRequestDispatcher("/template/mainLayout.jsp");
+		rd.forward(request, response);
 		
 		out.println("<h1>요청재지정 연습-forward_end</h1>");
 	}
