@@ -1,11 +1,11 @@
 package emp.dao;
 import static fw.DBUtil.*;
-import static emp.dao.Query.DELETE_EMP;
-import static emp.dao.Query.INSERT_REG;
-import static emp.dao.Query.SELECT_DEPTNO;
-import static emp.dao.Query.SELECT_EMP;
-import static emp.dao.Query.SELECT_LOGIN;
-import static emp.dao.Query.UPDATE_EMP;
+import static query.EmpQuery.DELETE_EMP;
+import static query.EmpQuery.INSERT_REG;
+import static query.EmpQuery.SELECT_DEPTNO;
+import static query.EmpQuery.SELECT_EMP;
+import static query.EmpQuery.SELECT_LOGIN;
+import static query.EmpQuery.UPDATE_EMP;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
