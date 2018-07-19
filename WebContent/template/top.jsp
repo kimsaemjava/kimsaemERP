@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@page import="emp.dto.EmpDTO"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,18 +34,29 @@
 				<!-- <li ><a href="#"><span></span><img  class="img-circle"
 							src="/kimsaemERP/images/kim.jpg"  style="width: 70px;height: 70px;padding: 0px"/>
 							</a></li> -->
-				<li><a href="#"><span class="glyphicon glyphicon-log-in">
-						</span>Login</a></li>
-			
-				<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
-						Logout</a></li>
-						
+							
+	<% 
+		EmpDTO loginUser = (EmpDTO)session.getAttribute("loginUser");
+		if(loginUser == null){
+	%>
+				<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span
+						class="glyphicon glyphicon-log-in"> </span>Login</a></li>
+					</ul>
+			<span  class="navbar-form pull-right" >
+				<img  class="img-circle" style="width: 60px;height: 60px"
+							src=""  />
+			</span>  	
+	<%
+		}else{
+	%>
+				<li><a href="/kimsaemERP/logout.do"><span
+						class="glyphicon glyphicon-log-out"> </span>Logout</a></li>
 			</ul>
 			<span  class="navbar-form pull-right" >
 				<img  class="img-circle" style="width: 60px;height: 60px"
-							src="/kimsaemERP/images/kim.jpg"  />
-			</span>  
-			
+							src="/kimsaemERP/images/jack.jpg"  />
+			</span>  		
+	<%} %>
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
@@ -59,9 +72,9 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/kimsaemERP/index.jsp">Home</a></li>
-					<li><a href="/kimsaemERP/job/jobMain.jsp">诀公包府</a></li>
+					<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp">诀公包府</a></li>
 					<li><a href="#">磊盔包府</a></li>
-					<li><a href="#">目孤聪萍</a></li>
+					<li><a href="/kimsaemERP/view.html?menupath=/menu/board_menu.jsp&viewpath=/board/boardlist.jsp">目孤聪萍</a></li>
 					<li><a href="#">老沥包府</a></li>
 					<li><a href="#">绒啊包府</a></li>
 					<li><a href="#">搬犁</a></li>
