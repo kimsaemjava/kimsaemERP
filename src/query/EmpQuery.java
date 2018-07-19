@@ -1,6 +1,6 @@
-package emp.dao;
+package query;
 
-public class Query {
+public class EmpQuery {
 	public static final String INSERT_REG="insert into kitriemp values(?,?,?,?,sysdate,?,?,?)";
 	public static final String SELECT_EMP="SELECT * from kitriemp";
 	public static final String DELETE_EMP="DELETE KITRIEMP WHERE ID=?";
