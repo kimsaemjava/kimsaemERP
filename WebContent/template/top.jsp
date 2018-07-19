@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@page import="emp.dto.EmpDTO"%>
+<%@page import="emp.dto.LoginDTO"%>
 	
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,7 @@
 							</a></li> -->
 							
 	<% 
-		EmpDTO loginUser = (EmpDTO)session.getAttribute("loginUser");
+		LoginDTO loginUser = (LoginDTO)session.getAttribute("loginUser");
 		if(loginUser == null){
 	%>
 				<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span
@@ -54,7 +54,8 @@
 			</ul>
 			<span  class="navbar-form pull-right" >
 				<img  class="img-circle" style="width: 60px;height: 60px"
-							src="/kimsaemERP/images/jack.jpg"  />
+							src="/kimsaemERP/images/
+							<%=loginUser.getProfile_photo()%>"/>
 			</span>  		
 	<%} %>
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">

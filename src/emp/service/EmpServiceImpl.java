@@ -8,7 +8,10 @@ import java.util.ArrayList;
 
 import emp.dao.EmpDAO;
 import emp.dao.EmpDAOImpl;
+import emp.dao.LoginDAO;
+import emp.dao.LoginDAOImpl;
 import emp.dto.EmpDTO;
+import emp.dto.LoginDTO;
 
 public class EmpServiceImpl implements EmpService{
 
@@ -118,10 +121,10 @@ public class EmpServiceImpl implements EmpService{
 	}
 
 	@Override
-	public EmpDTO login(String id, String pass) {
+	public LoginDTO login(String id, String pass) {
 		
-		EmpDTO emp = null;
-		EmpDAO dao = new EmpDAOImpl();
+		LoginDTO emp = null;
+		LoginDAO dao = new LoginDAOImpl();
 		Connection con = null;
 
 		try {

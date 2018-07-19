@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@page import="emp.dto.LoginDTO"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +33,9 @@
 </head>
 <body>
 
+	<% 
+		LoginDTO loginUser = (LoginDTO)session.getAttribute("loginUser");
+	%>
 	<div style="background-color: #edeef1;padding: 20px;height: 800px">
 		
 			<div class="row" style="margin-left: auto;margin-right: auto;">
@@ -39,7 +44,18 @@
 			 		 <div
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
+				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">
+				        
+				       <%
+				       if(loginUser ==null){
+				    	   %>
+				    	   로그인 필요
+				    	   <%}else{
+				       %>
+				       <%=loginUser.getJob_category() %>
+				       <%} %>
+				        
+				        </div>
 				       <jsp:include page="${menupath}"></jsp:include>
       				 </div>
 			 	</div>
