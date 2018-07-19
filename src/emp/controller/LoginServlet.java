@@ -45,16 +45,21 @@ public class LoginServlet extends HttpServlet{
 		}
 		//로그인 성공하면 세션을 생성하고 세션에 로그인 유저의 정보를 추가한다.
 		//4. 요청재지정 
-		String url="";
+		String menupath="";
+		String viewpath="";
 		if(loginUser!=null){//로그인 성공
-			url="/index.jsp";
+			menupath="/menu/insa_menu.jsp";
+			viewpath="/emp/mypage.jsp";
 			HttpSession ses = req.getSession();
 			ses.setAttribute("loginUser", loginUser);
 		}else{
-			url = "/emp/login.jsp";//로그인 실패
+			menupath="/menu/pub_menu.jsp";
+			viewpath="/emp/login.jsp";
 		}
+		req.setAttribute("menupath", menupath);
+		req.setAttribute("viewpath", viewpath);
 		RequestDispatcher rd = 
-				req.getRequestDispatcher(url);
+				req.getRequestDispatcher("/template/mainLayout.jsp");
 		rd.forward(req, res);
 	}
 }
