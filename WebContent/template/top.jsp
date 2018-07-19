@@ -24,11 +24,11 @@
 	} */
 </style>
 <title>Insert title here</title>
+</head>
+<body>
 	<%
 		EmpDTO loginUser = (EmpDTO)session.getAttribute("loginUser");
 	%>
-</head>
-<body>
 	<div style="height:90px" style="padding:10px">
 		<div id="toparea"  class="navbar navbar-inverse">
 			<a href="#" style="position:absolute;top:30px;font-size: 18pt; font-weight: bolder;text-decoration: none;padding-left: 10px">KimSaemERP</a>
@@ -37,7 +37,7 @@
 							src="/kimsaemERP/images/kim.jpg"  style="width: 70px;height: 70px;padding: 0px"/>
 							</a></li> -->
 				<%if(loginUser==null){ %>
-				<li><a href="/kimsaemERP/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
+				<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
 						</span>Login</a></li>
 				<%}else{ %>
 				<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
@@ -58,9 +58,7 @@
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				
 			</form>
-			
 		</div>
 		
 	</div>
@@ -69,9 +67,9 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/kimsaemERP/index.jsp">Home</a></li>
-					<li><a href="/kimsaemERP/template/mainLayout.jsp">诀公包府</a></li>
+					<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp">诀公包府</a></li>
 					<li><a href="#">磊盔包府</a></li>
-					<li><a href="#">目孤聪萍</a></li>
+					<li><a href="/kimsaemERP/view.html?menupath=/menu/board_menu.jsp&viewpath=/board/boardlist.jsp">目孤聪萍</a></li>
 					<li><a href="#">老沥包府</a></li>
 					<li><a href="#">绒啊包府</a></li>
 					<li><a href="#">搬犁</a></li>

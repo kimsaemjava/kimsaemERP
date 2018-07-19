@@ -44,18 +44,18 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		
-		//3. 데이터 공유
-		HttpSession ses = request.getSession();
-		ses.setAttribute("loginUser", loginUser);
-
+		//로그인 성공하면 세션을 생성하고 세션에 로그인 유저의 정보를 추가한다.
 		//4. 요청재지정
 		String url = "";
 		if(loginUser!=null){
 			url="/index.jsp";	//로그인 성공
+			HttpSession ses = request.getSession();
+			ses.setAttribute("loginUser", loginUser);
+
 		}else{
 			url="/emp/login.jsp";	//로그인 실패
 		}
-	
+
 		RequestDispatcher rd = request.getRequestDispatcher(url); 
 		rd.forward(request, response);
 	}
