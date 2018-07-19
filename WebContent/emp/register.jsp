@@ -118,7 +118,7 @@
 						<label class="col-sm-2 col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-3">
 							<input type="text" class="form-control" name="zipcode"
-								id="zipcode" readonly="readonly">
+								id="zipcode" >
 						</div>
 						<div class="col-sm-2">
 							<button type="button"
@@ -139,7 +139,7 @@
 						<label class="col-sm-2 col-sm-2 control-label"></label>
 						<div class="col-sm-5">
 							<input type="text" class="form-control" name="detailaddr"
-								id="detailaddr" readonly="readonly">
+								id="detailaddr">
 						</div>
 					
 					</div>
