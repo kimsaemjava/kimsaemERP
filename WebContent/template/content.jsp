@@ -40,11 +40,14 @@
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
 				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
-				       	<jsp:include page="${menupath }"></jsp:include>
+
+				       	<jsp:include page="${menupath }"/>
       				 </div>
 			 	</div>
 			 	<div class="col-sm-8" style="background-color: white;height: 800px;">
-			 		<jsp:include page="${viewpath }"></jsp:include>
+
+			 		<jsp:include page="${viewpath }"/>
+
 			 	</div>
 			</div>
 	</div>

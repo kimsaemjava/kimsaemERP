@@ -18,9 +18,6 @@
 %>
 </head>
 <body>
-	<div>
-		<jsp:include page="/template/top.jsp"/>
-	</div>
 	<form name="login_frm" action="/kimsaemERP/login.do" method="post">
 		<table cellpadding="0" cellspacing=5 width="815" bgcolor=#f3f3f3
 			border=0>

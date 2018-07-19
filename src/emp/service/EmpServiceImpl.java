@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import emp.dao.EmpDAO;
 import emp.dao.EmpDAOImpl;
 import emp.dto.EmpDTO;
-import static emp.dao.DBUtil.*;
+import static fw.DBUtil.*;
 public class EmpServiceImpl implements EmpService {
 	@Override
 	public int insert(EmpDTO user) {

@@ -1,5 +1,4 @@
-package emp.dao;
-
+package query;
 public class EmpQuery {
 	public static String EMP_INSERT =
 		"insert into kitriemp values(?,?,?,?,sysdate,?,?,?)";
@@ -8,7 +7,7 @@ public class EmpQuery {
 	public static String EMP_READ
 			= "select * from kitriemp where id = ?";
 	public static String LOGIN
-		= "select * from kitriemp where id = ? and pass =?";
+		= "select * from employee where id = ? and pass =?";
 	
 	public static String EMP_UPDATE
 		= "update kitriemp "
@@ -21,5 +20,4 @@ public class EmpQuery {
 		= "select * from kitriemp where addr like ?";
 	public static String EMP_SEARCH3 
 		= "select * from kitriemp where id like ?";
-	
 }
