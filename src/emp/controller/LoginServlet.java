@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
 		empDTO result=service.login(id, pass);
 		req.setAttribute("loginUser", result);
 		String view="";
+		
 		if(check!=null){
 			if(check.equals("T")&&result!=null){
 				Cookie cookie =new Cookie("setid", result.getId());
@@ -38,14 +39,20 @@ public class LoginServlet extends HttpServlet {
 		}
 		//로그인 성공하면 세션을 생성하고 세션에 로그인 유저의 정보를 추가한다.
 		if(result!=null){
-			view="/index.jsp";
+			view="/template/mainLayout.jsp";
 			System.out.println("로그인성공");
 			HttpSession ses = req.getSession();
 			ses.setAttribute("loginUser", result);
+			req.setAttribute("menupath", "/menu/insa_menu.jsp");
+			req.setAttribute("viewpath", "/emp/mypage.jsp");
+
 			
 		}else{
-			view="/emp/login.jsp";
+//			pubmenu, login
+			view="/template/mainLayout.jsp";
 			System.out.println("로그인실패");
+			req.setAttribute("menupath", "/menu/pub_menu.jsp");
+			req.setAttribute("viewpath", "/emp/login.jsp");
 		}
 		//res.sendRedirect(view);
 		RequestDispatcher rd= req.getRequestDispatcher(view);

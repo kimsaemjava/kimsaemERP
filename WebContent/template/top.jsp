@@ -37,24 +37,23 @@
 				<!-- <li ><a href="#"><span></span><img  class="img-circle"
 							src="/kimsaemERP/images/kim.jpg"  style="width: 70px;height: 70px;padding: 0px"/>
 							</a></li> -->
-							
 				<%if(loginUser==null){ %>
-						<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
-						</span>Login</a></li>
-						<span>
-							<img style="width:60px; height:60px" src=""/>
-						</span>
-				<% }else{%>
+					<li style="margin-right: 20px;height: 70px">
+					<a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
+							</span>Login</a></li>
+					</ul>
+			
+				<%}else{ %>
+			
 						<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
-						Logout</a></li>
-				<%} %>
-			</ul>
-			<span  class="navbar-form pull-right" >
-				<% if(loginUser!=null){ %>
-					<img  class="img-circle" style="width: 60px;height: 60px"
-							src="/kimsaemERP/images/abc.jpg"  />
-				<% } %>
-			</span>  
+								Logout</a></li>
+					</ul>
+					
+					<span  class="navbar-form pull-right" >	
+						<img  class="img-circle" style="width: 60px;height: 70px"
+									src="/kimsaemERP/images/abc.jpg"  />
+					</span>  
+			  <%} %>
 			
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">
 				<input class="form-control mr-sm-2" type="search"
