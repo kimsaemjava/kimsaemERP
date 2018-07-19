@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+<%-- 	<div>
 		<jsp:include page="/template/top.jsp"></jsp:include>
-	</div>
+	</div> --%>
 	
 	
 	<%
