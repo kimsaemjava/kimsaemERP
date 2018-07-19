@@ -48,14 +48,18 @@ public class LoginServlet extends HttpServlet {
 		// 4. 요청재지정
 		String url="";
 		if(loginUser!=null){	// 로그인 성공
-			url = "/index.jsp";
+			// url = "/index.jsp";
 			HttpSession ses = request.getSession();
 			ses.setAttribute("loginUser", loginUser);
+			request.setAttribute("menupath",  "/menu/insa_menu.jsp");
+			request.setAttribute("viewpath", "/emp/mypage.jsp");
 		}else{					// 로그인 실패
-			url = "/emp/login.jsp";
+			// url = "/emp/login.jsp";
+			request.setAttribute("menupath",  "/menu/pub_menu.jsp");
+			request.setAttribute("viewpath", "/emp/login.jsp");
 		}
-
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/template/mainLayout.jsp");
 		rd.forward(request, response);
 	}
 }

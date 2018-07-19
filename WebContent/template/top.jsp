@@ -40,7 +40,7 @@
 				if(loginUser==null){
 				%>
 				<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp"><span class="glyphicon glyphicon-log-in">
-						</span>Login</a></li>
+				</span>Login</a></li>
 				<%}else{ %>
 				<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out"></span>
 						Logout</a></li>
@@ -52,14 +52,13 @@
 							src="/kimsaemERP/images/me.jpg"  />
 				<%} else{%>
 					<img  class="img-circle" style="width: 60px;height: 60px" />
-				<%}%>		
+				<%}%>
 			</span>  
 			
 			<form class="navbar-form pull-right" style="position:relative ;top:20px">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				
 			</form>
 			
 		</div>
