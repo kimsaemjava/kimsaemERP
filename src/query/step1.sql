@@ -1,8 +1,8 @@
 #부서 테이블
 drop table dept CASCADE CONSTRAINTS;
-create table dept{
+create table dept(
 	deptno varchar2(15) primary key,
-	deptname varchar2(15),
+	deptname varchar2(30),
 	deptStartDay date,
 	deptEndDay date,
 	deptlevel varchar2(5),
@@ -11,12 +11,13 @@ create table dept{
 	job_category varchar2(15),
 	mgr_id varchar2(15),
 	deptaddr varchar2(50),
-	depttel varchar2(15),
-}
+	depttel varchar2(15));
+
 #인사 테이블
 drop table member CASCADE CONSTRAINTS;
 create table member(
 	id varchar2(20) primary key,
+	pass varchar2(20),
 	name varchar2(15),
 	ssn varchar2(15),
 	birthday date,
@@ -55,7 +56,7 @@ alter table dept
 add constraint dept_fk foreign key(mgr_id) references member(id)
 
 alter table dept
-add constraint job_fk foreign key(job_category) references job(job_category)
+add constraint job_fk foreign key(job_category) references job(job_id)
 
 #데이터
 insert into job values('j001','영업','영업관리','/menu/sales_menu.jsp');
@@ -82,9 +83,11 @@ insert into dept values('d010','기업영업본부','1999/9/27',null,'2','1','dg001','
 insert into dept values('d011','영업2팀','1999/9/27',null,'2','1','dg001','j001','9401023jang','서울시 서초구 kitri빌딩10층','02-225-1444');
 insert into dept values('d012','마케팅실','1999/9/27',null,'2','1','dg001','j004','9401023jang','서울시 서초구 kitri빌딩10층','02-225-1555');
 
-insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-2222','jang@naver.com','jang.jpg');
-insert into member values('0111022kim','김범룡','800521-1111111','1980/09/01','1','0','과장','팀장','4급20호봉','2007/02/27',null,'d002','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-3333','kbr@naver.com','kbr.jpg');
-insert into member values('92115kim','김서연','901012-1111111','1990/11/11','1','0','과장','팀장','4급20호봉','2010/10/01',null,'d003','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-4444','jang@naver.com','jang.jpg');
+insert into member values('9401023jang', '1234', '장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111', '02-858-1111','010-111-2222','jang@naver.com','jang.jpg');
+insert into member values('0111022kim', '1234','김범룡','800521-1111111','1980/09/01','1','0','과장','팀장','4급20호봉','2007/02/27',null,'d002','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','02-858-1111' ,'010-111-3333','kbr@naver.com','kbr.jpg');
+insert into member values('92115kim', '1234','김서연','901012-1111111','1990/11/11','1','0','과장','팀장','4급20호봉','2010/10/01',null,'d003','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','02-858-1111', '010-111-4444','jang@naver.com','jang.jpg');
+
+
 insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-5555','jang@naver.com','jang.jpg');
 insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-6666','jang@naver.com','jang.jpg');
 insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-222-7777','jang@naver.com','jang.jpg');

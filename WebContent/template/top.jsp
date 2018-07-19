@@ -1,3 +1,4 @@
+<%@page import="emp.dto.LoginDTO"%>
 <%@page import="emp.dto.empDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -26,8 +27,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% empDTO loginUser = (empDTO)session.getAttribute("loginUser");
-					
+	<% LoginDTO loginUser = (LoginDTO)session.getAttribute("loginUser");
+		
 	%>
 					
 	<div style="height:90px" style="padding:10px">
@@ -51,7 +52,7 @@
 					
 					<span  class="navbar-form pull-right" >	
 						<img  class="img-circle" style="width: 60px;height: 70px"
-									src="/kimsaemERP/images/abc.jpg"  />
+									src="/kimsaemERP/images/<%=loginUser.getProfile_photo() %>"  />
 					</span>  
 			  <%} %>
 			

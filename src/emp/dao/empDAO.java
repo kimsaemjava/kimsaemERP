@@ -16,4 +16,5 @@ public interface empDAO {
 	ArrayList<empDTO> getemplist(String col,String value,String pass,Connection con) throws SQLException;
 	int update(empDTO user, Connection con)throws SQLException;
 	empDTO login(String id,String pass, Connection con)throws SQLException;
+	
 }
