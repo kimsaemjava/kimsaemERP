@@ -41,8 +41,6 @@
 				        <div style="background-color:#63cde7;padding: 20px;
 				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
 				       
-				       
-				       <% System.out.println("뷰정보=>"+request.getAttribute("menupath")); %>
 				       <!-- ${menupath} -->
 				       <jsp:include page="${menupath}"></jsp:include>
 				       
