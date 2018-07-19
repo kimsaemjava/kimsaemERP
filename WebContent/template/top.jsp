@@ -1,4 +1,4 @@
-<%@page import="emp.dto.empDTO"%>
+<%@page import="login.dto.loginDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -26,8 +26,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% empDTO loginUser = (empDTO) session.getAttribute("loginuser");%>
-	
+	<% loginDTO loginUser = (loginDTO) session.getAttribute("loginuser");%>
 	<div style="height:90px" style="padding:10px">
 		<div id="toparea"  class="navbar navbar-inverse">
 			<a href="#" style="position:absolute;top:30px;font-size: 18pt; font-weight: bolder;text-decoration: none;padding-left: 10px">KimSaemERP</a>
@@ -40,8 +39,8 @@
 						</span>Login</a></li>
 				<%}else{ %>
 				<li style="padding-bottom: 28px"><img  class="img-circle" style="width: 60px;height: 60px;"
-							src="/kimsaemERP/images/go.png"  /></li>
-				<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/kimsaemERP/emp/login.jsp"><span class="glyphicon glyphicon-log-out" ></span>
+							src="/kimsaemERP/images/<%=loginUser.getProfile_photo() %>"/></li>
+				<li><a href="/kimsaemERP/logout.do"><span class="glyphicon glyphicon-log-out" ></span>
 						Logout</a></li>
 				<%} %>
 			</ul>

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import emp.dto.empDTO;
 
-public interface empDAO {
+public interface empDAO{
 	int insert(String deptno,String name, String id,String pass,String addr,
 			int point,String grade,Connection con)throws SQLException;
 	ArrayList<empDTO> search(Connection con) throws SQLException;

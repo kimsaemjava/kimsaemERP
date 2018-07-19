@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import emp.dto.empDTO;
-import emp.service.empService;
-import emp.service.empServiceImpl;
+import login.dto.loginDTO;
+import login.service.loginService;
+import login.service.loginServiceImpl;
 @WebServlet(name = "login", urlPatterns = { "/login.do" })
 public class LoginServlet extends HttpServlet {
 	
@@ -24,10 +24,10 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(id);
 		System.out.println(pass);
 		
-		empService service = new empServiceImpl();
-		empDTO result=service.login(id, pass);
+		loginService service = new loginServiceImpl();
+		loginDTO result=service.login(id, pass);
+		System.out.println("로그인 서블릿 포토 :"+result.getProfile_photo());
 		req.setAttribute("loginUser", result);
-		String view="";
 		
 		if(check!=null){
 			if(check.equals("T")&&result!=null){
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		if(result!=null){
-			req.setAttribute("menupath", "/menu/insa_menu.jsp");
+			req.setAttribute("menupath", result.getDetailaddr());
 			req.setAttribute("viewpath", "/emp/mypage.jsp");
 			HttpSession ses= req.getSession();
 			ses.setAttribute("loginuser", result);
