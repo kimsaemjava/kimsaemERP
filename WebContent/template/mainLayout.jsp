@@ -26,11 +26,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% String menupath = (String)request.getAttribute("menupath");
+   String viewpath = (String)request.getAttribute("mainpath");
+
+%>
 	<div id="top">
 		<jsp:include page="/template/top.jsp"/>
 	</div>
+	<div class="col-sm-2 sidenav">
+		<jsp:include page="${menupath }"/>
+	</div>
 	<div id="content">
-		<jsp:include page="/template/content.jsp"></jsp:include>
+		<jsp:include page="${viewpath }"></jsp:include>
 	</div>
 </body>
 </html>
