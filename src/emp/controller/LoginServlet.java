@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import emp.dto.LoginDTO;
 import emp.dto.empDTO;
+import emp.service.ERPService;
+import emp.service.ERPServiceImpl;
 import emp.service.empService;
 import emp.service.empServiceImpl;
 @WebServlet(name = "login", urlPatterns = { "/login.do" })
@@ -22,11 +25,8 @@ public class LoginServlet extends HttpServlet {
 		String check = req.getParameter("member_id_save");
 		System.out.println(id);
 		
-		
-
-		
-		empService service = new empServiceImpl();
-		empDTO result=service.login(id, pass);
+		ERPService service = new ERPServiceImpl();
+		LoginDTO result=service.login(id, pass);
 		req.setAttribute("loginUser", result);
 		String view="";
 		
@@ -37,24 +37,26 @@ public class LoginServlet extends HttpServlet {
 				res.addCookie(cookie);
 			}
 		}
+		String menupath = "";
+		String viewpath = "";
+		System.out.println(result.getName());
 		//로그인 성공하면 세션을 생성하고 세션에 로그인 유저의 정보를 추가한다.
 		if(result!=null){
 			view="/template/mainLayout.jsp";
 			System.out.println("로그인성공");
 			HttpSession ses = req.getSession();
 			ses.setAttribute("loginUser", result);
-			req.setAttribute("menupath", "/menu/insa_menu.jsp");
-			req.setAttribute("viewpath", "/emp/mypage.jsp");
-
 			
+			menupath = result.getMenupath();
+			viewpath = "/emp/mypage.jsp";
 		}else{
-//			pubmenu, login
 			view="/template/mainLayout.jsp";
 			System.out.println("로그인실패");
-			req.setAttribute("menupath", "/menu/pub_menu.jsp");
-			req.setAttribute("viewpath", "/emp/login.jsp");
+			menupath = "/menu/pub_menu.jsp";
+			viewpath = "/emp/login.jsp";
 		}
-		//res.sendRedirect(view);
+		req.setAttribute("menupath", menupath);
+		req.setAttribute("viewpath", viewpath);
 		RequestDispatcher rd= req.getRequestDispatcher(view);
 		rd.forward(req,res);
 	}
