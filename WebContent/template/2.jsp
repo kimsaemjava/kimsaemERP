@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,9 +16,6 @@
 		margin-bottom: 0;
 		border-radius: 0;	
 	}
-	body{
-		color: black;
-	}
 	/*  #toparea{
 		padding: 30px;
 	}  */
@@ -30,28 +26,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<div style="background-color: #edeef1;padding: 20px;height: 800px">
-		
-			<div class="row" style="margin-left: auto;margin-right: auto;">
-			 	<div class="col-sm-3" 
-			 	style="background-color: white;margin-right:10px;padding: 0px ">
-			 		 <div
-			 		 style="border-color:white;height: 800px;">
-				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
-				       <jsp:include page="${menupath }"/>
-      				 </div>
-			 	</div>
-			 	<div class="col-sm-8" style="background-color: white;height: 800px;">
-			 		<jsp:include page="${viewpath }"/>
-			 	</div>
+	<jsp:include page="/template/top.jsp"></jsp:include>
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-sm-2 sidenav">
+			<%System.out.println("뷰정보=>"+request.getAttribute("menupath")); %>
+				<jsp:include page="${menupath }"></jsp:include>
 			</div>
+			<div class="col-sm-10">
+				<jsp:include page="${viewpath }"></jsp:include>
+			</div>
+		</div>	
 	</div>
-	
 </body>
 </html>
-
-
-
-

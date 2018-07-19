@@ -41,14 +41,16 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		if(result!=null){
-			view="index.jsp";
+			req.setAttribute("menupath", "/menu/insa_menu.jsp");
+			req.setAttribute("viewpath", "/emp/mypage.jsp");
 			HttpSession ses= req.getSession();
 			ses.setAttribute("loginuser", result);
 		}else{
-			view="/emp/login.jsp";
+			req.setAttribute("menupath", "/menu/pub_menu.jsp");
+			req.setAttribute("viewpath", "/emp/login.jsp");
 		}
 		//res.sendRedirect(view);
-		RequestDispatcher rd= req.getRequestDispatcher(view);
+		RequestDispatcher rd= req.getRequestDispatcher("/template/mainLayout.jsp");
 		rd.forward(req,res);
 	}
 }
