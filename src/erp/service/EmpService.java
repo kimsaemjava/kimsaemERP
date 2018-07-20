@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 
 public interface EmpService {
-	int insert(EmpDTO user);
+	int insert(MemberDTO user);
 	ArrayList<EmpDTO> getMemberList();
 	int delete(String id);
 	EmpDTO read(String id);
