@@ -1,3 +1,5 @@
+<%@page import="erp.dto.DeptDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
@@ -29,15 +31,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><a href="#">9415jang</a></td>
-					<td>장동건</td>
-					<td>인사팀</td>
-					<td>대리</td>
-					<td><a href="#">직원보기</a></td>
-					<td><a href="#">연락처</a></td>
+			<% 
+			ArrayList<DeptDTO> list =(ArrayList<DeptDTO>)request.getAttribute("list");
+			%>
+				<% for(int i=0; i<list.size(); i++){%>
+					<tr>
+					<td><a href="#"><%=list.get(i).getId() %></a></td>
+					<td><%=list.get(i).getName() %></td>
+					<td><%=list.get(i).getDeptname() %></td>
+					<td><%=list.get(i).getDuty() %></td>
+					<td><a href="/kimsaemERP/empread.do?id=<%=list.get(i).getId()%>">직원보기</a></td>
+					<td><a href="#"><%=list.get(i).getPhoneco() %></a></td>
 				</tr>
-
+			<% }%>
 			</tbody>
 		</table>
 		<ul class="pagination" style="">

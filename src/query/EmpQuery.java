@@ -21,4 +21,12 @@ public class EmpQuery {
 			+ "?, ?, ?, ?, ?)";
 	public static final String DEPTNAME_SELECT=
 			"select deptno, deptname from dept";
+	
+	public static final String EMPLIST_SELECT=
+			"select m.id, m.name, d.deptname, m.duty, m.phoneco "+ 
+			" from member m, dept d "+
+			" where m.deptno = d.deptno";
+	
+	public static final String EMPLIST_READ =
+			"select * from member where id= ? ";
 }

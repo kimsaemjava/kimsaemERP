@@ -1,6 +1,6 @@
 package erp.dto;
 
-public class DeptDTO {
+public class DeptDTO extends MemberDTO{
 	private String deptno;
 	private String deptname;
 	private String deptStartDay;
@@ -15,6 +15,17 @@ public class DeptDTO {
 	
 	
 	
+
+
+
+
+	public DeptDTO(String id, String name, String duty, String phoneco, String deptname) {
+		super(id, name, duty, phoneco);
+		this.deptname = deptname;
+	}
+
+
+
 	public DeptDTO(String deptno, String deptname) {
 		this.deptno = deptno;
 		this.deptname = deptname;

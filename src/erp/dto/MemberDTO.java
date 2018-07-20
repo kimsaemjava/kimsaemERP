@@ -28,6 +28,12 @@ public class MemberDTO {
 	
 	
 	
+	public MemberDTO(String id, String name, String duty, String phoneco) {
+		this.id = id;
+		this.name = name;
+		this.duty = duty;
+		this.phoneco = phoneco;
+	}
 	public MemberDTO(String id, String pass, String name, String ssn, String birthday, String marry, String deptno,
 			String zipcode, String addr, String phonehome, String phoneco, String phonecell, String email,
 			String profile_photo) {

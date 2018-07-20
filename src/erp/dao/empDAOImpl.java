@@ -9,27 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import erp.dto.DeptDTO;
 import erp.dto.MemberDTO;
 import erp.dto.empDTO;
 public class empDAOImpl implements empDAO {
 
-/*	@Override
-	public int insert(String deptno, String name, String id, String pass, String addr, int point, String grade,
-			Connection con) throws SQLException {
-		int result=0;
-		PreparedStatement ptmt = con.prepareStatement(INSERT_REG);
-		ptmt.setString(1, id);
-		ptmt.setString(2, pass);
-		ptmt.setString(3, name);
-		ptmt.setString(4, addr);
-		ptmt.setString(5, grade);
-		ptmt.setInt(6, point);
-		ptmt.setString(7, deptno);
-		result=ptmt.executeUpdate();
-		close(ptmt);
-		return result;
-	}
-*/
 	@Override
 	public ArrayList<empDTO> search(Connection con) throws SQLException {
 		PreparedStatement ptmt  = con.prepareStatement(SELECT_EMP);
@@ -63,25 +47,28 @@ public class empDAOImpl implements empDAO {
 	}
 
 	@Override
-	public empDTO read(String id, Connection con) throws SQLException {
-		empDTO result=null;
-		PreparedStatement ptmt = con.prepareStatement(SELECT_DEPTNO);
-//		con = DBconnect();
+	public MemberDTO read(String id, Connection con) throws SQLException {
+		MemberDTO dto=null;
+		System.out.println("readDAO"+id);
+		PreparedStatement ptmt = con.prepareStatement(EMPLIST_READ);
 		ptmt.setString(1, id);
 		ResultSet rs = ptmt.executeQuery();
 		if(rs.next()){
-			result= new empDTO(rs.getString(1), rs.getString(2), rs.getString(3), 
-					rs.getString(4), rs.getDate(5), rs.getString(6), rs.getInt(7), rs.getString(8));
+			dto= new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3),
+					rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+					rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
+					rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19),
+					rs.getString(20), rs.getString(21), rs.getString(22));
 		}
 		close(ptmt);
-		return result;
+		return dto;
 	}
 
 	@Override
 	public ArrayList<empDTO> getemplist(String col, String value,String pass, Connection con) throws SQLException {
 		ArrayList<empDTO> joininfo = new ArrayList<empDTO>();
 		empDTO e =null;
-//		String sql2= "select * from kitriemp where"+col+"=?and pass=?";
 		String sql ="select * from kitriemp where $tableName=? ";
 		String query= sql.replace("$tableName", col);
 		PreparedStatement ptmt  = con.prepareStatement(query);
@@ -154,6 +141,22 @@ public class empDAOImpl implements empDAO {
 		System.out.println(result+"-result°ª");
 		close(ptmt);
 		return result;
+	}
+
+	@Override
+	public ArrayList<DeptDTO> emplist(Connection con) throws SQLException {
+		ArrayList<DeptDTO> list = new ArrayList<DeptDTO>();
+		DeptDTO dto = null;
+		System.out.println("emplist daoimpl");
+		PreparedStatement ptmt = con.prepareStatement(EMPLIST_SELECT);
+		ResultSet rs = ptmt.executeQuery();
+		while(rs.next()){
+			dto = new DeptDTO(rs.getString(1), rs.getString(2), 
+					rs.getString(4), rs.getString(5), rs.getString(3));
+			list.add(dto);
+			System.out.println(dto);
+		}
+		return list;
 	}
 
 }
