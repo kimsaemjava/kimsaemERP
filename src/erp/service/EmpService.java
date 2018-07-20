@@ -8,7 +8,7 @@ import erp.dto.MemberDTO;
 
 public interface EmpService {
 	int insert(MemberDTO user);
-	ArrayList<EmpDTO> getMemberList();
+	ArrayList<MemberDTO> getMemberList();
 	int delete(String id);
 	EmpDTO read(String id);
 	ArrayList<EmpDTO> search(String column, String search

@@ -2,7 +2,9 @@ package query;
 public class EmpQuery {
 	public static String EMP_INSERT =
 			"insert into member values(?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,'myphoto.jpg')";
-	public static String EMP_LIST = "select * from kitriemp";
+	public static String EMP_LIST =
+			"select m.*,d.deptname from member m, dept d "
+			+"where m.deptno = d.deptno ";
 	public static String EMP_DELETE = "delete kitriemp where id=?";
 	public static String EMP_READ
 			= "select * from kitriemp where id = ?";

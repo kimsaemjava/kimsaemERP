@@ -10,7 +10,7 @@ import erp.dto.MemberDTO;
 
 public interface EmpDAO {
 	int insert(MemberDTO user,Connection con) throws SQLException; 
-	ArrayList<EmpDTO> getMemberList(Connection con) 
+	ArrayList<MemberDTO> getMemberList(Connection con) 
 										throws SQLException;
 	int delete(String id,Connection con) throws SQLException; 
 	EmpDTO read(String id,Connection con) throws SQLException;

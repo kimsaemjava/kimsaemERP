@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class LoginDTO extends MemberDTO{
 	private String job_category;
-	private String deptname;
+	//private String deptname;
 	private String menupath;
 	public LoginDTO(){
 		
@@ -15,18 +15,13 @@ public class LoginDTO extends MemberDTO{
 			String email, String profile_photo,
 			String deptname,String job_category, String menupath) {
 		super(id, pass, name, ssn, birthday, marry, gender, position, duty, classes, startday, endday, deptno, curstate,
-				zipcode, addr, detailaddr, phonehome, phoneco, phonecell, email, profile_photo);
+				zipcode, addr, detailaddr, phonehome, phoneco, phonecell, email, profile_photo,deptname);
 		this.job_category = job_category;
 		this.menupath = menupath;
-		this.deptname = deptname;
+		//this.deptname = deptname;
 	}
 	
-	public String getDeptname() {
-		return deptname;
-	}
-	public void setDeptname(String deptname) {
-		this.deptname = deptname;
-	}
+
 	public String getJob_category() {
 		return job_category;
 	}
