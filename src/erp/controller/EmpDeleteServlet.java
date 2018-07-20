@@ -1,4 +1,4 @@
-package emp.controller;
+package erp.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.service.EmpService;
-import emp.service.EmpServiceImpl;
+import erp.service.EmpService;
+import erp.service.EmpServiceImpl;
 
 public class EmpDeleteServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

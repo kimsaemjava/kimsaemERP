@@ -1,4 +1,4 @@
-package emp.controller;
+package erp.controller;
 
 import java.io.IOException;
 
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import emp.dto.LoginDTO;
-import emp.service.EmpService;
-import emp.service.EmpServiceImpl;
+import erp.dto.LoginDTO;
+import erp.service.EmpService;
+import erp.service.EmpServiceImpl;
 
 @WebServlet(name = "login", urlPatterns = { "/login.do" })
 public class LoginServlet extends HttpServlet {

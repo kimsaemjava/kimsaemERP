@@ -1,4 +1,4 @@
-package emp.service;
+package erp.service;
 
 import static fw.DBUtil.*;
 
@@ -6,12 +6,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import emp.dao.EmpDAO;
-import emp.dao.EmpDAOImpl;
-import emp.dao.LoginDAO;
-import emp.dao.LoginDAOImpl;
-import emp.dto.EmpDTO;
-import emp.dto.LoginDTO;
+import erp.dao.EmpDAO;
+import erp.dao.EmpDAOImpl;
+import erp.dto.EmpDTO;
+import erp.dto.LoginDTO;
 
 public class EmpServiceImpl implements EmpService{
 
@@ -123,19 +121,19 @@ public class EmpServiceImpl implements EmpService{
 	@Override
 	public LoginDTO login(String id, String pass) {
 		
-		LoginDTO emp = null;
-		LoginDAO dao = new LoginDAOImpl();
+		LoginDTO user = null;
+		EmpDAO dao = new EmpDAOImpl();
 		Connection con = null;
 
 		try {
 			con = getConnect();
-			emp = dao.login(id, pass, con);
+			user = dao.login(id, pass, con);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(con);
 		}
-		return emp;
+		return user;
 	}
 
 }

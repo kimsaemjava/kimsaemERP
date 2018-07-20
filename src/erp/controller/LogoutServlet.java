@@ -1,4 +1,4 @@
-package emp.controller;
+package erp.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
-import emp.dto.EmpDTO;
+import erp.dto.EmpDTO;
 
 @WebServlet(name = "logout", urlPatterns = { "/logout.do" })
 public class LogoutServlet extends HttpServlet {

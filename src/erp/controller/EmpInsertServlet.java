@@ -1,4 +1,4 @@
-package emp.controller;
+package erp.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.dto.EmpDTO;
-import emp.service.EmpService;
-import emp.service.EmpServiceImpl;
+import erp.dto.EmpDTO;
+import erp.service.EmpService;
+import erp.service.EmpServiceImpl;
 
 public class EmpInsertServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{

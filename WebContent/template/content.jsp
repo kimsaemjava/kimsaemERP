@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@page import="emp.dto.LoginDTO"%>
+<%@page import="erp.dto.LoginDTO"%>
 	
 <!DOCTYPE html>
 <html>
@@ -44,17 +44,8 @@
 			 		 <div
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">
-				        
-				       <%
-				       if(loginUser ==null){
-				    	   %>
-				    	   로그인 필요
-				    	   <%}else{
-				       %>
-				       <%=loginUser.getJob_category() %>
-				       <%} %>
-				        
+				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">			        
+				        ${loginUser.job_category }
 				        </div>
 				       <jsp:include page="${menupath}"></jsp:include>
       				 </div>

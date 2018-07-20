@@ -1,10 +1,11 @@
-package emp.dao;
+package erp.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import emp.dto.EmpDTO;
+import erp.dto.EmpDTO;
+import erp.dto.LoginDTO;
 
 public interface EmpDAO {
 
@@ -15,5 +16,5 @@ public interface EmpDAO {
 	ArrayList<EmpDTO> search(String column, String search, Connection con) throws SQLException;
 	int update(EmpDTO emp, Connection con) throws SQLException;
 	
-	EmpDTO login(String id, String pass, Connection con) throws SQLException;
+	LoginDTO login(String id, String pass, Connection con) throws SQLException;
 }

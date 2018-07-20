@@ -1,8 +1,9 @@
-package emp.service;
+package erp.service;
 
 import java.util.ArrayList;
-import emp.dto.EmpDTO;
-import emp.dto.LoginDTO;
+
+import erp.dto.EmpDTO;
+import erp.dto.LoginDTO;
 
 public interface EmpService {
 
