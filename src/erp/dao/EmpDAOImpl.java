@@ -84,14 +84,17 @@ public class EmpDAOImpl implements EmpDAO {
 	}
 
 	@Override
-	public EmpDTO read(String id, Connection con) throws SQLException { // 사원조회
-		EmpDTO user = new EmpDTO();
+	public MemberDTO read(String id, Connection con) throws SQLException { // 사원조회
+		MemberDTO user = new MemberDTO();
 		PreparedStatement ptmt = con.prepareStatement(EMP_READ);
 		ptmt.setString(1, id);
 		ResultSet rs = ptmt.executeQuery();
 		if (rs.next()) {
-			user = new EmpDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
-					rs.getString(6), rs.getInt(7), rs.getString(8));
+			user = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
+					rs.getString(21), rs.getString(22));
 		}
 		close(ptmt);
 		return user;

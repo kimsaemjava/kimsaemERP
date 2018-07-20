@@ -66,8 +66,8 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public EmpDTO read(String id) {
-		EmpDTO user = null;
+	public MemberDTO read(String id) {
+		MemberDTO user = null;
 		EmpDAO dao = new EmpDAOImpl();
 		Connection con = null;
 		try {

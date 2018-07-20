@@ -20,7 +20,8 @@ public interface EmpService {
 	
 	int delete(String id);
 	
-	EmpDTO read(String id);
+	// EmpDTO read(String id);
+	MemberDTO read(String id);
 	
 	ArrayList<EmpDTO> search(String column, String search, String pass);
 	

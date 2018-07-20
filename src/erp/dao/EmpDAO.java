@@ -18,7 +18,8 @@ public interface EmpDAO {
 	
 	int delete(String id, Connection con) throws SQLException;				// 사원삭제
 	
-	EmpDTO read(String id, Connection con) throws SQLException;				// 사원조회
+	// EmpDTO read(String id, Connection con) throws SQLException;				// 사원조회
+	MemberDTO read(String id, Connection con) throws SQLException;
 	
 	ArrayList<EmpDTO> search(String column, String search, String pass, Connection con)	
 									throws SQLException;					// 사원검색 

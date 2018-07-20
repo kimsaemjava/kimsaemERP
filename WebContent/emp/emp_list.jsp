@@ -52,7 +52,7 @@
 					<td><%=user.getName() %></td>
 					<td><%=user.getDeptname() %></td>
 					<td><%=user.getPosition() %></td>
-					<td><a href="#">직원보기</a></td>
+					<td><a href="/kimsaemERP/read.do?id=<%=user.getId()%>">직원보기</a></td>
 					<td><a href="#"><%=user.getPhoneco() %></a></td>
 				</tr>
 			<%} %>

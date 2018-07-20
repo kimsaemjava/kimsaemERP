@@ -12,7 +12,8 @@ public class EmpQuery {
 	
 	public static String EMP_DELETE = "delete kitriemp where id = ?";	
 	
-	public static String EMP_READ = "select * from kitriemp where id = ?";
+	// public static String EMP_READ = "select * from kitriemp where id = ?";
+	public static String EMP_READ = "select * from member where id = ?";
 	
 	public static String EMP_UPDATE = "update kitriemp set addr = ?, point = ?, grade = ? where id = ?";
 	
