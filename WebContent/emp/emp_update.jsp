@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@page import="emp.dto.empDTO"%>
+<%@page import="erp.dto.empDTO"%>
 <!DOCTYPE html>
 <html>
 <head>

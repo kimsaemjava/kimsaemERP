@@ -1,11 +1,6 @@
-package emp.dao;
+package erp.dao;
 import static fw.DBUtil.*;
-import static query.EmpQuery.DELETE_EMP;
-import static query.EmpQuery.INSERT_REG;
-import static query.EmpQuery.SELECT_DEPTNO;
-import static query.EmpQuery.SELECT_EMP;
-import static query.EmpQuery.SELECT_LOGIN;
-import static query.EmpQuery.UPDATE_EMP;
+import static query.EmpQuery.*;
 
 
 import java.sql.Connection;
@@ -14,16 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
-import emp.dto.empDTO;
+import erp.dto.MemberDTO;
+import erp.dto.empDTO;
 public class empDAOImpl implements empDAO {
 
-	@Override
+/*	@Override
 	public int insert(String deptno, String name, String id, String pass, String addr, int point, String grade,
 			Connection con) throws SQLException {
 		int result=0;
 		PreparedStatement ptmt = con.prepareStatement(INSERT_REG);
-		//con = g;
 		ptmt.setString(1, id);
 		ptmt.setString(2, pass);
 		ptmt.setString(3, name);
@@ -35,7 +29,7 @@ public class empDAOImpl implements empDAO {
 		close(ptmt);
 		return result;
 	}
-
+*/
 	@Override
 	public ArrayList<empDTO> search(Connection con) throws SQLException {
 		PreparedStatement ptmt  = con.prepareStatement(SELECT_EMP);
@@ -132,6 +126,32 @@ public class empDAOImpl implements empDAO {
 			result= new empDTO(rs.getString(1), rs.getString(2), rs.getString(3), 
 					rs.getString(4), rs.getDate(5), rs.getString(6), rs.getInt(7), rs.getString(8));
 		}
+		close(ptmt);
+		return result;
+	}
+
+	@Override
+	public int insert(MemberDTO dto, Connection con) throws SQLException {
+		int result=0;
+		System.out.println("dao dto°ª:"+dto);
+		PreparedStatement ptmt = con.prepareStatement(INSERT_MEMBER);
+		ptmt.setString(1, dto.getId());
+		ptmt.setString(2, dto.getPass());
+		ptmt.setString(3, dto.getName());
+		ptmt.setString(4, dto.getSsn());
+		ptmt.setString(5, dto.getBirthday());
+		ptmt.setString(6, dto.getMarry());
+		ptmt.setString(7, dto.getDeptno());
+		ptmt.setString(8, dto.getZipcode());
+		ptmt.setString(9, dto.getAddr());
+		ptmt.setString(10, dto.getPhonehome());
+		ptmt.setString(11, dto.getPhoneco());
+		ptmt.setString(12, dto.getPhonecell());
+		ptmt.setString(13, dto.getEmail());
+		ptmt.setString(14, dto.getProfile_photo());
+		
+		result=ptmt.executeUpdate();
+		System.out.println(result+"-result°ª");
 		close(ptmt);
 		return result;
 	}

@@ -1,9 +1,9 @@
-package emp.dao;
+package erp.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import emp.dto.LoginDTO;
+import erp.dto.LoginDTO;
 
 
 public interface LoginDAO {

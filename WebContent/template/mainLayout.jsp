@@ -27,17 +27,14 @@
 </head>
 <body>
 <% String menupath = (String)request.getAttribute("menupath");
-   String viewpath = (String)request.getAttribute("mainpath");
+   String viewpath = (String)request.getAttribute("viewpath");
 
 %>
 	<div id="top">
 		<jsp:include page="/template/top.jsp"/>
 	</div>
-	<div class="col-sm-2 sidenav">
-		<jsp:include page="${menupath }"/>
-	</div>
 	<div id="content">
-		<jsp:include page="${viewpath }"></jsp:include>
+		<jsp:include page="/template/content.jsp"></jsp:include>
 	</div>
 </body>
 </html>

@@ -1,3 +1,5 @@
+<%@page import="erp.dto.DeptDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -5,29 +7,44 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
+ </head>
 <body>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
-				action="/serverweb/register.do" method="POST" 
+				action="/kimsaemERP/insert.do" method="POST" 
 				name="myform">
 				<fieldset>
 					<div id="legend">
 						<legend>아래 양식을 작성해주세요.</legend>
 					</div>
+					<div class="form-group" style="padding: 40px">
+						<p class="centered">
+							<img src="/kimsaemERP/images/myphoto.jpg" 
+							 id="userImage" style="width: 100px">
+						</p>
+						<div>
+							<input type="file" name="userImage"
+								onchange="document.getElementById('userImage').src = window.URL.createObjectURL(this.files[0])"
+								accept="image/*">
+						</div>
+					</div>
+					
 					<div class="form-group">
 						<!-- 부서코드 -->
 						<label class="control-label col-sm-2" for="orgcode">부서코드</label>
 						<div class="col-sm-3">
-							<input type="text" id="orgcode" name="deptno"
-								placeholder="부서코드" class="form-control"
-								 required>
+							<select name="deptno" class="form-control" >
+							<% ArrayList<DeptDTO> list =  (ArrayList<DeptDTO>)request.getAttribute("list"); 
+							%>
+							<% for(int i=0; i<list.size(); i++){
+								%>
+								<option value="<%=list.get(i).getDeptno() %>"><%=list.get(i).getDeptname() %>
+							<% }%>
+								
+							</select>
 						</div>
 					</div>
-
+		
 					
 					
 					<div class="form-group">
@@ -35,7 +52,7 @@
 						<label class="control-label col-sm-2" for="orgname">성명</label>
 						<div class="col-sm-3">
 							<input type="text" id="orgname" name="name"
-								placeholder="성명" class="form-control" minlength="4" required>
+								placeholder="성명" class="form-control"  required>
 
 						</div>
 					</div>
@@ -45,54 +62,115 @@
 						<div class="col-sm-3">
 							<input type="text" id="id" name="id"
 								placeholder="사번" class="form-control" 
-								minlength="4" required onkeyup="runAjax()">
+								required onkeyup="runAjax()">
 							
 						</div>
 						<span id="checkVal"></span>
 					</div>
-
-
-
-				
-
-
-					
 					<div class="form-group">
 						<!-- 패스워드-->
 						<label class="control-label col-sm-2" for="pass">패스워드</label>
 						<div class="col-sm-3">
 							<input type="text" id="pass" name="pass"
-								placeholder="패스워드" class="form-control" minlength="4" >
+								placeholder="패스워드" class="form-control">
 
+						</div>
+					</div>
+					<div class="form-group">
+						<!-- 주민번호-->
+						<label class="control-label col-sm-2" for="ssn">주민번호</label>
+						<div class="col-sm-3">
+							<input type="text" id="ssn" name="ssn"
+								placeholder="주민번호" class="form-control" 
+								 >
+
+						</div>
+					</div>
+					<div class="form-group">
+						<!-- 생일-->
+						<label class="control-label col-sm-2" for="birthday">생년월일</label>
+						<div class="col-sm-3">
+							<input type="text" id="birthday" name="birthday"
+								placeholder="생년월일" class="form-control" 
+								>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<!-- 결혼유무-->
+						<label class="control-label col-sm-2" for="marry">결혼유무</label>
+						<div class="col-sm-3">
+							<input type="checkbox" id="marry" name="marry"
+								placeholder="결혼유무">결혼유무
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-2 control-label">우편번호</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" name="zipcode"
+								id="zipcode" >
+						</div>
+						<div class="col-sm-2">
+							<button type="button"
+								class="btn btn-round btn-primary form-control">우편번호 검색</button>
 						</div>
 					</div>
 					<div class="form-group">
 						<!-- 주소-->
 						<label class="control-label col-sm-2" for="addr">주소</label>
-						<div class="col-sm-3">
+						<div class="col-sm-6">
 							<input type="text" id="addr" name="addr" 
 							placeholder="주소"
-								class="form-control" minlength="4" required>
+								class="form-control"  required>
+							
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-2 control-label"></label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="detailaddr"
+								id="detailaddr" >
+						</div>
+					
+					</div>
+					<div class="form-group">
+						<!-- 집전화-->
+						<label class="control-label col-sm-2" for="phonehome">집전화</label>
+						<div class="col-sm-5">
+							<input type="text" id="phonehome" name="phonehome" 
+							placeholder="집전화"
+								class="form-control"  required>
 
 						</div>
 					</div>
 					<div class="form-group">
-						<!-- 포인트-->
-						<label class="control-label col-sm-2" for="point">포인트</label>
-						<div class="col-sm-3">
-							<input type="text" id="point" name="point" 
-							placeholder="포인트"
-								class="form-control" minlength="4" required>
+						<!-- 회사전화-->
+						<label class="control-label col-sm-2" for="phoneco">회사전화</label>
+						<div class="col-sm-5">
+							<input type="text" id="phoneco" name="phoneco" 
+							placeholder="회사전화"
+								class="form-control"  required>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<!-- 집전화-->
+						<label class="control-label col-sm-2" for="phonehome">핸드폰번호</label>
+						<div class="col-sm-5">
+							<input type="text" id="phonecell" name="phonecell" 
+							placeholder="핸드폰번호"
+								class="form-control" required>
 
 						</div>
 					</div>
 					<div class="form-group">
 						<!-- 등급-->
-						<label class="control-label col-sm-2" for="grade">등급</label>
+						<label class="control-label col-sm-2" for="grade">이메일</label>
 						<div class="col-sm-3">
-							<input type="text" id="grade" name="grade" 
-							placeholder="등급"
-								class="form-control" minlength="4" required>
+							<input type="text" id="email" name="email" 
+							placeholder="이메일"
+								class="form-control"  required>
 
 						</div>
 					</div>
@@ -105,6 +183,6 @@
 				</fieldset>
 			</form>
 	</div>
-	<div><a href="/serverweb/list.do">회원목록보기</a></div>
+	<div><a href="/serverweb/emp/emp_list.jsp">회원목록보기</a></div>
 </body>
 </html>

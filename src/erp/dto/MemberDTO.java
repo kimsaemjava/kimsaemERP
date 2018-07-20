@@ -1,20 +1,19 @@
-package emp.dto;
+package erp.dto;
 
-import java.sql.Date;
 
-public class LoginDTO {
+public class MemberDTO {
 	private String id;
 	private String pass;
 	private String name;
 	private String ssn;
-	private Date birthday;
+	private String birthday;
 	private String marry;
 	private String gender;
 	private String position;
 	private String duty;
 	private String classes;
-	private Date startday;
-	private Date endday;
+	private String startday;
+	private String endday;
 	private String deptno;
 	private String curstate;
 	private String zipcode;
@@ -22,19 +21,47 @@ public class LoginDTO {
 	private String detailaddr;
 	private String phonehome;
 	private String phoneco;
-	private String  phonecell;
+	private String phonecell;
 	private String email;
 	private String profile_photo;
-	private String job_category;
-	private String menupath;
-	
-
 	
 	
-	public LoginDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
-			String position, String duty, String classes, Date startday, Date endday, String deptno, String curstate,
+	
+	
+	public MemberDTO(String id, String pass, String name, String ssn, String birthday, String marry, String deptno,
+			String zipcode, String addr, String phonehome, String phoneco, String phonecell, String email,
+			String profile_photo) {
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.ssn = ssn;
+		this.birthday = birthday;
+		this.marry = marry;
+		this.deptno = deptno;
+		this.zipcode = zipcode;
+		this.addr = addr;
+		this.phonehome = phonehome;
+		this.phoneco = phoneco;
+		this.phonecell = phonecell;
+		this.email = email;
+		this.profile_photo = profile_photo;
+	}
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
+				+ ", marry=" + marry + ", gender=" + gender + ", position=" + position + ", duty=" + duty + ", classes="
+				+ classes + ", startday=" + startday + ", endday=" + endday + ", deptno=" + deptno + ", curstate="
+				+ curstate + ", zipcode=" + zipcode + ", addr=" + addr + ", detailaddr=" + detailaddr + ", phonehome="
+				+ phonehome + ", phoneco=" + phoneco + ", phonecell=" + phonecell + ", email=" + email
+				+ ", profile_photo=" + profile_photo + "]";
+	}
+	public MemberDTO() {
+		super();
+	}
+	public MemberDTO(String id, String pass, String name, String ssn, String birthday, String marry, String gender,
+			String position, String duty, String classes, String startday, String endday, String deptno, String curstate,
 			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
-			String email, String profile_photo, String job_category, String menupath) {
+			String email, String profile_photo) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -58,28 +85,19 @@ public class LoginDTO {
 		this.phonecell = phonecell;
 		this.email = email;
 		this.profile_photo = profile_photo;
-		this.job_category = job_category;
-		this.menupath = menupath;
 	}
-	public String getGender() {
-		return gender;
+	public String getId() {
+		return id;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getJob_category() {
-		return job_category;
+	public String getPass() {
+		return pass;
 	}
-	public void setJob_category(String job_category) {
-		this.job_category = job_category;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
-	public String getMenupath() {
-		return menupath;
-	}
-	public void setMenupath(String menupath) {
-		this.menupath = menupath;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -92,10 +110,10 @@ public class LoginDTO {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getMarry() {
@@ -103,6 +121,12 @@ public class LoginDTO {
 	}
 	public void setMarry(String marry) {
 		this.marry = marry;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public String getPosition() {
 		return position;
@@ -122,16 +146,16 @@ public class LoginDTO {
 	public void setClasses(String classes) {
 		this.classes = classes;
 	}
-	public Date getStartday() {
+	public String getStartday() {
 		return startday;
 	}
-	public void setStartday(Date startday) {
+	public void setStartday(String startday) {
 		this.startday = startday;
 	}
-	public Date getEndday() {
+	public String getEndday() {
 		return endday;
 	}
-	public void setEndday(Date endday) {
+	public void setEndday(String endday) {
 		this.endday = endday;
 	}
 	public String getDeptno() {
@@ -194,36 +218,7 @@ public class LoginDTO {
 	public void setProfile_photo(String profile_photo) {
 		this.profile_photo = profile_photo;
 	}
-	public LoginDTO(String id, String pass) {
-		super();
-		this.id = id;
-		this.pass = pass;
-	}
-	public LoginDTO() {
-		super();
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-	@Override
-	public String toString() {
-		return "LoginDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
-				+ ", marry=" + marry + ", gender=" + gender + ", position=" + position + ", duty=" + duty + ", classes="
-				+ classes + ", startday=" + startday + ", endday=" + endday + ", deptno=" + deptno + ", curstate="
-				+ curstate + ", zipcode=" + zipcode + ", addr=" + addr + ", detailaddr=" + detailaddr + ", phonehome="
-				+ phonehome + ", phoneco=" + phoneco + ", phonecell=" + phonecell + ", email=" + email
-				+ ", profile_photo=" + profile_photo + ", job_category=" + job_category + ", menupath=" + menupath
-				+ "]";
-	}
-
 	
+	
+
 }
