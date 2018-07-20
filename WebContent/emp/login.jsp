@@ -11,7 +11,6 @@
 		<jsp:include page="/template/top.jsp"></jsp:include>
 	</div> --%>
 	
-	
 	<%
 		Cookie[] cookies = request.getCookies();
 		String id = "";
@@ -44,7 +43,8 @@
 																	<table cellpadding="0" cellspacing="0" border=0>
 
 																		<tr>
-																			<td colspan=3><img src="/serverweb/images/page_login.gif"></td>
+																			<td colspan=3><img
+																				src="/serverweb/images/page_login.gif"></td>
 																		</tr>
 																		<tr>
 																			<td height=25></td>
@@ -80,11 +80,8 @@
 															<tr>
 																<td colspan=3></td>
 															</tr>
-
 														</table>
-
 													</td>
-
 													<td style="padding-left: 60; padding-top: 60"></td>
 												</tr>
 												<tr>
