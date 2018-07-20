@@ -53,7 +53,7 @@
 					<td><%=user.getDeptname() %></td>
 					<td><%=user.getPosition() %></td>
 					<td><a href="#">직원보기</a></td>
-					<td><a href="#">연락처</a></td>
+					<td><a href="#"><%=user.getPhoneco() %></a></td>
 				</tr>
 			<%} %>
 			</tbody>

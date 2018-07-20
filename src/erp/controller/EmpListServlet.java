@@ -39,7 +39,7 @@ public class EmpListServlet extends HttpServlet {
 		req.setAttribute("viewpath", viewpath);
 		
 		// 요청재지정
-		RequestDispatcher rd = req.getRequestDispatcher("/template/mainLayout.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/template/content.jsp");
 		rd.forward(req, res);
 	}
 }
