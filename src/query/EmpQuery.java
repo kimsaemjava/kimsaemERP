@@ -6,14 +6,14 @@ public class EmpQuery {
 	public static String EMP_DELETE = "delete kitriemp where id=?";
 	public static String EMP_READ
 			= "select * from kitriemp where id = ?";
-	public static String LOGIN =
-			"select * from kitriemp where id=? and pass=?";
-	/*public static String LOGIN
+	/*public static String LOGIN =
+			"select * from kitriemp where id=? and pass=?";*/
+	public static String LOGIN
 		= "select m.*,d.deptname,j.job_category,j.menupath "
 		  +"from member m, dept d, job j "
 		  +"where m.deptno = d.deptno "
 		  +"and d.job_category = j.job_id "
-		  +"and id = ? and pass= ?";*/
+		  +"and id = ? and pass= ?";
 	
 	public static String EMP_UPDATE
 		= "update kitriemp "
