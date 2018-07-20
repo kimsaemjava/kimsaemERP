@@ -19,4 +19,6 @@ public class EmpQuery {
 			+ "?, null, null, null, null, "
 			+ "sysdate, null, ?, null, ?, ?, null, "
 			+ "?, ?, ?, ?, ?)";
+	public static final String DEPTNAME_SELECT=
+			"select deptno, deptname from dept";
 }
