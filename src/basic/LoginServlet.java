@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import login.dto.loginDTO;
-import login.service.loginService;
-import login.service.loginServiceImpl;
+import erp.dto.loginDTO;
+import erp.service.loginService;
+import erp.service.loginServiceImpl;
 @WebServlet(name = "login", urlPatterns = { "/login.do" })
 public class LoginServlet extends HttpServlet {
 	
@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 		loginDTO result=service.login(id, pass);
 		System.out.println("로그인 서블릿 포토 :"+result.getProfile_photo());
 		req.setAttribute("loginUser", result);
-		
+		System.out.println(result.getJob_category());
 		if(check!=null){
 			if(check.equals("T")&&result!=null){
 				Cookie cookie =new Cookie("setid", result.getId());

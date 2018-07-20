@@ -39,7 +39,7 @@
 			 		 <div
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
+				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">${loginUser.job_category}</div>
 				       <jsp:include page="${menupath }"/>
       				 </div>
 			 	</div>
