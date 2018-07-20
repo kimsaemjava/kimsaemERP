@@ -27,7 +27,7 @@
 </head>
 <body>
 <% String menupath = (String)request.getAttribute("menupath");
-   String viewpath = (String)request.getAttribute("mainpath");
+   String viewpath = (String)request.getAttribute("viewpath");
 
 %>
 	<div id="top">

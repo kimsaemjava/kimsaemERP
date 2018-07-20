@@ -39,12 +39,12 @@
 			 		 <div
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">인사관리</div>
-				       <jsp:include page="/layout/insa_menu.jsp"></jsp:include>
+				        font-family:HY-견고딕;font-size: 16pt;color: white; font-weight: bolder;">${loginUser.job_category }</div>
+				       <jsp:include page="${menupath }"></jsp:include>
       				 </div>
 			 	</div>
 			 	<div class="col-sm-8" style="background-color: white;height: 800px;">
-			 		<jsp:include page="/emp/mypage.jsp"></jsp:include>
+			 		<jsp:include page="${viewpath }"></jsp:include>
 			 	</div>
 			</div>
 	</div>

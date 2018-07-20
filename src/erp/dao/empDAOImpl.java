@@ -22,7 +22,6 @@ public class empDAOImpl implements empDAO {
 			Connection con) throws SQLException {
 		int result=0;
 		PreparedStatement ptmt = con.prepareStatement(INSERT_REG);
-		//con = g;
 		ptmt.setString(1, id);
 		ptmt.setString(2, pass);
 		ptmt.setString(3, name);
