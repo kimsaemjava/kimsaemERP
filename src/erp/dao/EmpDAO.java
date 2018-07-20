@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 
 public interface EmpDAO {
-	int insert(EmpDTO user,Connection con) throws SQLException; 
+	int insert(MemberDTO user,Connection con) throws SQLException; 
 	ArrayList<EmpDTO> getMemberList(Connection con) 
 										throws SQLException;
 	int delete(String id,Connection con) throws SQLException; 

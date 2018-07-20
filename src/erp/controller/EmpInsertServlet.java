@@ -1,68 +1,66 @@
 package erp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import erp.dto.EmpDTO;
+import erp.dto.MemberDTO;
 import erp.service.EmpService;
 import erp.service.EmpServiceImpl;
-
-public class EmpInsertServlet extends HttpServlet{
-	public void doPost(HttpServletRequest req,
-					HttpServletResponse res)
-						throws ServletException,IOException{
+@WebServlet(name="emp/insert" , urlPatterns={"/emp/insert.do"})
+public class EmpInsertServlet extends HttpServlet {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("서블릿 요청 성공");
 		req.setCharacterEncoding("euc-kr");
-	
-		
-		//1. 클라이언트의 요청정보 추출
-		String deptno = req.getParameter("deptno");
-		String name = req.getParameter("name");
+
+		// 1. 클라이언트의 요청정보 추출
 		String id = req.getParameter("id");
 		String pass = req.getParameter("pass");
+		String name = req.getParameter("name");
+		String birthday = req.getParameter("birthday");
+		String ssn = req.getParameter("ssn");
+		String marry = req.getParameter("marry");
+		String gender = req.getParameter("gender");
+		String deptno = req.getParameter("deptno");
+		String zipcode = req.getParameter("zipcode");
 		String addr = req.getParameter("addr");
-		String point = req.getParameter("point");
-		String grade = req.getParameter("grade");
+		String detailaddr = req.getParameter("detailaddr");
+		String phonehome = req.getParameter("phonehome");
+		String phoneco = req.getParameter("phoneco");
+		String phonecell = req.getParameter("phonecell");
+		String email = req.getParameter("email");
+		//marry에 대한 처리
+		if(marry==null){//체크박스를 선택하지 않은 미혼이라는 의미
+			marry = "0";
+		}
 		
-		//2. 비지니스 메소드 호출
-		EmpDTO user =
-				new EmpDTO(id, pass, name, addr, grade,
-						Integer.parseInt(point), deptno);
+		//날짜 데이터를 Date로 처리하는 경우 -
+		//입력형식은 날짜 데이터에 맞게 입력받을 수 있도록 view에서 정의		
+		//String날짜를 java.sql.Date타입으로 변환
+		SimpleDateFormat sdf= 
+				new SimpleDateFormat("yyyy/MM/dd");
+		long mydate=0;
+		try {
+			mydate = sdf.parse(birthday).getTime();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		// 2. 비지니스 메소드 호출
+		MemberDTO user = new MemberDTO(id, pass, name, ssn, 
+				new Date(mydate), marry, deptno, zipcode, addr, 
+				detailaddr,phonehome, phoneco, phonecell, email);
+		
+		System.out.println("서블릿=>"+user);
 		EmpService service = new EmpServiceImpl();
 		int result = service.insert(user);
-		
-		//3. 데이터 공유
-		String msg = "";
-		if(result>=1){
-			msg = result+"개 행 삽입 성공";
-		}else{
-			msg = "삽입실패";
-		}
-		req.setAttribute("msg", msg);
-		
-		//4. 요청재지정 - forward
-		/*res.sendRedirect("/serverweb/basic/insertResult.html");*/
-		RequestDispatcher rd = 
-				req.getRequestDispatcher("/emp/insertResult.jsp");
-		rd.forward(req, res);
+
+		res.sendRedirect("/kimsaemERP/emp/list.do");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

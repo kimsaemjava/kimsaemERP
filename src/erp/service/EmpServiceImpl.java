@@ -11,9 +11,10 @@ import erp.dao.EmpDAO;
 import erp.dao.EmpDAOImpl;
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 public class EmpServiceImpl implements EmpService {
 	@Override
-	public int insert(EmpDTO user) {
+	public int insert(MemberDTO user) {
 		int result=0;
 		EmpDAO dao  = new EmpDAOImpl();
 		Connection con = null;

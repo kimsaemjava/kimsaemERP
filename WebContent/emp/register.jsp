@@ -9,7 +9,7 @@
 <body>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
-				action="/serverweb/emp/insert.do" method="POST" 
+				action="/kimsaemERP/emp/insert.do" method="POST" 
 				name="myform">
 				<fieldset>
 					<div id="legend">
@@ -110,7 +110,7 @@
 						<label class="control-label col-sm-2" for="marry">搬去蜡公</label>
 						<div class="col-sm-3">
 							<input type="checkbox" id="marry" name="marry"
-								placeholder="搬去蜡公"	minlength="15" >搬去蜡公
+								placeholder="搬去蜡公"	minlength="15" value="1">搬去蜡公
 
 						</div>
 					</div>

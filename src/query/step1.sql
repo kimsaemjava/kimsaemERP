@@ -127,7 +127,8 @@ where m.deptno = d.deptno
 
  
  
- 
+alter table member
+modify (ssn varchar2(30))
  
  
  
