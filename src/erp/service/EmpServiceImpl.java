@@ -1,4 +1,4 @@
-package emp.service;
+package erp.service;
 
 
 import static fw.DBUtil.close;
@@ -8,15 +8,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import emp.dao.EmpDAO;
-import emp.dao.EmpDAOImpl;
-import emp.dto.EmpDTO;
-import emp.dto.LoginDTO;
+import erp.dao.EmpDAO;
+import erp.dao.EmpDAOImpl;
+import erp.dto.DeptDTO;
+import erp.dto.EmpDTO;
+import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 
 public class EmpServiceImpl implements EmpService{
 
 	@Override
-	public int insert(EmpDTO user) {
+	public int insert(MemberDTO user) {
 		int result=0;
 		EmpDAO dao = new EmpDAOImpl();
 		
@@ -35,8 +37,8 @@ public class EmpServiceImpl implements EmpService{
 	}
 
 	@Override
-	public ArrayList<EmpDTO> getMemberList() {
-		ArrayList<EmpDTO> userlist = null;
+	public ArrayList<DeptDTO> getMemberList() {
+		ArrayList<DeptDTO> userlist = null;
 		Connection con=null;
 		EmpDAO dao = new EmpDAOImpl();
 	
@@ -48,7 +50,6 @@ public class EmpServiceImpl implements EmpService{
 		}finally{
 			close(con);
 		}
-		
 		return userlist;
 	}
 
