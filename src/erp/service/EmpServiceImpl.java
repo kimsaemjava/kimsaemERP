@@ -10,43 +10,9 @@ import erp.dao.EmpDAO;
 import erp.dao.EmpDAOImpl;
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 
 public class EmpServiceImpl implements EmpService{
-
-	@Override
-	public int insert(EmpDTO emp) {
-		int result = 0;
-		EmpDAO dao = new EmpDAOImpl();
-		Connection con = null;
-		try {
-			con = getConnect();
-			result = dao.insert(emp,con);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(con);
-		}
-		return result;
-
-	}
-
-	@Override
-	public ArrayList<EmpDTO> getMemberList() {
-		ArrayList<EmpDTO> empList = null;
-		EmpDAO dao = new EmpDAOImpl();
-		Connection con = null;
-
-		try {
-			con = getConnect();
-			empList = dao.getMemberList(con);
-			//System.out.println("service »£√‚");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(con);
-		}
-		return empList;
-	}
 
 	@Override
 	public int delete(String id) {
@@ -134,6 +100,39 @@ public class EmpServiceImpl implements EmpService{
 			close(con);
 		}
 		return user;
+	}
+
+	@Override
+	public int insert(MemberDTO emp) {
+		int result = 0;
+		EmpDAO dao = new EmpDAOImpl();
+		Connection con = null;
+		try {
+			con = getConnect();
+			result = dao.insert(emp,con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+		}
+		return result;
+	}
+
+	@Override
+	public ArrayList<LoginDTO> getMemberList() {
+		ArrayList<LoginDTO> empList = null;
+		EmpDAO dao = new EmpDAOImpl();
+		Connection con = null;
+
+		try {
+			con = getConnect();
+			empList = dao.getMemberList(con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+		}
+		return empList;
 	}
 
 }

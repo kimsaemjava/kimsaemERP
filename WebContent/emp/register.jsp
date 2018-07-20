@@ -9,7 +9,7 @@
 <body>
 	<div class="container-fluid">
 		<form role="form" class="form-horizontal"
-			action="/serverweb/emp/insert.do" method="POST" name="myform">
+			action="/kimsaemERP/insert.do" method="POST" name="myform">
 			<fieldset>
 				<div id="legend">
 					<legend>아래 양식을 작성해주세요.</legend>
@@ -51,8 +51,6 @@
 						</select>
 					</div>
 				</div>
-
-
 
 				<div class="form-group">
 					<!-- 성명-->
@@ -105,7 +103,7 @@
 					<label class="control-label col-sm-2" for="marry">결혼유무</label>
 					<div class="col-sm-3">
 						<input type="checkbox" id="marry" name="marry" placeholder="결혼유무"
-							minlength="15">결혼유무
+							value="1" minlength="15">결혼유무
 
 					</div>
 				</div>

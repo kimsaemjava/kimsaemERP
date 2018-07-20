@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+<%@page import="java.util.ArrayList, erp.dto.LoginDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,9 @@
 
 </head>
 <body>
-
+	<%
+		ArrayList<LoginDTO> empList = (ArrayList<LoginDTO>) request.getAttribute("empList");
+	%>
 	<div>
 		<br />
 		<br />
@@ -20,24 +22,29 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>부서번호</th>
-					<th>부서이름</th>
-					<th>부서위치</th>
-					<th>전화번호</th>
-					<th>관리자</th>
-					<th>삭제</th>
+					<th>아이디</th>
+					<th>성명</th>
+					<th>부서명</th>
+					<th>직책</th>
+					<th>직원보기</th>
+					<th>사내번호</th>
 				</tr>
 			</thead>
 			<tbody>
+			<%
+			int size = empList.size();
+			for (int i = 0; i < size; i++) {
+				LoginDTO emp = empList.get(i);
+			%>
 				<tr>
-					<td><a href="#">9415jang</a></td>
-					<td>장동건</td>
-					<td>인사팀</td>
-					<td>대리</td>
+					<td><a href="#"><%=emp.getId()%></a></td>
+					<td><%=emp.getName()%></td>
+					<td><%=emp.getDeptname() %></td>
+					<td><%=emp.getDuty() %></td>
 					<td><a href="#">직원보기</a></td>
-					<td><a href="#">연락처</a></td>
+					<td><%=emp.getPhoneco() %></td>
 				</tr>
-
+<% } %> 	
 			</tbody>
 		</table>
 		<ul class="pagination" style="">

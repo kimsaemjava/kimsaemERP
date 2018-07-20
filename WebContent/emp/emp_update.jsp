@@ -1,4 +1,4 @@
-<%@page import="emp.dto.EmpDTO"%>
+<%@page import="erp.dto.EmpDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>

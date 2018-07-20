@@ -2,12 +2,6 @@ package query;
 
 public class EmpQuery {
 
-	public static final String INSERT_EMP 
-	= "insert into kitriemp values (?,?,?,?,sysdate,?,?,?)";
-	
-	public static final String SELECT_EMP_LIST
-	= "select * from kitriemp";
-	
 	public static final String DELETE_EMP
 	="delete kitriemp where id=?";
 
@@ -30,4 +24,10 @@ public class EmpQuery {
 	="select m.*, d.deptname, j.job_category, j.menupath from member m, dept d, "
 			+ "job j where m.deptno = d.deptno and d.job_category = j.job_id and id = ? and pass = ?";
 	
+	public static final String INSERT_EMP 
+	= "insert into member values (?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,'/images/myphoto.jpg')";
+
+	public static final String SELECT_EMP_LIST
+	="select m.*, d.deptname, j.job_category, j.menupath from member m, dept d, "
+			+ "job j where m.deptno = d.deptno and d.job_category = j.job_id"; 
 }

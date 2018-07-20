@@ -9,59 +9,11 @@ import java.util.ArrayList;
 
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 
 import static query.EmpQuery.*;
 
 public class EmpDAOImpl implements EmpDAO {
-
-	@Override
-	public int insert(EmpDTO emp, Connection con) throws SQLException {
-
-		int result = 0;
-
-		PreparedStatement ptmt = con.prepareStatement(INSERT_EMP);
-
-		ptmt.setString(1, emp.getId());
-		ptmt.setString(2, emp.getPass());
-		ptmt.setString(3, emp.getName());
-		ptmt.setString(4, emp.getAddr());
-		ptmt.setString(5, emp.getGrade());
-		ptmt.setInt(6, emp.getPoint());
-		ptmt.setString(7, emp.getDetpno());
-
-		result = ptmt.executeUpdate();
-		close(ptmt);
-
-		return result;
-
-	}
-
-	@Override
-	public ArrayList<EmpDTO> getMemberList(Connection con) throws SQLException {
-
-		//user 전체 목록을 담을 자료구조
-		ArrayList<EmpDTO> empList = new ArrayList<EmpDTO>();
-		//하나의 user를 담을 객체를 정의 - 레코드가 조회되면 레코드 하나의 값을 세팅할 것이므로 while문 안에서 생성해야 한다.
-		EmpDTO emp = null;
-		
-		//System.out.println("dao요청");
-
-		PreparedStatement ptmt = con.prepareStatement(SELECT_EMP_LIST);
-		ResultSet rs = ptmt.executeQuery();
-
-		while (rs.next()) {
-			//레코드 하나의 값을 dto객체로 변환하는 작업
-			emp = new EmpDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), 
-														rs.getDate(5),rs.getString(6), rs.getInt(7), rs.getString(8));
-			//변환이 완료되면 ArrayList에 추가
-			empList.add(emp);
-		}
-		
-		//System.out.println("ArrayList의 갯수: "+empList.size());
-		close(rs);
-		close(ptmt);
-		return empList;
-	}
 
 	@Override
 	public int delete(String id, Connection con) throws SQLException {
@@ -179,5 +131,64 @@ public class EmpDAOImpl implements EmpDAO {
 		
 		return user;
 		
+	}
+
+	@Override
+	public int insert(MemberDTO user, Connection con) throws SQLException {
+		int result = 0;
+		System.out.println("dao→ "+user);
+
+		String gender = "1"; //여자
+		String state = user.getSsn().substring(6,8);
+		if(state.equals("1") |state.equals("3")){
+			gender = "0"; //남자
+		}
+		PreparedStatement ptmt = con.prepareStatement(INSERT_EMP);
+		ptmt.setString(1, user.getId());
+		ptmt.setString(2, user.getPass());
+		ptmt.setString(3, user.getName());
+		ptmt.setString(4, user.getSsn());
+		ptmt.setDate(5, user.getBirthday());
+		ptmt.setString(6, user.getMarry());
+		ptmt.setString(7, gender);
+		ptmt.setString(8, user.getDeptno());
+		ptmt.setString(9, user.getZipcode());
+		ptmt.setString(10, user.getAddr());
+		ptmt.setString(11, user.getDetailaddr());
+		ptmt.setString(12, user.getPhonehome());
+		ptmt.setString(13, user.getPhoneco());
+		ptmt.setString(14, user.getPhonecell());
+		ptmt.setString(15, user.getEmail());
+
+		result = ptmt.executeUpdate();
+		close(ptmt);
+
+		return result;
+
+	}
+
+	@Override
+	public ArrayList<LoginDTO> getMemberList(Connection con) throws SQLException {
+		
+		ArrayList<LoginDTO> empList = new ArrayList<LoginDTO>();
+		LoginDTO emp = null;
+		
+		//System.out.println("dao요청");
+		
+		PreparedStatement ptmt = con.prepareStatement(SELECT_EMP_LIST);
+		ResultSet rs = ptmt.executeQuery();
+
+		while (rs.next()) {
+			emp = new LoginDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), 
+					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), 
+					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), 
+					rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20), rs.getString(21), rs.getString(22),
+					rs.getString(23), rs.getString(24), rs.getString(25));
+			empList.add(emp);
+		}
+		
+		close(rs);
+		close(ptmt);
+		return empList;
 	}
 }
