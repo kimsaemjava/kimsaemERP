@@ -1,4 +1,4 @@
-package login.dto;
+package erp.dto;
 
 import java.sql.Date;
 
@@ -6,14 +6,6 @@ public class loginDTO {
 	private String id;
 	private String pass;
 	private String name;
-	public loginDTO(String id, String pass, String detailaddr, String profile_photo) {
-		super();
-		this.id = id;
-		this.pass = pass;
-		this.detailaddr = detailaddr;
-		this.profile_photo = profile_photo;
-	}
-
 	private String ssn;
 	private Date birthday;
 	private char marry;
@@ -33,14 +25,25 @@ public class loginDTO {
 	private String phonecell;
 	private String email;
 	private String profile_photo;
+	private String job_category;
 
 	public loginDTO() {
 	}
+
 
 	public loginDTO(String id, String pass) {
 		super();
 		this.id = id;
 		this.pass = pass;
+	}
+
+	public loginDTO(String id, String pass,String job_category, String detailaddr, String profile_photo) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.job_category= job_category;
+		this.detailaddr = detailaddr;
+		this.profile_photo = profile_photo;
 	}
 
 	public loginDTO(String id, String pass, String name, String ssn, Date birthday, char marry, char gender,
@@ -247,5 +250,15 @@ public class loginDTO {
 	public void setProfile_photo(String profile_photo) {
 		this.profile_photo = profile_photo;
 	}
+
+	public String getJob_category() {
+		return job_category;
+	}
+
+	public void setJob_category(String job_category) {
+		this.job_category = job_category;
+	}
+	
+	
 
 }

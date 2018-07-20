@@ -1,4 +1,4 @@
-<%@page import="login.dto.loginDTO"%>
+<%@page import="erp.dto.loginDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
