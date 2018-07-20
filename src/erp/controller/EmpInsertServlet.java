@@ -19,7 +19,7 @@ import erp.service.EmpServiceImpl;
 @WebServlet(name = "emp/insert", urlPatterns = { "/emp/insert.do" })
 public class EmpInsertServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("서블릿 요청 성공");
+		//System.out.println("서블릿 요청 성공");
 
 		req.setCharacterEncoding("euc-kr");
 

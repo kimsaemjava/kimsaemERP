@@ -12,6 +12,9 @@ public class EmpQuery {
 	public static final String EMP_LIST
 					="select m.id, m.name, m.duty, m.phoneco, d.deptname from member m, dept d where m.deptno=d.deptno";
 
+	public static final String DEPT_LIST
+					="select deptno,deptname from dept";
+	
 	public static final String EMP_DELETE
 					="delete kitriemp where id=?";
 	public static final String EMP_READ

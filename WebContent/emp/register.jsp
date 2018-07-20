@@ -1,3 +1,5 @@
+<%@page import="erp.dto.DeptDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -7,6 +9,10 @@
 <title>Insert title here</title>
  </head>
 <body>
+<%	
+	ArrayList<DeptDTO> deptList = (ArrayList<DeptDTO>)request.getAttribute("deptList");
+	int size = deptList.size();
+%>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
 				action="/kimsaemERP/emp/insert.do" method="POST" 
@@ -32,24 +38,9 @@
 						<label class="control-label col-sm-2" for="orgcode">부서코드</label>
 						<div class="col-sm-3">
 							<select name="deptno" class="form-control" >
-								<option value="d001">인사팀
-								<option value="d002">재무팀
-								<option value="d003">개발팀
-								<option value="d0031">디자인팀
-								<option value="d0032">Ajax팀
-								<option value="d004">개발지원
-								<option value="d005">시스템지원팀
-								<option value="d006">총무과
-								<option value="dg001">경영지원본부
-								<option value="dg002">영업본부
-								<option value="dg003">IT지원센터
-								<option value="d007">교육부
-								<option value="d008">기획실
-								<option value="d009">영업1팀
-								<option value="d010">기업영업본부
-								<option value="d011">영업2팀
-								<option value="d012">마케팅실
-								
+								<%for(int i=0; i<size; i++){ %>
+								<option value="<%=deptList.get(i).getDeptno() %>"><%=deptList.get(i).getDeptname() %>
+								<%} %>
 							</select>
 						</div>
 					</div>
