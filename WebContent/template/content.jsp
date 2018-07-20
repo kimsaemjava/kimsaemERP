@@ -1,4 +1,4 @@
-<%@page import="emp.dto.LoginDTO"%>
+<%@page import="erp.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -31,9 +31,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		LoginDTO loginUser = (LoginDTO)session.getAttribute("loginUser");
-	%>
 	<div style="background-color: #edeef1;padding: 20px;height: 800px">
 			<div class="row" style="margin-left: auto;margin-right: auto;">
 			 	<div class="col-sm-3" 
@@ -42,11 +39,7 @@
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
 				        font-family:HY-°ß°íµñ;font-size: 16pt;color: white; font-weight: bolder;">
-				        <%if(loginUser!=null){%>
-				        	<%=loginUser.getJob_category() %>
-				        <%}else{%>
-				        	login
-				        <%} %>
+				       	${loginUser.job_category }
 				        </div>
       				 	<jsp:include page="${menupath }"></jsp:include>
       				 </div>

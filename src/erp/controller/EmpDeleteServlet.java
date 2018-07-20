@@ -1,4 +1,4 @@
-package emp.controllerrecord;
+package erp.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.service.EmpService;
-import emp.service.EmpServiceImpl;
+import erp.service.EmpService;
+import erp.service.EmpServiceImpl;
 
 public class EmpDeleteServlet extends HttpServlet{
 	public void doGet(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
@@ -25,14 +25,13 @@ public class EmpDeleteServlet extends HttpServlet{
 		EmpService service = new EmpServiceImpl();
 		int result = service.delete(id);
 		
-		out.println("<html>");
-		out.println("<body>");
-		if(result>=1){
-			out.println("<h1>"+result+"개행삭제성공!!</h1>");
+		String msg="";
+		if(result<=0){
+			msg="삭제실패";
 		}else{
-			out.println("<h1>삭제실패</h1>");
+			msg=result+"개 행 삭제성공!!";
 		}
-		out.println("</body>");
-		out.println("</html>");
+		res.sendRedirect("/serverweb/emp/list.do");
+		
 	}
 }

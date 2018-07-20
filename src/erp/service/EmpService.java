@@ -1,13 +1,15 @@
-package emp.service;
+package erp.service;
 
 import java.util.ArrayList;
 
-import emp.dto.EmpDTO;
-import emp.dto.LoginDTO;
+import erp.dto.DeptDTO;
+import erp.dto.EmpDTO;
+import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 
 public interface EmpService {
-	int insert(EmpDTO user);
-	ArrayList<EmpDTO> getMemberList();
+	int insert(MemberDTO user);
+	ArrayList<DeptDTO> getMemberList();
 	int delete(String id);
 	EmpDTO read(String id);
 	ArrayList<EmpDTO> search(String column, String search, String pass);

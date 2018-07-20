@@ -1,20 +1,21 @@
-package emp.controller;
+package erp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import emp.dto.EmpDTO;
-import emp.service.EmpService;
-import emp.service.EmpServiceImpl;
+import erp.dto.DeptDTO;
+import erp.service.EmpService;
+import erp.service.EmpServiceImpl;
 
+@WebServlet(name = "emp/list", urlPatterns={"/emp/list.do"})
 public class EmpListServlet extends HttpServlet{
 	public void doGet(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
 		//System.out.println("서블릿 요청 성공");
@@ -22,13 +23,21 @@ public class EmpListServlet extends HttpServlet{
 		
 		//비지니스 메소드 호출
 		EmpService service = new EmpServiceImpl();
-		ArrayList<EmpDTO> userlist= service.getMemberList();
+		ArrayList<DeptDTO> userlist= service.getMemberList();
 		
 		//데이터공유
-		req.setAttribute("userlist", userlist);
+		String menupath = "";
+		String viewpath = "";
+	
+		menupath = "/menu/insa_menu.jsp";
+		viewpath = "/emp/emp_list.jsp";
 		
-		//요청재지정
-		RequestDispatcher rd = req.getRequestDispatcher("/emp/list.jsp"); 
+		System.out.println(userlist);
+		req.setAttribute("userlist", userlist);
+		req.setAttribute("menupath", menupath);
+		req.setAttribute("viewpath", viewpath);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("/template/content.jsp");
 		rd.forward(req, res);
 	}
 	

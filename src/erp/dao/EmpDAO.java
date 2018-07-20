@@ -1,19 +1,20 @@
-package emp.dao;
+package erp.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import emp.dto.EmpDTO;
-import emp.dto.LoginDTO;
+import erp.dto.DeptDTO;
+import erp.dto.EmpDTO;
+import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 
 public interface EmpDAO {
-	int insert(EmpDTO user, Connection con) throws SQLException;
-	ArrayList<EmpDTO> getMemberList(Connection con) throws SQLException;
+	int insert(MemberDTO user, Connection con) throws SQLException;
+	ArrayList<DeptDTO> getMemberList(Connection con) throws SQLException;
 	int delete(String id, Connection con) throws SQLException;
 	EmpDTO read(String id, Connection con) throws SQLException;
 	ArrayList<EmpDTO> search(String column, String search, String pass, Connection con) throws SQLException;
 	int update(EmpDTO user, Connection con) throws SQLException;
 	LoginDTO login(String id, String pass,Connection con) throws SQLException;
-	
 }

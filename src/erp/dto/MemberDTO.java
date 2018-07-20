@@ -1,8 +1,8 @@
-package emp.dto;
+package erp.dto;
 
 import java.sql.Date;
 
-public class LoginDTO {
+public class MemberDTO {
 	private String id;
 	private String pass;
 	private String name;
@@ -25,15 +25,47 @@ public class LoginDTO {
 	private String phonecell;
 	private String email;
 	private String profile_photo;
-	private String job_category;
-	private String menupath;
-	
-	public LoginDTO() {}
 
-	public LoginDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
+	public MemberDTO() {
+	}
+	// 리스트조회용생성자 
+	public MemberDTO(String id, String name, String duty, String phoneco) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.duty = duty;
+		this.phoneco = phoneco;
+	}
+	
+	// 사원등록용생성자 - 파일업로드 후에는 profile_photo 추가
+	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String deptno,
+			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
+			String email) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.ssn = ssn;
+		this.birthday = birthday;
+		this.marry = marry;
+		this.deptno = deptno;
+		this.zipcode = zipcode;
+		this.addr = addr;
+		this.detailaddr = detailaddr;
+		this.phonehome = phonehome;
+		this.phoneco = phoneco;
+		this.phonecell = phonecell;
+		this.email = email;
+	}
+
+
+
+
+	// 회원목록조회용 생성자
+	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
 			String position, String duty, String classes, Date startday, Date endday, String deptno, String curstate,
 			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
-			String email, String profile_photo, String job_category, String menupath) {
+			String email, String profile_photo) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -57,19 +89,16 @@ public class LoginDTO {
 		this.phonecell = phonecell;
 		this.email = email;
 		this.profile_photo = profile_photo;
-		this.job_category = job_category;
-		this.menupath = menupath;
 	}
 
 	@Override
 	public String toString() {
-		return "LoginDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
+		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
 				+ ", marry=" + marry + ", gender=" + gender + ", position=" + position + ", duty=" + duty + ", classes="
 				+ classes + ", startday=" + startday + ", endday=" + endday + ", deptno=" + deptno + ", curstate="
 				+ curstate + ", zipcode=" + zipcode + ", addr=" + addr + ", detailaddr=" + detailaddr + ", phonehome="
 				+ phonehome + ", phoneco=" + phoneco + ", phonecell=" + phonecell + ", email=" + email
-				+ ", profile_photo=" + profile_photo + ", job_category=" + job_category + ", menupath=" + menupath
-				+ "]";
+				+ ", profile_photo=" + profile_photo + "]";
 	}
 
 	public String getId() {
@@ -248,22 +277,4 @@ public class LoginDTO {
 		this.profile_photo = profile_photo;
 	}
 
-	public String getJob_category() {
-		return job_category;
-	}
-
-	public void setJob_category(String job_category) {
-		this.job_category = job_category;
-	}
-
-	public String getMenupath() {
-		return menupath;
-	}
-
-	public void setMenupath(String menupath) {
-		this.menupath = menupath;
-	}
-	
-	
-	
 }

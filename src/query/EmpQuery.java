@@ -1,13 +1,17 @@
 package query;
 
-import emp.dao.EmpDAOImpl;
+import java.sql.Date;
+
+import erp.dao.EmpDAOImpl;
 
 //sql은 추후에 XML파일로 관리될 것임.
 public class EmpQuery {
 	public static final String EMP_INSERT
-					="insert into kitriemp values(?,?,?,?,sysdate,?,?,?)";
+		="insert into member values(?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,'myphoto.jpg')";
+	
 	public static final String EMP_LIST
-					="select * from kitriemp";
+					="select m.id, m.name, m.duty, m.phoneco, d.deptname from member m, dept d where m.deptno=d.deptno";
+
 	public static final String EMP_DELETE
 					="delete kitriemp where id=?";
 	public static final String EMP_READ
@@ -28,4 +32,5 @@ public class EmpQuery {
 					+ "from member m, dept d, job j "
 					+ "where m.deptno=d.deptno and d.job_category=j.job_id "
 					+ "and id=? and pass=?";
+
 }
