@@ -1,3 +1,5 @@
+<%@page import="erp.dto.loginDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -7,6 +9,12 @@
 <title>Insert title here</title>
  </head>
 <body>
+<%
+ArrayList<loginDTO> user = (ArrayList<loginDTO>) request.getAttribute("empread"); 
+loginDTO emplist= new loginDTO();
+for(int i=0;i<user.size();i++){
+	emplist=user.get(i);
+%>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
 				action="/serverweb/emp/insert.do" method="POST" 
@@ -17,7 +25,7 @@
 					</div>
 					<div class="form-group" style="padding: 40px">
 						<p class="centered">
-							<img src="/kimsaemERP/images/myphoto.jpg" 
+							<img src="/kimsaemERP/images/<%=emplist.getProfile_photo() %>" 
 							 id="userImage" style="width: 100px">
 						</p>
 						<div>
@@ -29,16 +37,16 @@
 						<!-- 부서코드 -->
 						<label class="control-label col-sm-2" for="orgcode">부서코드</label>
 						<div class="col-sm-3">
+							<%=emplist.getDeptno() %>
 							<!-- 여기에 부서코드를 출력하세요  -->
 						</div>
 					</div>
-		
-					
 					
 					<div class="form-group">
 						<!-- 성명-->
 						<label class="control-label col-sm-2" for="orgname">성명</label>
 						<div class="col-sm-3">
+						<%=emplist.getName() %>
 							<!-- 여기에 부서코드를 출력하세요  -->
 						</div>
 					</div>
@@ -46,6 +54,7 @@
 						<!-- 사번-->
 						<label class="control-label col-sm-2" for="id">사번</label>
 						<div class="col-sm-3">
+						<%=emplist.getId() %>
 							<!-- 여기에 사번을 출력하세요  -->
 							
 						</div>
@@ -56,6 +65,7 @@
 						<!-- 주민번호-->
 						<label class="control-label col-sm-2" for="ssn">주민번호</label>
 						<div class="col-sm-3">
+						<%=emplist.getSsn() %>
 							<!-- 여기에 주민번호를 출력하세요  -->
 						</div>
 					</div>
@@ -63,6 +73,7 @@
 						<!-- 생일-->
 						<label class="control-label col-sm-2" for="birthday">생년월일</label>
 						<div class="col-sm-3">
+						<%=emplist.getBirthday() %>
 							<!-- 여기에 생일을 출력하세요  -->
 
 						</div>
@@ -89,6 +100,7 @@
 						<label class="control-label col-sm-2" for="birthday">직위</label>
 						<div class="col-sm-3">
 							<!-- 여기에 직위 출력하세요  -->
+							<%=emplist.getPosition() %>
 
 						</div>
 					</div>
@@ -97,7 +109,7 @@
 						<label class="control-label col-sm-2" for="birthday">직책</label>
 						<div class="col-sm-3">
 							<!-- 여기에 직책 출력하세요  -->
-
+								<%=emplist.getDuty() %>
 						</div>
 					</div>
 					<div class="form-group">
@@ -113,13 +125,14 @@
 						<label class="control-label col-sm-2" for="birthday">입사일자</label>
 						<div class="col-sm-3">
 							<!-- 여기에 입사일자을 출력하세요  -->
-
+								<%=emplist.getStartday() %>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="col-sm-2 col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-3">
+								<%=emplist.getZipcode() %>
 							<!-- 우편번호정보를 출력하세요-->
 						</div>
 						
@@ -128,6 +141,7 @@
 						<!-- 주소-->
 						<label class="control-label col-sm-2" for="addr">주소</label>
 						<div class="col-sm-6">
+						<%=emplist.getAddr() %>
 							<!-- 주소를 나타내세요 -->
 							
 						</div>
@@ -135,6 +149,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 col-sm-2 control-label"></label>
 						<div class="col-sm-5">
+							<%=emplist.getDetailaddr() %>
 							<!-- 주소를 나타내세요 -->
 							
 						</div>
@@ -144,6 +159,7 @@
 						<!-- 집전화-->
 						<label class="control-label col-sm-2" for="phonehome">집전화</label>
 						<div class="col-sm-5">
+						<%=emplist.getPhonehome() %>
 							<!-- 집전화를 출력하세요 -->
 
 						</div>
@@ -152,6 +168,7 @@
 						<!-- 회사전화-->
 						<label class="control-label col-sm-2" for="phonehome">회사전화</label>
 						<div class="col-sm-5">
+						<%=emplist.getPhoneco() %>
 							<!-- 회사전화를 출력하세요 -->
 						</div>
 					</div>
@@ -159,6 +176,7 @@
 						<!-- 핸드폰번호-->
 						<label class="control-label col-sm-2" for="phonehome">핸드폰번호</label>
 						<div class="col-sm-5">
+						<%=emplist.getPhonecell() %>
 							<!-- 핸드폰번호를 출력하세요 -->
 						</div>
 					</div>
@@ -166,6 +184,7 @@
 						<!-- 이메일-->
 						<label class="control-label col-sm-2" for="email">이메일</label>
 						<div class="col-sm-3">
+						<%=emplist.getEmail() %>
 							<!-- 이메일을 출력하세요 -->
 
 						</div>
@@ -180,6 +199,7 @@
 				</fieldset>
 			</form>
 	</div>
+	<%} %>
 	<div><a href="/serverweb/emp/list.do">회원목록보기</a></div>
 </body>
 </html>

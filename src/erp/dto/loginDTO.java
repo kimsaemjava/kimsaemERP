@@ -8,8 +8,8 @@ public class loginDTO {
 	private String name;
 	private String ssn;
 	private Date birthday;
-	private char marry;
-	private char gender;
+	private String marry;
+	private String gender;
 	private String position;
 	private String duty;
 	private String classes;
@@ -46,7 +46,7 @@ public class loginDTO {
 		this.profile_photo = profile_photo;
 	}
 
-	public loginDTO(String id, String pass, String name, String ssn, Date birthday, char marry, char gender,
+	public loginDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
 			String position, String duty, String classes, Date startday, Date endday, String deptno, String curstate,
 			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
 			String email, String profile_photo) {
@@ -115,19 +115,19 @@ public class loginDTO {
 		this.birthday = birthday;
 	}
 
-	public char getMarry() {
+	public String getMarry() {
 		return marry;
 	}
 
-	public void setMarry(char marry) {
+	public void setMarry(String marry) {
 		this.marry = marry;
 	}
 
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

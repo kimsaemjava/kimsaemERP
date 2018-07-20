@@ -9,4 +9,5 @@ import erp.dto.loginDTO;
 public interface loginService {
 	loginDTO login(String id, String pass);
 	ArrayList<loginDTO> empList();
+	ArrayList<loginDTO> empinfo(String name);
 }
