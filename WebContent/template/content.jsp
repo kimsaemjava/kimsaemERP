@@ -1,3 +1,4 @@
+<%@page import="erp.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -39,7 +40,9 @@
 			 		 <div
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-°ß°íµñ;font-size: 16pt;color: white; font-weight: bolder;">${loginUser.job_category }</div>
+				        font-family:HY-°ß°íµñ;font-size: 16pt;color: white; 
+				        font-weight: bolder;">${loginUser.job_category }</div>
+
 				       <jsp:include page="${menupath }"></jsp:include>
       				 </div>
 			 	</div>

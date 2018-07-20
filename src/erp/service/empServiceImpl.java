@@ -9,12 +9,13 @@ import java.util.ArrayList;
 
 import erp.dao.empDAO;
 import erp.dao.empDAOImpl;
+import erp.dto.MemberDTO;
 import erp.dto.empDTO;
 
 public class empServiceImpl implements empService{
 
-	@Override
-	public int insert(String deptno, String name, String id, String pass, String addr, int point, String grade) {
+/*	@Override
+	public int insert(MemberDTO dto) {
 		int result=0;
 		System.out.println("서비스확인");
 		empDAO dao = new empDAOImpl();
@@ -28,7 +29,7 @@ public class empServiceImpl implements empService{
 			close(con);
 		}
 		return result;
-	}
+	}*/
 
 	@Override
 	public ArrayList<empDTO> search() {
@@ -125,6 +126,24 @@ public class empServiceImpl implements empService{
 			close(con);
 		}
 		return user;
+	}
+
+	@Override
+	public int insert(MemberDTO dto){
+		int result=0;
+		System.out.println("서비스확인");
+		empDAO dao = new empDAOImpl();
+		Connection con =null;
+		try{
+			con = getConnect();
+			result=dao.insert(dto, con);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return result;
+		
 	}
 	
 

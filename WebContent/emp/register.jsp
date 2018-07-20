@@ -9,7 +9,7 @@
 <body>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
-				action="/serverweb/emp/insert.do" method="POST" 
+				action="/kimsaemERP/insert.do" method="POST" 
 				name="myform">
 				<fieldset>
 					<div id="legend">
@@ -61,7 +61,7 @@
 						<label class="control-label col-sm-2" for="orgname">성명</label>
 						<div class="col-sm-3">
 							<input type="text" id="orgname" name="name"
-								placeholder="성명" class="form-control" minlength="4" required>
+								placeholder="성명" class="form-control"  required>
 
 						</div>
 					</div>
@@ -71,7 +71,7 @@
 						<div class="col-sm-3">
 							<input type="text" id="id" name="id"
 								placeholder="사번" class="form-control" 
-								minlength="4" required onkeyup="runAjax()">
+								required onkeyup="runAjax()">
 							
 						</div>
 						<span id="checkVal"></span>
@@ -81,7 +81,7 @@
 						<label class="control-label col-sm-2" for="pass">패스워드</label>
 						<div class="col-sm-3">
 							<input type="text" id="pass" name="pass"
-								placeholder="패스워드" class="form-control" minlength="15" >
+								placeholder="패스워드" class="form-control">
 
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 						<div class="col-sm-3">
 							<input type="text" id="ssn" name="ssn"
 								placeholder="주민번호" class="form-control" 
-								minlength="15" >
+								 >
 
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 						<div class="col-sm-3">
 							<input type="text" id="birthday" name="birthday"
 								placeholder="생년월일" class="form-control" 
-								minlength="15" >
+								>
 
 						</div>
 					</div>
@@ -110,7 +110,7 @@
 						<label class="control-label col-sm-2" for="marry">결혼유무</label>
 						<div class="col-sm-3">
 							<input type="checkbox" id="marry" name="marry"
-								placeholder="결혼유무"	minlength="15" >결혼유무
+								placeholder="결혼유무">결혼유무
 
 						</div>
 					</div>
@@ -131,7 +131,7 @@
 						<div class="col-sm-6">
 							<input type="text" id="addr" name="addr" 
 							placeholder="주소"
-								class="form-control" minlength="4" required>
+								class="form-control"  required>
 							
 						</div>
 					</div>
@@ -149,7 +149,7 @@
 						<div class="col-sm-5">
 							<input type="text" id="phonehome" name="phonehome" 
 							placeholder="집전화"
-								class="form-control" minlength="15" required>
+								class="form-control"  required>
 
 						</div>
 					</div>
@@ -159,7 +159,7 @@
 						<div class="col-sm-5">
 							<input type="text" id="phoneco" name="phoneco" 
 							placeholder="회사전화"
-								class="form-control" minlength="15" required>
+								class="form-control"  required>
 
 						</div>
 					</div>
@@ -169,7 +169,7 @@
 						<div class="col-sm-5">
 							<input type="text" id="phonecell" name="phonecell" 
 							placeholder="핸드폰번호"
-								class="form-control" minlength="15" required>
+								class="form-control" required>
 
 						</div>
 					</div>
@@ -179,7 +179,7 @@
 						<div class="col-sm-3">
 							<input type="text" id="email" name="email" 
 							placeholder="이메일"
-								class="form-control" minlength="4" required>
+								class="form-control"  required>
 
 						</div>
 					</div>
@@ -192,6 +192,6 @@
 				</fieldset>
 			</form>
 	</div>
-	<div><a href="/serverweb/emp/list.do">회원목록보기</a></div>
+	<div><a href="/serverweb/emp/emp_list.jsp">회원목록보기</a></div>
 </body>
 </html>

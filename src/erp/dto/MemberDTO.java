@@ -1,20 +1,19 @@
 package erp.dto;
 
-import java.sql.Date;
 
 public class MemberDTO {
 	private String id;
 	private String pass;
 	private String name;
 	private String ssn;
-	private Date birthday;
+	private String birthday;
 	private String marry;
 	private String gender;
 	private String position;
 	private String duty;
 	private String classes;
-	private Date startday;
-	private Date endday;
+	private String startday;
+	private String endday;
 	private String deptno;
 	private String curstate;
 	private String zipcode;
@@ -26,6 +25,27 @@ public class MemberDTO {
 	private String email;
 	private String profile_photo;
 	
+	
+	
+	
+	public MemberDTO(String id, String pass, String name, String ssn, String birthday, String marry, String deptno,
+			String zipcode, String addr, String phonehome, String phoneco, String phonecell, String email,
+			String profile_photo) {
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.ssn = ssn;
+		this.birthday = birthday;
+		this.marry = marry;
+		this.deptno = deptno;
+		this.zipcode = zipcode;
+		this.addr = addr;
+		this.phonehome = phonehome;
+		this.phoneco = phoneco;
+		this.phonecell = phonecell;
+		this.email = email;
+		this.profile_photo = profile_photo;
+	}
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
@@ -38,8 +58,8 @@ public class MemberDTO {
 	public MemberDTO() {
 		super();
 	}
-	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
-			String position, String duty, String classes, Date startday, Date endday, String deptno, String curstate,
+	public MemberDTO(String id, String pass, String name, String ssn, String birthday, String marry, String gender,
+			String position, String duty, String classes, String startday, String endday, String deptno, String curstate,
 			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
 			String email, String profile_photo) {
 		super();
@@ -90,10 +110,10 @@ public class MemberDTO {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getMarry() {
@@ -126,16 +146,16 @@ public class MemberDTO {
 	public void setClasses(String classes) {
 		this.classes = classes;
 	}
-	public Date getStartday() {
+	public String getStartday() {
 		return startday;
 	}
-	public void setStartday(Date startday) {
+	public void setStartday(String startday) {
 		this.startday = startday;
 	}
-	public Date getEndday() {
+	public String getEndday() {
 		return endday;
 	}
-	public void setEndday(Date endday) {
+	public void setEndday(String endday) {
 		this.endday = endday;
 	}
 	public String getDeptno() {

@@ -13,4 +13,10 @@ public class EmpQuery {
 			"from member m, dept d, job j "+
 			" where m.deptno = d.deptno and d.job_category = j.job_id "+
 			"	and m.id = ? and m.pass= ? ";
+	public static final String INSERT_MEMBER=
+			"insert into member values( " + 
+			" ?, ?, ?, ?, to_date( ? ,'YYYY/MM/DD'), "
+			+ "?, null, null, null, null, "
+			+ "sysdate, null, ?, null, ?, ?, null, "
+			+ "?, ?, ?, ?, ?)";
 }
