@@ -1,8 +1,8 @@
-package emp.dto;
+package erp.dto;
 
 import java.sql.Date;
 
-public class LoginDTO {
+public class MemberDTO {
 	private String id;
 	private String pass;
 	private String name;
@@ -22,19 +22,26 @@ public class LoginDTO {
 	private String detailaddr;
 	private String phonehome;
 	private String phoneco;
-	private String  phonecell;
+	private String phonecell;
 	private String email;
 	private String profile_photo;
-	private String job_category;
-	private String menupath;
 	
-
-	
-	
-	public LoginDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
+				+ ", marry=" + marry + ", gender=" + gender + ", position=" + position + ", duty=" + duty + ", classes="
+				+ classes + ", startday=" + startday + ", endday=" + endday + ", deptno=" + deptno + ", curstate="
+				+ curstate + ", zipcode=" + zipcode + ", addr=" + addr + ", detailaddr=" + detailaddr + ", phonehome="
+				+ phonehome + ", phoneco=" + phoneco + ", phonecell=" + phonecell + ", email=" + email
+				+ ", profile_photo=" + profile_photo + "]";
+	}
+	public MemberDTO() {
+		super();
+	}
+	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
 			String position, String duty, String classes, Date startday, Date endday, String deptno, String curstate,
 			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
-			String email, String profile_photo, String job_category, String menupath) {
+			String email, String profile_photo) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -58,28 +65,19 @@ public class LoginDTO {
 		this.phonecell = phonecell;
 		this.email = email;
 		this.profile_photo = profile_photo;
-		this.job_category = job_category;
-		this.menupath = menupath;
 	}
-	public String getGender() {
-		return gender;
+	public String getId() {
+		return id;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getJob_category() {
-		return job_category;
+	public String getPass() {
+		return pass;
 	}
-	public void setJob_category(String job_category) {
-		this.job_category = job_category;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
-	public String getMenupath() {
-		return menupath;
-	}
-	public void setMenupath(String menupath) {
-		this.menupath = menupath;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -103,6 +101,12 @@ public class LoginDTO {
 	}
 	public void setMarry(String marry) {
 		this.marry = marry;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public String getPosition() {
 		return position;
@@ -194,36 +198,7 @@ public class LoginDTO {
 	public void setProfile_photo(String profile_photo) {
 		this.profile_photo = profile_photo;
 	}
-	public LoginDTO(String id, String pass) {
-		super();
-		this.id = id;
-		this.pass = pass;
-	}
-	public LoginDTO() {
-		super();
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-	@Override
-	public String toString() {
-		return "LoginDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
-				+ ", marry=" + marry + ", gender=" + gender + ", position=" + position + ", duty=" + duty + ", classes="
-				+ classes + ", startday=" + startday + ", endday=" + endday + ", deptno=" + deptno + ", curstate="
-				+ curstate + ", zipcode=" + zipcode + ", addr=" + addr + ", detailaddr=" + detailaddr + ", phonehome="
-				+ phonehome + ", phoneco=" + phoneco + ", phonecell=" + phonecell + ", email=" + email
-				+ ", profile_photo=" + profile_photo + ", job_category=" + job_category + ", menupath=" + menupath
-				+ "]";
-	}
-
 	
+	
+
 }

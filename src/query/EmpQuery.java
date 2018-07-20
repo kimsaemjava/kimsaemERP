@@ -7,4 +7,10 @@ public class EmpQuery {
 	public static final String SELECT_DEPTNO="SELECT * FROM KITRIEMP WHERE id=?";
 	public static final String UPDATE_EMP="UPDATE KITRIEMP set addr=?,grade=?,point=? where id=?";
 	public static final String SELECT_LOGIN="SELECT * FROM KITRIEMP WHERE ID LIKE ? AND PASS LIKE ?";
+	
+	public static final String LOGIN=
+			"select m.*, j.job_category, j.menupath "+
+			"from member m, dept d, job j "+
+			" where m.deptno = d.deptno and d.job_category = j.job_id "+
+			"	and m.id = ? and m.pass= ? ";
 }

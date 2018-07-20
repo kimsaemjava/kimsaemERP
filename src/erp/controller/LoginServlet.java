@@ -1,4 +1,4 @@
-package emp.controller;
+package erp.controller;
 
 import javax.servlet.RequestDispatcher;
 
@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import emp.dto.LoginDTO;
-import emp.dto.empDTO;
-import emp.service.ERPService;
-import emp.service.ERPServiceImpl;
-import emp.service.empService;
-import emp.service.empServiceImpl;
+import erp.dto.LoginDTO;
+import erp.dto.empDTO;
+import erp.service.ERPService;
+import erp.service.ERPServiceImpl;
+import erp.service.empService;
+import erp.service.empServiceImpl;
 @WebServlet(name = "login", urlPatterns = { "/login.do" })
 public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException,java.io.IOException{

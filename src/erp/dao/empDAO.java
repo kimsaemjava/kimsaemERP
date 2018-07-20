@@ -1,11 +1,11 @@
-package emp.dao;
+package erp.dao;
 
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import emp.dto.empDTO;
+import erp.dto.empDTO;
 
 public interface empDAO {
 	int insert(String deptno,String name, String id,String pass,String addr,

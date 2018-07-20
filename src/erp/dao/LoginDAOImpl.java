@@ -1,4 +1,4 @@
-package emp.dao;
+package erp.dao;
 
 import static fw.DBUtil.close;
 
@@ -7,20 +7,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import emp.dto.LoginDTO;
-import static query.ERPQuery.*;
+import erp.dto.LoginDTO;
+
+import static query.EmpQuery.*;
 
 public class LoginDAOImpl implements LoginDAO {
 
 	@Override
 	public LoginDTO login(String id, String pass, Connection con) throws SQLException {
 		LoginDTO dto = null;
-		PreparedStatement ptmt = con.prepareStatement(ERP_SELECT_LOGIN);
+		PreparedStatement ptmt = con.prepareStatement(LOGIN);
 		ptmt.setString(1, id);
 		ptmt.setString(2, pass);
 		ResultSet rs = ptmt.executeQuery();
 		if(rs.next()){
-			System.out.println("daoimpl"+rs.getString(8)+":"+rs.getString(9));
 			dto = new LoginDTO(rs.getString(1), rs.getString(2), rs.getString(3),
 					rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7),
 					rs.getString(8), rs.getString(9), rs.getString(10), rs.getDate(11), rs.getDate(12),

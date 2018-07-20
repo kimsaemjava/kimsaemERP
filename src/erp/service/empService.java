@@ -1,8 +1,8 @@
-package emp.service;
+package erp.service;
 
 import java.util.ArrayList;
 
-import emp.dto.empDTO;
+import erp.dto.empDTO;
 
 public interface empService {
 	int insert(String deptno,String name, String id,String pass,String addr,

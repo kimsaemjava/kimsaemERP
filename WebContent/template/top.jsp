@@ -1,5 +1,5 @@
-<%@page import="emp.dto.LoginDTO"%>
-<%@page import="emp.dto.empDTO"%>
+<%@page import="erp.dto.LoginDTO"%>
+<%@page import="erp.dto.empDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>

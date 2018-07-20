@@ -1,4 +1,4 @@
-package emp.dao;
+package erp.dao;
 import static fw.DBUtil.*;
 import static query.EmpQuery.DELETE_EMP;
 import static query.EmpQuery.INSERT_REG;
@@ -14,8 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
-import emp.dto.empDTO;
+import erp.dto.empDTO;
 public class empDAOImpl implements empDAO {
 
 	@Override

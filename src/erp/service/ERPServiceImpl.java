@@ -1,4 +1,4 @@
-package emp.service;
+package erp.service;
 
 import static fw.DBUtil.close;
 import static fw.DBUtil.getConnect;
@@ -6,9 +6,9 @@ import static fw.DBUtil.getConnect;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import emp.dao.LoginDAO;
-import emp.dao.LoginDAOImpl;
-import emp.dto.LoginDTO;
+import erp.dao.LoginDAO;
+import erp.dao.LoginDAOImpl;
+import erp.dto.LoginDTO;
 
 public class ERPServiceImpl implements ERPService {
 

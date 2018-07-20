@@ -1,4 +1,4 @@
-package emp.service;
+package erp.service;
 
 import static fw.DBUtil.close;
 import static fw.DBUtil.getConnect;
@@ -7,9 +7,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import emp.dao.empDAO;
-import emp.dao.empDAOImpl;
-import emp.dto.empDTO;
+import erp.dao.empDAO;
+import erp.dao.empDAOImpl;
+import erp.dto.empDTO;
 
 public class empServiceImpl implements empService{
 

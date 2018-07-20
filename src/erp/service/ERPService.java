@@ -1,6 +1,6 @@
-package emp.service;
+package erp.service;
 
-import emp.dto.LoginDTO;
+import erp.dto.LoginDTO;
 
 public interface ERPService {
 	LoginDTO login(String id, String pass);
