@@ -30,8 +30,8 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public ArrayList<EmpDTO> getMemberList() {
-		ArrayList<EmpDTO> userlist = null;
+	public ArrayList<MemberDTO> getMemberList() {
+		ArrayList<MemberDTO> userlist = null;
 		EmpDAO dao  = new EmpDAOImpl();
 		Connection con = null;
 		try{

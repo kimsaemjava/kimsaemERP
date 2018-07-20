@@ -55,25 +55,36 @@ public class EmpDAOImpl implements EmpDAO {
 	}
 
 	@Override
-	public ArrayList<EmpDTO> getMemberList(Connection con) throws SQLException {
+	public ArrayList<MemberDTO> getMemberList(Connection con) throws SQLException {
 		// user 전체 목록을 담을 자료구조
-		ArrayList<EmpDTO> userlist = new ArrayList<EmpDTO>();
+		ArrayList<MemberDTO> userlist = new ArrayList<MemberDTO>();
 		// 하나의 user를 담을 객체를 정의 - 레코드가 조회되면 레코드 하나의 값을 셋팅할 것이므로
 		// while문안에서 생성해야 한다.
-		EmpDTO user = null;
+		MemberDTO user = null;
 		System.out.println("dao요청");
 		PreparedStatement ptmt = con.prepareStatement(EMP_LIST);
 		ResultSet rs = ptmt.executeQuery();
 
 		while (rs.next()) {
 			// 레코드 하나의 값을 dto객체로 변환하는 작업
-			user = new EmpDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
-					rs.getString(6), rs.getInt(7), rs.getString(8));
+			user = new MemberDTO(rs.getString(1),
+					rs.getString(2), rs.getString(3), 
+					rs.getString(4),rs.getDate(5),
+					rs.getString(6), rs.getString(7),
+					rs.getString(8), rs.getString(9), 
+					rs.getString(10), rs.getDate(11),
+					rs.getDate(12), rs.getString(13), 
+					rs.getString(14), rs.getString(15), 
+					rs.getString(16), rs.getString(17), 
+					rs.getString(18), rs.getString(19), 
+					rs.getString(20), rs.getString(21), 
+					rs.getString(22),rs.getString(23));
 			// 변환이 완료되면 ArrayList에 추가
 			userlist.add(user);
+			System.out.println(user);	
 		}
 		System.out.println("ArraList의 갯수=>" + userlist.size());
-		System.out.println(userlist);
+		
 		return userlist;
 	}
 
