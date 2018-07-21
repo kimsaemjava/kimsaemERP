@@ -19,10 +19,7 @@ import erp.service.DeptServiceImpl;
 
 @WebServlet("/dept/getname.do")
 public class GetDeptNameServlet extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		doPost(request,response);
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
 		

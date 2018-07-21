@@ -11,9 +11,8 @@ public interface EmpService {
 	int insert(MemberDTO user);
 	ArrayList<DeptDTO> getMemberList();
 	int delete(String id);
-	EmpDTO read(String id);
+	MemberDTO read(String id);
 	ArrayList<EmpDTO> search(String column, String search, String pass);
 	int update(EmpDTO user);
 	LoginDTO login(String id, String pass);
-	
 }
