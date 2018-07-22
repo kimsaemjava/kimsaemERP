@@ -32,12 +32,11 @@ public class EmpListServlet extends HttpServlet{
 		menupath = "/menu/insa_menu.jsp";
 		viewpath = "/emp/emp_list.jsp";
 		
-		System.out.println(userlist);
 		req.setAttribute("userlist", userlist);
 		req.setAttribute("menupath", menupath);
 		req.setAttribute("viewpath", viewpath);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/template/content.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/template/mainLayout.jsp");
 		rd.forward(req, res);
 	}
 	

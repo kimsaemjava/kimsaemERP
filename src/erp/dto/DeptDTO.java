@@ -16,7 +16,12 @@ public class DeptDTO extends MemberDTO{
 	private String depttel;
 	
 	public DeptDTO() {}
-	
+	//부서코드와 부서명 조회용
+	public DeptDTO(String deptno, String deptname){
+		super();
+		this.deptno = deptno;
+		this.deptname = deptname;
+	}
 	public DeptDTO(String deptno, String deptname, Date deptStartDay, Date deptEndDay, String deptlevel,
 			String deptstep, String deptuppercode, String job_category, String mgr_id, String deptaddr,
 			String depttel) {

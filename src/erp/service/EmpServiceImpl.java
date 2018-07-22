@@ -73,11 +73,10 @@ public class EmpServiceImpl implements EmpService{
 	}
 
 	@Override
-	public EmpDTO read(String id) {
-		EmpDTO user = null;
+	public MemberDTO read(String id) {
+		MemberDTO user = null;
 		EmpDAO dao = new EmpDAOImpl();
 		Connection con = null;
-		
 		try{
 			con = getConnect();
 			user = dao.read(id, con);
@@ -142,6 +141,4 @@ public class EmpServiceImpl implements EmpService{
 			}
 		return user;
 	}
-
-
 }

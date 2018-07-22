@@ -19,7 +19,7 @@ public class DBUtil {
 	}
 	public static Connection getConnect(){ //DB서버 연결
 		Connection con = null;
-		String url = "jdbc:oracle:thin:@211.42.204.125:1521:xe";
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		String user = "erp";
 		String password = "erp";
 		try {
