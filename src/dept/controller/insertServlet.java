@@ -49,7 +49,6 @@ public class insertServlet extends HttpServlet {
 		int result=service.insert(id, pass, name, ssn, birth, marry, deptno, 
 				zipcode, addr, detailaddr, 
 				phonehome, phoneco, phonecell, email);
-		System.out.println(result);
 		
 		res.sendRedirect("/kimsaemERP/emplist.do");
 //		RequestDispatcher rd= req.getRequestDispatcher("/template/mainLayout.jsp");

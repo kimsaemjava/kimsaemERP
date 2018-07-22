@@ -47,5 +47,21 @@ public class loginServiceImpl implements loginService{
 		return getEmpList;
 	}
 
+	@Override
+	public ArrayList<loginDTO> empinfo(String name) {
+		loginDAO dao = new loginDAOImpl();
+		ArrayList<loginDTO> getEmpList =null;
+		Connection con = null;
+		try {
+			con = DBconnect();
+			getEmpList =dao.empinfo(name, con);
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} finally {
+			close(con);
+		}
+		return getEmpList;
+	}
+
 
 }

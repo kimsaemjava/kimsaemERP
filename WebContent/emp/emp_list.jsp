@@ -31,10 +31,11 @@ loginDTO emplist= new loginDTO();
 					<th>사원명</th>
 					<th>직금</th>
 					<th>전화번호</th>
+					<th>관리자</th>
 					<th>삭제</th>
 				</tr>
 			</thead>
-			<tbody>
+		<tbody>
 				<%for(int i=0;i<user.size();i++){ 
 					emplist=user.get(i);
 				%>	
@@ -43,8 +44,8 @@ loginDTO emplist= new loginDTO();
 					<td><%=emplist.getPass() %></td>
 					<td><a href="#"><%=emplist.getJob_category() %></a></td>
 					<td><%=emplist.getDetailaddr() %></td>
-					<td><a href="#"><%=emplist.getProfile_photo() %></a></td>
-					<td><a href="#">삭제</a></td>
+					<td><%=emplist.getProfile_photo() %></td>
+					<td><a href="/kimsaemERP/empread.do?id=<%=emplist.getJob_category()%>">상세보기</a></td>
 				</tr>
 				<%} %>
 			</tbody>
