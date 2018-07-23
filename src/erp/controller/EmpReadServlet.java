@@ -23,13 +23,13 @@ public class EmpReadServlet extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		
 		
-/*		String id = (String)request.getAttribute("id");
+		String id = request.getParameter("id");
 		System.out.println("read¼­ºí¸´"+id);
 		MemberDTO dto = null;
 		empService service = new empServiceImpl();
 		dto = service.read(id);
 		
-		request.setAttribute("dto", dto);*/
+		request.setAttribute("dto", dto);
 		request.setAttribute("menupath", "/menu/insa_menu.jsp");
 		request.setAttribute("viewpath", "/emp/emp_read.jsp");
 		RequestDispatcher rd = request.getRequestDispatcher("/template/mainLayout.jsp");
