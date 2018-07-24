@@ -20,6 +20,13 @@ public class GetDeptNameServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
 		System.out.println("서블릿요청성공");
+		String action = request.getParameter("action");
+		String viewpath = "";
+		if(action.equals("register")){
+			viewpath="/emp/register.jsp";
+		}else if(action.equals("tree")){
+			viewpath="/dept/treedept.jsp";
+		}
 		//비지니스 메소드 호출
 		DeptService service = new DeptServiceImpl();
 		ArrayList<DeptDTO> deptnamelist = service.getDeptName();
@@ -28,7 +35,7 @@ public class GetDeptNameServlet extends HttpServlet {
 		//데이터공유
 		request.setAttribute("deptnamelist", deptnamelist);
 		request.setAttribute("menupath", "/menu/insa_menu.jsp");
-		request.setAttribute("viewpath", "/emp/register.jsp");
+		request.setAttribute("viewpath", viewpath);
 		//요청재지정
 		RequestDispatcher rd = 
 			request.getRequestDispatcher("/template/mainLayout.jsp");

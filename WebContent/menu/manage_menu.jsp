@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="list-group">
-		<a href="/kimsaemERP/view.html?menupath=/menu/manage_menu.jsp&viewpath=/job/order.jsp" class="list-group-item">구매및발주</a> 
+		<a href="/kimsaemERP/view.html?menupath=/menu/manage_menu.jsp&viewpath=/job/purchase_main.jsp" class="list-group-item">구매및발주</a> 
 		<a href="#"	class="list-group-item">사내어린이집관리</a> 
 		<a href="#" class="list-group-item">자산관리</a>
 		<a href="#" class="list-group-item">행사관리</a>
