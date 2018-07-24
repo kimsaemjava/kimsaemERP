@@ -13,16 +13,20 @@ create sequence purchase_detail_seq;
 
 drop sequence purchase_seq;
 drop sequence purchase_detail_seq;
-#구매일반
 drop table purchase
+drop table purchase_detail
+
+#구매일반
 create table purchase(
 	purchase_id varchar2(20) primary key,
 	purchase_day date,
 	request_id varchar2(15),
 	request_dept varchar2(20),
+	request_deptno varchar2(20),
+	state char(1),
 	type varchar2(15)
 )
-drop table purchase_detail
+
 #구매상세
 create table purchase_detail(
     purchase_id varchar2(20),
@@ -38,13 +42,13 @@ create table purchase_detail(
 	clientcode varchar2(20)
 )
 
-insert into purchase values(to_char(sysdate,'yyyymmdd')|| purchase_seq.nextval, sysdate,'787871lee', '경영지원본부','사내행사용');
+insert into purchase values(to_char(sysdate,'yyyymmdd')|| purchase_seq.nextval, sysdate,'787871lee', '경영지원본부','dg001','0','사내행사용');
 insert into purchase_detail values(to_char(sysdate,'yyyymmdd')||purchase_seq.currval,purchase_detail_seq.nextval,'prd_002','현수막','4*10',2,100000,200000,20000,220000,'code001');
 insert into purchase_detail values(to_char(sysdate,'yyyymmdd')||purchase_seq.currval,purchase_detail_seq.nextval,'prd_003','의자','',20,5000,100000,10000,110000,'code010');
 insert into purchase_detail values(to_char(sysdate,'yyyymmdd')||purchase_seq.currval,purchase_detail_seq.nextval,'prd_010','탁자','5*10',1,100000,100000,10000,110000,'code0002');
 
 
-insert into purchase values(to_char(sysdate,'yyyymmdd')|| purchase_seq.nextval, sysdate,'Yeona1231', '개발팀','개발용');
+insert into purchase values(to_char(sysdate,'yyyymmdd')|| purchase_seq.nextval, sysdate,'Yeona1231', '개발팀','d003','0','개발용');
 insert into purchase_detail values(to_char(sysdate,'yyyymmdd')||purchase_seq.currval,purchase_detail_seq.nextval,'prd_00i2','노트북','18인치',5,865000,4325000,432500,4757500,'com001');
 insert into purchase_detail values(to_char(sysdate,'yyyymmdd')||purchase_seq.currval,purchase_detail_seq.nextval,'prd_00i3','오피스','ver2016',10,30000,300000,30000,330000,'soft010');
 insert into purchase_detail values(to_char(sysdate,'yyyymmdd')||purchase_seq.currval,purchase_detail_seq.nextval,'prd_0i10','펜마우스','11t',1,100000,100000,10000,110000,'pen0002');
@@ -53,3 +57,17 @@ insert into purchase_detail values(to_char(sysdate,'yyyymmdd')||purchase_seq.cur
 
 select * from purchase;
 select * from purchase_detail;
+
+select rownum, p.*
+from (select  * from purchase
+	  where state ='0' 
+      order by purchase_day desc) p
+where rownum=1
+
+
+
+
+
+
+
+

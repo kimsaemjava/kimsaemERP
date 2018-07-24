@@ -63,7 +63,8 @@
 				<td>부가세</td>
 				<td>총금액</td>
 				<td>거래처코드</td>
-				
+				<td>처리</td>
+				<td>거래처등록</td>
 			</tr>
 			<tr>
 				<td>
@@ -74,11 +75,17 @@
 				<td>A4</td>
 				<td>box</td>
 				<td>3</td>
-				<td>18,000</td>
-				<td>54,000</td>
-				<td>5,400</td>
-				<td>59,400</td>
-				<td>co001</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<input type="button" value="거래처조회">
+				</td>
+				<td>
+					<input type="button" value="거래처등록">
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -94,6 +101,12 @@
 				<td>부가세</td>
 				<td>총금액</td>
 				<td>거래처코드</td>
+				<td>
+					<input type="button" value="거래처조회">
+				</td>
+				<td>
+					<input type="button" value="거래처등록">
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -109,6 +122,12 @@
 				<td>부가세</td>
 				<td>총금액</td>
 				<td>거래처코드</td>
+				<td>
+					<input type="button" value="거래처조회">
+				</td>
+				<td>
+					<input type="button" value="거래처등록">
+				</td>
 			</tr>
 			
 		</table>
