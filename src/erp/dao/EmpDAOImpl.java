@@ -1,7 +1,7 @@
 package erp.dao;
 
 import static fw.DBUtil.close;
-import static query.EmpQuery.EMP_DELETE;
+import static query.EmpQuery.*;
 import static query.EmpQuery.EMP_INSERT;
 import static query.EmpQuery.EMP_LIST;
 import static query.EmpQuery.EMP_READ;
@@ -189,4 +189,30 @@ public class EmpDAOImpl implements EmpDAO {
 
 	}
 
+	@Override
+	public boolean idCheck(String id, Connection con) throws SQLException {
+		boolean state = false;
+		PreparedStatement ptmt = con.prepareStatement(IDCHECK);
+		ptmt.setString(1, id);
+		ResultSet rs = ptmt.executeQuery();
+		if (rs.next()) {//레코드가 있다는 것은 아이디가 존재한다는 의미로 해석
+			state = true;
+		}
+		close(rs);
+		close(ptmt);		
+		return state;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
