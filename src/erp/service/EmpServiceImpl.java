@@ -149,4 +149,20 @@ public class EmpServiceImpl implements EmpService {
 		}
 		return user;
 	}
+
+	@Override
+	public boolean idCheck(String id) {
+		boolean result = true;
+		Connection con = null;		
+		EmpDAO dao = new EmpDAOImpl();	
+		try {
+			con = getConnect();
+			result = dao.idCheck(id, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return result;
+	}
 }

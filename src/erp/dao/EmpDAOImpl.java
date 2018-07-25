@@ -160,4 +160,18 @@ public class EmpDAOImpl implements EmpDAO {
 		close(ptmt);
 		return user;
 	}
+
+	@Override
+	public boolean idCheck(String id, Connection con) throws SQLException {	// 아이디 중복확인
+		boolean result = true;
+		PreparedStatement ptmt = con.prepareStatement(ID_CHECK);
+		ptmt.setString(1, id);
+		ResultSet rs = ptmt.executeQuery();
+		System.out.println(rs);
+		if(rs.next()){
+			result = false;
+		}
+		close(ptmt);
+		return result;
+	}
 }

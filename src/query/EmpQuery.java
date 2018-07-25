@@ -26,4 +26,6 @@ public class EmpQuery {
 	// public static String LOGIN = "select * From kitriemp where id = ? and pass = ?";
 	public static String LOGIN = "select m.*, d.deptname, j.job_category, j.menupath from member m, dept d, job j where m.deptno = d.deptno and d.job_category = j.job_id and id=? and pass=?";
 	
+	public static String ID_CHECK = "select * from member where id = ?";
+	
 }

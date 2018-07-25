@@ -27,4 +27,7 @@ public interface EmpDAO {
 	int update(EmpDTO user, Connection con) throws SQLException;			// 사원수정
 	
 	LoginDTO login(String id, String pass, Connection con) throws SQLException;	// 로그인
+	
+	boolean idCheck(String id,Connection con) throws SQLException;	// 아이디 중복확인
+
 }

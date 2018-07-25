@@ -29,4 +29,7 @@ public interface EmpService {
 	
 	// EmpDTO login(String id, String pass);
 	LoginDTO login(String id, String pass);
+	
+	boolean idCheck(String id);
+
 }
