@@ -7,6 +7,21 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+	function runAjax() {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				document.getElementById("checkVal").innerHTML = xhr.responseText;
+			}
+		}
+		xhr.open("POST", "/kimsaemERP/IdCheck.do", true);
+		xhr.setRequestHeader("Content-type",
+				"application/x-www-form-urlencoded");
+		xhr.send("id=" + myform.id.value);
+	}
+</script>
  </head>
 <body>
 	<div class="container-fluid">

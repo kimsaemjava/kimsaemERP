@@ -9,27 +9,11 @@ import java.util.ArrayList;
 
 import erp.dao.empDAO;
 import erp.dao.empDAOImpl;
+import erp.dto.DeptDTO;
 import erp.dto.MemberDTO;
 import erp.dto.empDTO;
 
 public class empServiceImpl implements empService{
-
-/*	@Override
-	public int insert(MemberDTO dto) {
-		int result=0;
-		System.out.println("서비스확인");
-		empDAO dao = new empDAOImpl();
-		Connection con =null;
-		try{
-			con = getConnect();
-			result=dao.insert(deptno, name, id, pass, addr, point, grade, con);
-		}catch(SQLException e){
-			
-		}finally{
-			close(con);
-		}
-		return result;
-	}*/
 
 	@Override
 	public ArrayList<empDTO> search() {
@@ -65,15 +49,16 @@ public class empServiceImpl implements empService{
 	}
 
 	@Override
-	public empDTO read(String id) {
-		empDTO user = null;
+	public MemberDTO read(String id) {
+		MemberDTO user = null;
 		empDAO dao = new empDAOImpl();
 		Connection con =null;
+		System.out.println("read서비스"+id);
 		try{
-			con =getConnect();
+			con = getConnect();
 			user =dao.read(id,con);
 		}catch(SQLException e){
-			
+			e.printStackTrace();
 		}finally{
 			close(con);
 		}
@@ -144,6 +129,41 @@ public class empServiceImpl implements empService{
 		}
 		return result;
 		
+	}
+
+	@Override
+	public ArrayList<DeptDTO> emplist() {
+		ArrayList<DeptDTO> list = null;
+		Connection con =null;
+		System.out.println("emplist 서비스");
+		empDAO dao = new empDAOImpl();
+		try {
+			con= getConnect();
+			list = dao.emplist(con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return list;
+	}
+
+	@Override
+	public boolean idCheck(String id) {
+		boolean check = false;
+		Connection con = null;
+		empDAO dao = new empDAOImpl();
+		try {
+			con = getConnect();
+			check = dao.idCheck(id, con);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(con);
+		}
+		
+		return check;
 	}
 	
 

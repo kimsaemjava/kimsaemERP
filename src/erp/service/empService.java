@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import erp.dto.DeptDTO;
 import erp.dto.MemberDTO;
 import erp.dto.empDTO;
 
@@ -12,10 +13,11 @@ public interface empService {
 			int point,String grade);*/
 	ArrayList<empDTO> search();
 	int delete(String id);
-	empDTO read(String id);
+	MemberDTO read(String id);
 	ArrayList<empDTO> getemplist(String col,String value, String pass);
 	int update(empDTO user);
 	empDTO login(String id, String pass);
 	int insert(MemberDTO dto);
-	
+	ArrayList<DeptDTO> emplist();
+	boolean idCheck(String id);
 }
