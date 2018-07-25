@@ -3,8 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var xhr
+		function runAjax(){
+			xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = readyCallback;
+	
+			xhr.open("POST","/kimsaemERP/emp/idcheck.do",true);
+			xhr.setRequestHeader("Content-type",
+					"application/x-www-form-urlencoded")
+			xhr.send("id="+myform.id.value);
+		}
+		function readyCallback(){
+			if(xhr.readyState==4 && xhr.status==200){//정상처리
+				document.getElementById("checkVal").innerHTML 
+				         = xhr.responseText;
+			}
+		}
+	</script>
  </head>
 <body>
 	<div class="container-fluid">
@@ -74,7 +92,7 @@
 								minlength="4" required onkeyup="runAjax()">
 							
 						</div>
-						<span id="checkVal"></span>
+						<span id="checkVal" style="color: red;"></span>
 					</div>
 					<div class="form-group">
 						<!-- 패스워드-->

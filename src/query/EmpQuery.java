@@ -1,5 +1,7 @@
 package query;
 public class EmpQuery {
+	public static String IDCHECK =
+				"select * from member where id=?";
 	public static String EMP_INSERT =
 			"insert into member values(?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,'myphoto.jpg')";
 	public static String EMP_LIST =
