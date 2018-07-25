@@ -1,6 +1,5 @@
 package erp.dto;
 
-
 public class MemberDTO {
 	private String id;
 	private String pass;
@@ -24,16 +23,19 @@ public class MemberDTO {
 	private String phonecell;
 	private String email;
 	private String profile_photo;
+
 	
-	
-	
-	
+	public MemberDTO(String id) {
+		this.id = id;
+	}
+
 	public MemberDTO(String id, String name, String duty, String phoneco) {
 		this.id = id;
 		this.name = name;
 		this.duty = duty;
 		this.phoneco = phoneco;
 	}
+
 	public MemberDTO(String id, String pass, String name, String ssn, String birthday, String marry, String deptno,
 			String zipcode, String addr, String phonehome, String phoneco, String phonecell, String email,
 			String profile_photo) {
@@ -52,6 +54,7 @@ public class MemberDTO {
 		this.email = email;
 		this.profile_photo = profile_photo;
 	}
+
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", ssn=" + ssn + ", birthday=" + birthday
@@ -61,13 +64,15 @@ public class MemberDTO {
 				+ phonehome + ", phoneco=" + phoneco + ", phonecell=" + phonecell + ", email=" + email
 				+ ", profile_photo=" + profile_photo + "]";
 	}
+
 	public MemberDTO() {
 		super();
 	}
+
 	public MemberDTO(String id, String pass, String name, String ssn, String birthday, String marry, String gender,
-			String position, String duty, String classes, String startday, String endday, String deptno, String curstate,
-			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
-			String email, String profile_photo) {
+			String position, String duty, String classes, String startday, String endday, String deptno,
+			String curstate, String zipcode, String addr, String detailaddr, String phonehome, String phoneco,
+			String phonecell, String email, String profile_photo) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -92,139 +97,181 @@ public class MemberDTO {
 		this.email = email;
 		this.profile_photo = profile_photo;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getPass() {
 		return pass;
 	}
+
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getSsn() {
 		return ssn;
 	}
+
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
+
 	public String getBirthday() {
 		return birthday;
 	}
+
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
+
 	public String getMarry() {
 		return marry;
 	}
+
 	public void setMarry(String marry) {
 		this.marry = marry;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
 	public String getPosition() {
 		return position;
 	}
+
 	public void setPosition(String position) {
 		this.position = position;
 	}
+
 	public String getDuty() {
 		return duty;
 	}
+
 	public void setDuty(String duty) {
 		this.duty = duty;
 	}
+
 	public String getClasses() {
 		return classes;
 	}
+
 	public void setClasses(String classes) {
 		this.classes = classes;
 	}
+
 	public String getStartday() {
 		return startday;
 	}
+
 	public void setStartday(String startday) {
 		this.startday = startday;
 	}
+
 	public String getEndday() {
 		return endday;
 	}
+
 	public void setEndday(String endday) {
 		this.endday = endday;
 	}
+
 	public String getDeptno() {
 		return deptno;
 	}
+
 	public void setDeptno(String deptno) {
 		this.deptno = deptno;
 	}
+
 	public String getCurstate() {
 		return curstate;
 	}
+
 	public void setCurstate(String curstate) {
 		this.curstate = curstate;
 	}
+
 	public String getZipcode() {
 		return zipcode;
 	}
+
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
+
 	public String getAddr() {
 		return addr;
 	}
+
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+
 	public String getDetailaddr() {
 		return detailaddr;
 	}
+
 	public void setDetailaddr(String detailaddr) {
 		this.detailaddr = detailaddr;
 	}
+
 	public String getPhonehome() {
 		return phonehome;
 	}
+
 	public void setPhonehome(String phonehome) {
 		this.phonehome = phonehome;
 	}
+
 	public String getPhoneco() {
 		return phoneco;
 	}
+
 	public void setPhoneco(String phoneco) {
 		this.phoneco = phoneco;
 	}
+
 	public String getPhonecell() {
 		return phonecell;
 	}
+
 	public void setPhonecell(String phonecell) {
 		this.phonecell = phonecell;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getProfile_photo() {
 		return profile_photo;
 	}
+
 	public void setProfile_photo(String profile_photo) {
 		this.profile_photo = profile_photo;
 	}
-	
-	
 
 }

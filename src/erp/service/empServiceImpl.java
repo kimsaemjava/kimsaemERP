@@ -147,6 +147,24 @@ public class empServiceImpl implements empService{
 		}
 		return list;
 	}
+
+	@Override
+	public boolean idCheck(String id) {
+		boolean check = false;
+		Connection con = null;
+		empDAO dao = new empDAOImpl();
+		try {
+			con = getConnect();
+			check = dao.idCheck(id, con);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(con);
+		}
+		
+		return check;
+	}
 	
 
 

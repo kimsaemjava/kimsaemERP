@@ -29,4 +29,5 @@ public class EmpQuery {
 	
 	public static final String EMPLIST_READ =
 			"select * from member where id= ? ";
+	
 }

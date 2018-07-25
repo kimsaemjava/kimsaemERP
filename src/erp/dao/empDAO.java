@@ -19,4 +19,5 @@ public interface empDAO {
 	empDTO login(String id,String pass, Connection con)throws SQLException;
 	int insert(MemberDTO dto , Connection con)throws SQLException;
 	ArrayList<DeptDTO> emplist(Connection con) throws SQLException;
+	boolean idCheck(String id, Connection con) throws SQLException;
 }

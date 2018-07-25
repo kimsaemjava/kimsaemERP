@@ -159,4 +159,20 @@ public class empDAOImpl implements empDAO {
 		return list;
 	}
 
+	@Override
+	public boolean idCheck(String id, Connection con) throws SQLException {
+		boolean check = false;
+		MemberDTO dto = null;
+		PreparedStatement ptmt = con.prepareStatement(EMPLIST_READ);
+		ptmt.setString(1, id);
+		ResultSet rs = ptmt.executeQuery();
+		if(rs.next()){
+			check=false;
+		}else{
+			check=true;
+		}
+		
+		return check;
+	}
+
 }

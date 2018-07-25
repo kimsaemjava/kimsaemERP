@@ -19,4 +19,5 @@ public interface empService {
 	empDTO login(String id, String pass);
 	int insert(MemberDTO dto);
 	ArrayList<DeptDTO> emplist();
+	boolean idCheck(String id);
 }
