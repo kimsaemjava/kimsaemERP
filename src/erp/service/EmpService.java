@@ -15,4 +15,5 @@ public interface EmpService {
 	ArrayList<EmpDTO> search(String column, String search, String pass);
 	int update(EmpDTO user);
 	LoginDTO login(String id, String pass);
+	boolean idCheck(String id);
 }

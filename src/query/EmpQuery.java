@@ -35,6 +35,8 @@ public class EmpQuery {
 					+ "from member m, dept d, job j "
 					+ "where m.deptno=d.deptno and d.job_category=j.job_id "
 					+ "and id=? and pass=?";
-
+	
+	public static final String ID_SEARCH
+					="select id from member where id=?";
 
 }

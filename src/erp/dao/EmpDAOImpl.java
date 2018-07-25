@@ -9,7 +9,7 @@ import static query.EmpQuery.EMP_SEARCH1;
 import static query.EmpQuery.EMP_SEARCH2;
 import static query.EmpQuery.EMP_SEARCH3;
 import static query.EmpQuery.EMP_UPDATE;
-import static query.EmpQuery.LOGIN;
+import static query.EmpQuery.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -186,6 +186,27 @@ public class EmpDAOImpl implements EmpDAO {
 		close(rs);
 		close(ptmt);
 		return user;
+	}
+
+	@Override
+	public boolean idCheck(String id, Connection con) throws SQLException {
+		boolean idChk = false;
+		String memid = null;
+		PreparedStatement ptmt = con.prepareStatement(ID_SEARCH);
+		ptmt.setString(1, id);
+		ResultSet rs = ptmt.executeQuery();
+		
+		if(rs.next()){
+			memid=rs.getString(1);
+		}
+		
+		if(memid!=null){	//사용자아이디가 있으면
+			idChk = true;
+		}else{	//없으면
+			idChk = false;
+		}
+		
+		return idChk;
 	}
 
 
