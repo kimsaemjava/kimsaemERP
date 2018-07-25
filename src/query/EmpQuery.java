@@ -1,3 +1,4 @@
+
 package query;
 public class EmpQuery {
 	public static String IDCHECK =
@@ -9,7 +10,7 @@ public class EmpQuery {
 			+"where m.deptno = d.deptno ";
 	public static String EMP_DELETE = "delete kitriemp where id=?";
 	public static String EMP_READ
-			= "select * from kitriemp where id = ?";
+			= "select * from member where id = ?";
 	/*public static String LOGIN =
 			"select * from kitriemp where id=? and pass=?";*/
 	public static String LOGIN
