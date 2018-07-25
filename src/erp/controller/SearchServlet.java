@@ -1,6 +1,7 @@
 package erp.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -13,31 +14,41 @@ import javax.servlet.http.HttpServletResponse;
 import erp.dto.EmpDTO;
 import erp.service.EmpService;
 import erp.service.EmpServiceImpl;
-
 @WebServlet(name = "emp/search", urlPatterns = { "/emp/search.do" })
-public class SearchServlet extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("euc-kr");
-		response.setContentType("text/html;charset=euc-kr");
-		
-		// 1. 클라이언트의 요청정보 추출
-		String column = request.getParameter("column");
-		String search = request.getParameter("search");
-		System.out.println("검색어: "+search);
-
-		// 2. 비즈니스 메소드 호출
+public class SearchServlet extends HttpServlet{
+	public void doGet(HttpServletRequest req,
+					HttpServletResponse res)
+						throws ServletException,IOException{
+		req.setCharacterEncoding("euc-kr");
+		System.out.println("서블릿요청성공");
+		String column = req.getParameter("column");
+		String search = req.getParameter("search");
+		String pass = req.getParameter("pass");
+		System.out.println("검색어:"+search);
+		//비지니스 메소드 호출
 		EmpService service = new EmpServiceImpl();
-		ArrayList<EmpDTO> empList= service.search(column, search);
-
-		// 3. 데이터 공유
-		request.setAttribute("empList", empList);
-		
-		// 4. 요청재지정 - forward
-		RequestDispatcher rd = request.getRequestDispatcher("/emp/list.jsp");
-		rd.forward(request, response);
+		ArrayList<EmpDTO> userlist =
+					service.search(column, search,pass);
 	
+		//데이터공유
+		req.setAttribute("userlist", userlist);
+		
+		//요청재지정
+		RequestDispatcher rd = 
+				req.getRequestDispatcher("/emp/list.jsp");
+		rd.forward(req, res);
 	}
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

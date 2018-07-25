@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@page import="erp.dto.LoginDTO"%>
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +31,6 @@
 </head>
 <body>
 
-	<% 
-		LoginDTO loginUser = (LoginDTO)session.getAttribute("loginUser");
-	%>
 	<div style="background-color: #edeef1;padding: 20px;height: 800px">
 		
 			<div class="row" style="margin-left: auto;margin-right: auto;">
@@ -44,14 +39,16 @@
 			 		 <div
 			 		 style="border-color:white;height: 800px;">
 				        <div style="background-color:#63cde7;padding: 20px;
-				        font-family:HY-°ß°íµñ;font-size: 16pt;color: white; font-weight: bolder;">			        
-				        ${loginUser.job_category }
-				        </div>
-				       <jsp:include page="${menupath}"></jsp:include>
+				        font-family:HY-°ß°íµñ;font-size: 16pt;color: white;
+				         font-weight: bolder;">${loginUser.job_category}</div>
+
+				       	<jsp:include page="${menupath }"/>
       				 </div>
 			 	</div>
 			 	<div class="col-sm-8" style="background-color: white;height: 800px;">
-			 		<jsp:include page="${viewpath}"></jsp:include>
+
+			 		<jsp:include page="${viewpath }"/>
+
 			 	</div>
 			</div>
 	</div>

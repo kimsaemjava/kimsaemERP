@@ -24,7 +24,7 @@ public class DBUtil {
 	//2. DB서버 연결 - 커넥션설정
 	public static Connection getConnect(){
 		Connection con = null;
-		String url = "jdbc:oracle:thin:@211.42.204.101:1521:xe";
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		String user = "erp";
 		String password = "erp";
 		try{
@@ -69,6 +69,7 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 	}
+	
 }
 
 

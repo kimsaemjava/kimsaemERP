@@ -1,6 +1,13 @@
 package erp.dao;
 
-public interface DeptDAO {
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
-	//DeptDTO getDeptName(Connection con);
+import erp.dto.DeptDTO;
+
+public interface DeptDAO {
+	ArrayList<DeptDTO> getDeptName(Connection con) 
+										throws SQLException;
+
 }

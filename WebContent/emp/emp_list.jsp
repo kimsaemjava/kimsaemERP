@@ -1,20 +1,22 @@
+<%@page import="erp.dto.MemberDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@page import="java.util.ArrayList, erp.dto.LoginDTO"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <%
-	String str = "test";
+	ArrayList<MemberDTO> userlist =(ArrayList<MemberDTO>) request.getAttribute("userlist");
+	int size  = userlist.size();
+	System.out.println("jsp"+userlist);
 %>
 <title>Bootstrap Example</title>
 <meta charset="euc-kr">
 
 </head>
 <body>
-	<%
-		ArrayList<LoginDTO> empList = (ArrayList<LoginDTO>) request.getAttribute("empList");
-	%>
+
 	<div>
 		<br />
 		<br />
@@ -31,20 +33,17 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%
-			int size = empList.size();
-			for (int i = 0; i < size; i++) {
-				LoginDTO emp = empList.get(i);
-			%>
+				<%for(int i=0;i<size;i++){ 
+					MemberDTO user = userlist.get(i);%>
 				<tr>
-					<td><a href="#"><%=emp.getId()%></a></td>
-					<td><%=emp.getName()%></td>
-					<td><%=emp.getDeptname() %></td>
-					<td><%=emp.getDuty() %></td>
-					<td><a href="#">직원보기</a></td>
-					<td><%=emp.getPhoneco() %></td>
+					<td><%=user.getId() %></td>
+					<td><%=user.getName() %></td>
+					<td><%=user.getDeptname() %></td>
+					<td><%=user.getDuty()%></td>
+					<td><a href="/kimsaemERP/emp/read.do?id=<%=user.getId()%>&action=READ">직원보기</a></td>
+					<td><a href="#"><%=user.getPhoneco()%></a></td>
 				</tr>
-<% } %> 	
+				<%} %>
 			</tbody>
 		</table>
 		<ul class="pagination" style="">

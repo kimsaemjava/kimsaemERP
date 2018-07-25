@@ -7,15 +7,15 @@ import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
 
 public interface EmpService {
-
-
+	int insert(MemberDTO user);
+	ArrayList<MemberDTO> getMemberList();
 	int delete(String id);
-	EmpDTO read(String id);
-	ArrayList<EmpDTO> search(String column, String search);
-	int update(EmpDTO emp);
+	MemberDTO read(String id);
+	ArrayList<EmpDTO> search(String column, String search, String pass);
+	int update(EmpDTO user);
+	LoginDTO login(String id,String pass);
 	
-	LoginDTO login(String id, String pass);
-	int insert(MemberDTO emp);
-	
-	ArrayList<LoginDTO> getMemberList();
+	boolean idCheck(String id);
+
+
 }

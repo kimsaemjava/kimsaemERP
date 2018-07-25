@@ -25,15 +25,16 @@ public class MemberDTO {
 	private String phonecell;
 	private String email;
 	private String profile_photo;
-
+	private String deptname;
 	public MemberDTO() {
 
 	}
-
-	// 사원등록용 - 파일업로드 후에는 profile_photo 추가
-	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String deptno,
-			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
-			String email) {
+	//사원등록용 - 파일업로드 후에는 profile_photo추가
+	public MemberDTO(String id, String pass, String name,
+			String ssn, Date birthday, String marry, 
+			String deptno,String zipcode, String addr, 
+			String detailaddr, String phonehome, String phoneco,
+			String phonecell,String email) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -51,10 +52,11 @@ public class MemberDTO {
 		this.email = email;
 	}
 
+	// 회원목록조회용 생성자
 	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
 			String position, String duty, String classes, Date startday, Date endday, String deptno, String curstate,
 			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
-			String email, String profile_photo) {
+			String email, String profile_photo,String deptname) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -78,8 +80,15 @@ public class MemberDTO {
 		this.phonecell = phonecell;
 		this.email = email;
 		this.profile_photo = profile_photo;
+		this.deptname = deptname;
 	}
 
+	public String getDeptname() {
+		return deptname;
+	}
+	public void setDeptname(String deptname) {
+		this.deptname = deptname;
+	}
 	public String getId() {
 		return id;
 	}
