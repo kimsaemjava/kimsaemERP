@@ -167,8 +167,6 @@ public class empDAOImpl implements empDAO {
 		ptmt.setString(1, id);
 		ResultSet rs = ptmt.executeQuery();
 		if(rs.next()){
-			check=false;
-		}else{
 			check=true;
 		}
 		

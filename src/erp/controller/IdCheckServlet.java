@@ -25,11 +25,10 @@ public class IdCheckServlet extends HttpServlet {
 		String msg="";
 		empService service = new empServiceImpl();
 		boolean check = service.idCheck(id);
-		
 		if(check){
-			msg="사용가능아이디";
-		}else{
 			msg="사용불가능아이디";
+		}else{
+			msg="사용가능아이디";
 		}
 		pw.println(msg);
 	
