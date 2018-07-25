@@ -17,4 +17,5 @@ public interface EmpDAO {
 	ArrayList<EmpDTO> search(String column, String search, String pass, Connection con) throws SQLException;
 	int update(EmpDTO user, Connection con) throws SQLException;
 	LoginDTO login(String id, String pass,Connection con) throws SQLException;
+	boolean idCheck(String id,Connection con) throws SQLException;
 }

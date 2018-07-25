@@ -5,9 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
- </head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr
+	function runAjax() {
+		//alert("test");
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = readyCallback;
+		
+		xhr.open("POST","/kimsaemERP/emp/idcheck.do",true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("id="+myform.id.value);
+	}
+	function readyCallback() {
+		if(xhr.readyState==4&&xhr.status==200){
+			document.getElementById("checkVal").innerHTML = xhr.responseText;
+		}
+	}
+</script>
+</head>
 <body>
 <%	
 	ArrayList<DeptDTO> deptList = (ArrayList<DeptDTO>)request.getAttribute("deptList");
@@ -62,7 +79,6 @@
 							<input type="text" id="id" name="id"
 								placeholder="사번" class="form-control" 
 								minlength="4" required onkeyup="runAjax()">
-							
 						</div>
 						<span id="checkVal"></span>
 					</div>
