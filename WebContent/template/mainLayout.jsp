@@ -31,9 +31,16 @@
 	</div>
 	<div id="content">
 		<jsp:include page="/template/content.jsp"/>
-<%-- 				<jsp:include page="${menupath}"></jsp:include>
-				<jsp:include page="${viewpath}"></jsp:include> --%>
-	</div>
+	</div>	
+	
 </body>
 </html>
+
+
+
+
+
+
+
+
 

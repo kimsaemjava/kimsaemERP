@@ -1,4 +1,4 @@
-<%@page import="emp.dto.EmpDTO"%>
+<%@page import="erp.dto.EmpDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
 					<!-- 何辑内靛 -->
 					<label class="control-label col-sm-2" for="deptcode">何辑内靛</label>
 					<div class="col-sm-3">
-						<%=emp.getDetpno()%>
+						<%-- <%=emp.getDetpno()%> --%>
 					</div>
 				</div>
 

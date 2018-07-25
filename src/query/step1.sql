@@ -12,7 +12,7 @@ create table dept(
 	mgr_id varchar2(15),
 	deptaddr varchar2(50),
 	depttel varchar2(15)
-);
+)
 #인사 테이블
 drop table member CASCADE CONSTRAINTS;
 create table member(
@@ -37,7 +37,7 @@ create table member(
 	phoneco varchar2(15),
 	phonecell varchar2(15),
 	email varchar2(50),
-	profile_photo varchar2(50));
+	profile_photo varchar2(50))
 
 #업무테이블
 drop table job CASCADE CONSTRAINTS;
@@ -45,18 +45,18 @@ create table job(
 	job_id varchar2(10) primary key,
 	job_name varchar2(15),
 	job_category varchar2(15),
-	menupath varchar2(50));
+	menupath varchar2(50))
 
 #제약조건
 alter table member
-add constraint member_fk foreign key(deptno) references dept(deptno);
+add constraint member_fk foreign key(deptno) references dept(deptno)
 
 
 alter table dept
-add constraint dept_fk foreign key(mgr_id) references member(id);
+add constraint dept_fk foreign key(mgr_id) references member(id)
 
 alter table dept
-add constraint job_fk foreign key(job_category) references job(job_id);
+add constraint job_fk foreign key(job_category) references job(job_id)
 
 #데이터
 insert into job values('j001','영업','영업관리','/menu/sales_menu.jsp');
@@ -85,12 +85,11 @@ insert into dept values('d012','마케팅실','1999/9/27',null,'2','1','dg001','j004
 
 insert into member values('9401023jang','1234','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','02-858-1111','010-111-2222','jang@naver.com','jang.jpg');
 insert into member values('0111022kim','1234','김범룡','800521-1111111','1980/09/01','1','0','과장','팀장','4급20호봉','2007/02/27',null,'d002','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','02-858-1111','010-111-3333','kbr@naver.com','kbr.jpg');
-insert into member values('92115kim','1234','김서연','901012-1111111','1990/11/11','1','0','과장','팀장','4급20호봉','2010/10/01',null,'d003','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','02-858-1111','010-111-4444','jang@naver.com','jang.jpg');
+insert into member values('92115kim','1234','김서연','901012-1111111','1990/11/11','1','1','과장','팀장','4급20호봉','2010/10/01',null,'d003','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','02-858-1111','010-111-4444','jang@naver.com','kim.jpg');
 
 
 
-
-insert into member values('9401023jang','1234','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-5555','jang@naver.com','jang.jpg');
+insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-5555','jang@naver.com','jang.jpg');
 insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-111-6666','jang@naver.com','jang.jpg');
 insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-222-7777','jang@naver.com','jang.jpg');
 insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','1','0','부장','팀장','3급20호봉','1999/10/01',null,'d001','재직','222-222','서울시 봉천구','좋은동네','02-858-1111','010-222-2222','jang@naver.com','jang.jpg');
@@ -107,16 +106,41 @@ insert into member values('9401023jang','장동건','731111-1111111','1973/11/11','
 
 
 
-1. 로그인시 필요한 데이터를 조인해서 가져오기
-→ member의 기본 데이터, job테이블의 job_category, menupath
-로그인 성공하면 content.jsp의 문자열을 job_category값으로 연결
-로그인 성공 후에 각 job_id별로 정의된 menupath에서 view정보를 가져와 연결하기
-로그인 성공 후에 profile_photo에 등록된 이미지로 연결
-컬럼이 달라졌으므로 
-LoginServlet, LoginDAOImpl 변경, LoginDTO를 생성
+select * from JOB;
+select * from DEPT;
+select * from MEMBER
 
-select m.*, d.deptname, j.job_category, j.menupath
+1. 로그인시 필요한 데이터를 조인해서 가져오기
+ => member의 기본 데이터 , job테이블의 job_category,menupath
+ => 로그인 성공하면 content.jsp의 문자열을 job_category값으로 연결
+    로그인 성공 후에 각 job_id별로 정의된 munupath에서 view정보를 가져와 연결하기
+    로그인 성공 후에 profile_photo에 등록된 이미지로 연결
+    컬럼이 달라졌으므로
+    LoginServlet, LoginDAOImpl를 변경
+    LoginDTO를 생성 
+ 
+select m.*,d.deptname,j.job_category,j.menupath
 from member m, dept d, job j
-where m.deptno = d.deptno
-and d.job_category = j.job_id
-and id = '9401023jang' and pass = '1234';
+where m.deptno = d.deptno 
+      and d.job_category = j.job_id
+      and id = '9401023jang' and pass='1234';
+
+ 
+ 
+alter table member
+modify (ssn varchar2(30))
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ update MEMBER
+ set gender='1'
+ where id = '92115kim'
+
+
+
+
