@@ -66,8 +66,8 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public EmpDTO read(String id) {
-		EmpDTO user = null;
+	public MemberDTO read(String id) {
+		MemberDTO user = null;
 		EmpDAO dao = new EmpDAOImpl();
 		Connection con = null;
 		try {
@@ -148,5 +148,21 @@ public class EmpServiceImpl implements EmpService {
 			close(con);
 		}
 		return user;
+	}
+
+	@Override
+	public boolean idCheck(String id) {
+		boolean result = true;
+		Connection con = null;		
+		EmpDAO dao = new EmpDAOImpl();	
+		try {
+			con = getConnect();
+			result = dao.idCheck(id, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return result;
 	}
 }

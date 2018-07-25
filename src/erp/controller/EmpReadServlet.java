@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import erp.dto.EmpDTO;
+import erp.dto.LoginDTO;
+import erp.dto.MemberDTO;
 import erp.service.EmpService;
 import erp.service.EmpServiceImpl;
 
-@WebServlet(name = "emp/read", urlPatterns = { "/emp/read.do" })
+@WebServlet(name = "read", urlPatterns = { "/read.do" })
 public class EmpReadServlet extends HttpServlet{
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
@@ -24,25 +26,22 @@ public class EmpReadServlet extends HttpServlet{
 
 		// 1. 요청정보 추출
 		String id = req.getParameter("id");
-		String action = req.getParameter("action");
-		String view="";
-		
-		if(action.equals("UPDATE")){
-			view = "/emp/emp_update.jsp";
-		}else if(action.equals("READ")){
-			view = "/emp/emp_read.jsp";
-		}
 		
 		// 2. 비지니스 메소드 호출
 		EmpService service = new EmpServiceImpl();
-		EmpDTO user = service.read(id);
+		MemberDTO user = service.read(id);
 
 		// 3. 데이터공유
 		req.setAttribute("user", user);
-		System.out.println(user);
+		
+		String menupath = "/menu/insa_menu.jsp";
+		String viewpath = "/emp/emp_read.jsp";
+	
+		req.setAttribute("menupath",  menupath);
+		req.setAttribute("viewpath", viewpath);
 		
 		// 4. 요청재지정
-		RequestDispatcher rd = req.getRequestDispatcher(view);
+		RequestDispatcher rd = req.getRequestDispatcher("/template/mainLayout.jsp");
 		rd.forward(req, res);
 	}
 }
