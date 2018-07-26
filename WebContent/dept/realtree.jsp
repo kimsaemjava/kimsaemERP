@@ -24,19 +24,45 @@
 	 int size  = deptnamelist.size();
 	 System.out.println("jsp"+deptnamelist);
  %>
+ 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".folder").on("click",function(){
+				deptname = $(this).text().trim();//공백제거
+				ulnode = $(this).next();
+				deptno = $(ulnode).attr("id");
+				$.get("/kimsaemERP/ajaxtreedata",
+						{"deptno":deptno},getData,"json");
+			});
+	
+			$(document).on("click",".file",function(){
+				alert("test:")
+			})
+		})
+		//jquery를 이용하면 json이 파싱되어 객체상태로 리턴된다.
+		function getData(data){
+			//alert(data.emplist[0].name)
+			myli = "";
+			for(i in data.emplist){
+				myli = myli+ "<li><span class='file' id='"+ 
+				data.emplist[i].id +"'>"
+				+ data.emplist[i].name + "</span></li>";
+			}
+			$(ulnode).html(myli);
+		}
+	</script>
 </head>
 <body>
-<h2>kimsaemJavaNara조직도 - 계층구조표현</h2>
+<h2>kimsaemJavaNara조직도 - 계층구조표현(jquery)</h2>
 	<div  style="margin: 20px" class="col-sm-6">
 		<ul id="browser" class="filetree">
 			<%for(int i=0;i<size;i++){
-				DeptDTO dept = deptnamelist.get(i);
-			%>
+				DeptDTO dept = deptnamelist.get(i);	%>
 				<li class="closed">
-					<span class="folder" onclick="runAjax()">
+					<span class="folder">
 						<%= dept.getDeptname() %></span>
-					<ul>
-	<!-- <li><span class="file">장동건</span></li> -->
+					<ul id="<%=dept.getDeptno()%>">
+	
 					</ul>
 				</li>
 			<%} %>
