@@ -83,6 +83,25 @@ public class EmpServiceImpl implements EmpService {
 		System.out.println(user);
 		return user;
 	}
+	
+	@Override
+	public MemberDTO readNew(String id) {
+		MemberDTO user = null;
+		EmpDAO dao = new EmpDAOImpl();
+		Connection con = null;
+		try {
+			System.out.println("service호출");
+			con = getConnect();
+			user = dao.read(id, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		System.out.println(id);
+		System.out.println(user);
+		return user;
+	}
 
 	@Override
 	public ArrayList<EmpDTO> search(String column, String search, String pass) {
@@ -152,17 +171,35 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public boolean idCheck(String id) {
-		boolean result = true;
+		boolean state = false;
+		EmpDAO dao = new EmpDAOImpl();
 		Connection con = null;		
-		EmpDAO dao = new EmpDAOImpl();	
 		try {
 			con = getConnect();
-			result = dao.idCheck(id, con);
+			state = dao.idCheck(id, con);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
 			close(con);
 		}
-		return result;
+		return state;
+	}
+
+	@Override
+	public ArrayList<MemberDTO> getTreeEmpList(String deptno) {
+		ArrayList<MemberDTO> userlist = null;
+		EmpDAO dao = new EmpDAOImpl();
+		Connection con = null;
+		try {
+			System.out.println("service호출");
+			con = getConnect();
+			userlist = dao.getTreeEmpList(deptno, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}		
+		return userlist;
+		
 	}
 }

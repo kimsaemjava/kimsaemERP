@@ -11,11 +11,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import erp.controller.GetTreeEmpListServlet;
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
+import fw.DBUtil;
 
 public class EmpDAOImpl implements EmpDAO {
+	// test
+	public static void main(String[] args) throws Exception{
+		// EmpDAOImpl testobj = new EmpDAOImpl();
+		// System.out.println(testobj.getTreeEmpList("d001", DBUtil.getConnect()));
+	}
 	@Override
 	public int insert(MemberDTO user, Connection con) throws SQLException { // 사원등록
 		int result = 0;
@@ -99,6 +106,23 @@ public class EmpDAOImpl implements EmpDAO {
 		close(ptmt);
 		return user;
 	}
+	
+	@Override
+	public MemberDTO readNew(String id, Connection con) throws SQLException { // 사원조회
+		MemberDTO user = new MemberDTO();
+		PreparedStatement ptmt = con.prepareStatement(EMP_READ);
+		ptmt.setString(1, id);
+		ResultSet rs = ptmt.executeQuery();
+		if (rs.next()) {
+			user = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
+					rs.getString(21), rs.getString(22), rs.getString(23));
+		}
+		close(ptmt);
+		return user;
+	}
 
 	@Override
 	public ArrayList<EmpDTO> search(String column, String search, String pass, Connection con) // 사원검색
@@ -163,15 +187,36 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Override
 	public boolean idCheck(String id, Connection con) throws SQLException {	// 아이디 중복확인
-		boolean result = true;
+		boolean state = false;
 		PreparedStatement ptmt = con.prepareStatement(ID_CHECK);
 		ptmt.setString(1, id);
 		ResultSet rs = ptmt.executeQuery();
-		System.out.println(rs);
-		if(rs.next()){
-			result = false;
+		if(rs.next()){	// 레코드가 있다는 것은 아이디가 존재한다는 의미로 해석
+			state = true;
 		}
+		close(rs);
 		close(ptmt);
-		return result;
+		return state;
+	}
+
+	@Override
+	public ArrayList<MemberDTO> getTreeEmpList(String deptno, Connection con) throws SQLException {	// 부서별 사원조회
+		ArrayList<MemberDTO> userlist = new ArrayList<MemberDTO>();
+		MemberDTO user = null;
+		PreparedStatement ptmt = con.prepareStatement(FIND_DEPT_EMPLIST);
+		ptmt.setString(1, deptno);
+		ResultSet rs = ptmt.executeQuery();
+		System.out.println("dao호출");
+		while (rs.next()) {
+			user =new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
+					rs.getString(21), rs.getString(22), null);
+			userlist.add(user);
+		}
+		close(rs);
+		close(ptmt);
+		return userlist;
 	}
 }

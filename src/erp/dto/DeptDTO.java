@@ -17,6 +17,12 @@ public class DeptDTO {
 	private String depttel;
 	
 	public DeptDTO(){}
+	
+	public DeptDTO(String deptno, String deptname) {
+		super();
+		this.deptno = deptno;
+		this.deptname = deptname;
+	}
 
 	public DeptDTO(String deptno, String deptname, Date deptStartDay, Date deptEndDay, String deptlevel,
 			String deptstep, String deptuppercode, String job_category, String mgr_id, String deptaddr,
@@ -34,6 +40,7 @@ public class DeptDTO {
 		this.deptaddr = deptaddr;
 		this.depttel = depttel;
 	}
+	
 
 	public String getDeptno() {
 		return deptno;
