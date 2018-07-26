@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="erp.dto.DeptDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +22,11 @@
 		}
 	</script>
  </head>
+  <%
+ 	ArrayList<DeptDTO> deptnamelist =(ArrayList<DeptDTO>) request.getAttribute("deptnamelist");
+	int size  = deptnamelist.size();
+	System.out.println("jsp"+deptnamelist);
+ %>
 <body>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
@@ -46,27 +53,15 @@
 						<label class="control-label col-sm-2" for="orgcode">부서코드</label>
 						<div class="col-sm-3">
 							<select name="deptno" class="form-control" >
-								<option value="d001">인사팀
-								<option value="d002">재무팀
-								<option value="d003">개발팀
-								<option value="d0031">디자인팀
-								<option value="d0032">Ajax팀
-								<option value="d004">개발지원
-								<option value="d005">시스템지원팀
-								<option value="d006">총무과
-								<option value="dg001">경영지원본부
-								<option value="dg002">영업본부
-								<option value="dg003">IT지원센터
-								<option value="d007">교육부
-								<option value="d008">기획실
-								<option value="d009">영업1팀
-								<option value="d010">기업영업본부
-								<option value="d011">영업2팀
-								<option value="d012">마케팅실
-								
+							<%for(int i=0;i<size;i++){
+								DeptDTO dept = deptnamelist.get(i);	%>
+								<option value="<%=dept.getDeptno() %>"><%= dept.getDeptname() %>
+							<%} %>
 							</select>
 						</div>
 					</div>
+		
+					
 					
 					<div class="form-group">
 						<!-- 성명-->
@@ -86,7 +81,7 @@
 								minlength="4" required onkeyup="runAjax()">
 							
 						</div>
-						<span id="checkVal"></span>
+						<span id="checkVal" style="color: red;"></span>
 					</div>
 					<div class="form-group">
 						<!-- 패스워드-->
@@ -122,7 +117,7 @@
 						<label class="control-label col-sm-2" for="marry">결혼유무</label>
 						<div class="col-sm-3">
 							<input type="checkbox" id="marry" name="marry"
-								placeholder="결혼유무"	minlength="15" value="1">결혼유무 <!-- value를 1을 줘서 결혼을 했다는 것을 표시해줌 -->
+								placeholder="결혼유무"	minlength="15" value="1">결혼유무
 
 						</div>
 					</div>
@@ -130,7 +125,7 @@
 						<label class="col-sm-2 col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-3">
 							<input type="text" class="form-control" name="zipcode"
-								id="zipcode">
+								id="zipcode" >
 						</div>
 						<div class="col-sm-2">
 							<button type="button"

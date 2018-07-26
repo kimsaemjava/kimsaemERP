@@ -22,6 +22,7 @@ public interface EmpService {
 	
 	// EmpDTO read(String id);
 	MemberDTO read(String id);
+	MemberDTO readNew(String id);
 	
 	ArrayList<EmpDTO> search(String column, String search, String pass);
 	
@@ -31,5 +32,8 @@ public interface EmpService {
 	LoginDTO login(String id, String pass);
 	
 	boolean idCheck(String id);
+	
+	ArrayList<MemberDTO> getTreeEmpList(String deptno);
+
 
 }

@@ -25,7 +25,8 @@ public class MemberDTO {
 	private String phonecell;
 	private String email;
 	private String profile_photo;
-
+	private String deptname;
+	
 	public MemberDTO() {
 
 	}
@@ -81,8 +82,36 @@ public class MemberDTO {
 			  this.email = email;
 			 }
 
-			
-
+	// deptname√ﬂ∞° DTO
+	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,
+			String position, String duty, String classes, Date startday, Date endday, String deptno, String curstate,
+			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
+			String email, String profile_photo, String deptname) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.ssn = ssn;
+		this.birthday = birthday;
+		this.marry = marry;
+		this.gender = gender;
+		this.position = position;
+		this.duty = duty;
+		this.classes = classes;
+		this.startday = startday;
+		this.endday = endday;
+		this.deptno = deptno;
+		this.curstate = curstate;
+		this.zipcode = zipcode;
+		this.addr = addr;
+		this.detailaddr = detailaddr;
+		this.phonehome = phonehome;
+		this.phoneco = phoneco;
+		this.phonecell = phonecell;
+		this.email = email;
+		this.profile_photo = profile_photo;
+		this.deptname = deptname;
+	}
 
 	public String getId() {
 		return id;
@@ -258,6 +287,14 @@ public class MemberDTO {
 
 	public void setProfile_photo(String profile_photo) {
 		this.profile_photo = profile_photo;
+	}
+
+	public String getDeptname() {
+		return deptname;
+	}
+
+	public void setDeptname(String deptname) {
+		this.deptname = deptname;
 	}
 
 	@Override

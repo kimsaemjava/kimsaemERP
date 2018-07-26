@@ -28,4 +28,6 @@ public class EmpQuery {
 	
 	public static String ID_CHECK = "select * from member where id = ?";
 	
+	public static String FIND_DEPT_EMPLIST = "select * from member where deptno = ?";
+	
 }
