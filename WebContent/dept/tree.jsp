@@ -33,11 +33,11 @@
 	function readyCallback() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			//정상처리되면 ajax요청의 결과로 서블릿에서 보내준 데이터를 가지고 돌아온다.
-			alert(xhr.responseText);//html,text,json
+			//alert(xhr.responseText);//html,text,json
 			//서버로부터 전달된 json형식의 문자열을 파싱해서 자바스크립트에서 제어할 수 있는
 			//JSON객체로 변환
 			var myjsonObj = JSON.parse(xhr.responseText);
-			alert(myjsonObj.emplist[0].name);
+			//alert(myjsonObj.emplist[0].name);
 			//해당 ul노드에 json객체에서 추출한 name을 추가하기 - innerHTML
 			deptnode = document.getElementById(deptno);
 			mydata = "";
@@ -53,8 +53,37 @@
 	}
 	//emp정보를 ajax로 요청
 	function empInfo(id){
-		alert("요청성공===>"+id);
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = empCallback;
+		xhr.open("GET", "/kimsaemERP/ajaxEmpInfo?id=" 
+									+ id, true);
+		xhr.send();
 		
+	}
+	function empCallback(){
+		if (xhr.readyState == 4 && xhr.status == 200) {
+		//	alert(xhr.responseText);
+			mydiv = document.getElementById("empinfo");
+			mydiv.setAttribute("style", "display:block");
+			
+			var emp = JSON.parse(xhr.responseText);
+			//alert(emp.id);
+			document.getElementById("userImage").src
+						="/kimsaemERP/images/"+emp.profile_photo;
+			document.getElementById("id").innerHTML
+							= emp.id
+			document.getElementById("deptno").innerHTML
+								= emp.deptno
+			document.getElementById("deptname").innerHTML
+			                  = emp.deptname
+			document.getElementById("name").innerHTML
+								= emp.name
+								
+			document.getElementById("position").innerHTML
+				                  = emp.position
+			document.getElementById("duty").innerHTML
+									= emp.duty
+		}
 	}
 </script>
 <%
@@ -84,7 +113,7 @@
 		</ul>
 	</div>
 	<div style="margin-top: 20px; height: 400px;display: none; "
-		class="col-sm-6">
+		class="col-sm-6" id="empinfo">
 
 		<form role="form" class="form-horizontal"
 			action="/kimsaemERP/emp/update.do" method="POST" name="myform">
@@ -94,7 +123,7 @@
 				</div>
 				<div class="form-group">
 					<p class="col-sm-5">
-						<img src="/kimsaemERP/images/<%=user.getProfile_photo()%>"
+						<img src=""
 							id="userImage" style="width: 100px">
 					</p>
 					<div	 class="col-sm-7" style="color: blue;">직원 정보가 보여지는 곳으로
@@ -104,33 +133,33 @@
 				<div class="form-group">
 					<!-- 부서코드 -->
 					<label class="control-label col-sm-5" for="orgcode">부서코드</label>
-					<div class="control-label col-sm-5">
+					<div class="control-label col-sm-5" id="deptno">
 						<!-- 여기에 부서코드를 출력하세요  -->
-						<%=user.getDeptno()%>
+						
 					</div>
 				</div>
 				<div class="form-group">
 					<!-- 부서코드 -->
 					<label class="control-label col-sm-5" for="orgcode">부서명</label>
-					<div class="control-label col-sm-5">
+					<div class="control-label col-sm-5" id="deptname">
 						<!-- 여기에 부서코드를 출력하세요  -->
-						<%=user.getDeptname()%>
+					
 					</div>
 				</div>
 
 				<div class="form-group">
 					<!-- 성명-->
 					<label class="control-label col-sm-5" for="name">성명</label>
-					<div class="control-label col-sm-5">
-						<%=user.getName()%>
+					<div class="control-label col-sm-5" id="name">
+					
 					</div>
 				</div>
 				<div class="form-group">
 					<!-- 사번-->
 					<label class="control-label col-sm-5" for="id">사번</label>
-					<div class="control-label col-sm-5">
+					<div class="control-label col-sm-5" id="id">
 						<!-- 여기에 사번을 출력하세요  -->
-						<%=user.getId()%>
+						
 					</div>
 					<span id="checkVal"></span>
 				</div>
@@ -139,17 +168,16 @@
 				<div class="form-group">
 					<!-- 직위-->
 					<label class="control-label col-sm-5" for="birthday">직위</label>
-					<div class="control-label col-sm-5">
+					<div class="control-label col-sm-5" id="position">
 						<!-- 여기에 직위 출력하세요  -->
-						<%=user.getPosition()%>
+						
 					</div>
 				</div>
 				<div class="form-group">
 					<!-- 직책-->
 					<label class="control-label col-sm-5" for="birthday">직책</label>
-					<div class="control-label col-sm-5">
-						<!-- 여기에 직책 출력하세요  -->
-						<%=user.getDuty()%>
+					<div class="control-label col-sm-5" id="duty">
+
 					</div>
 				</div>
 
