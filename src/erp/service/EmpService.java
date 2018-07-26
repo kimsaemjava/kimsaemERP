@@ -7,6 +7,7 @@ import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
 
 public interface EmpService {
+	ArrayList<MemberDTO> getTreeEmpList(String deptno);
 	int insert(MemberDTO user);
 	public boolean idCheck(String id);
 	ArrayList<MemberDTO> getMemberList();

@@ -25,7 +25,9 @@ public class GetDeptNameServlet extends HttpServlet {
 		if(action.equals("register")){
 			viewpath="/emp/register.jsp";
 		}else if(action.equals("tree")){
-			viewpath="/dept/treedept.jsp";
+			viewpath="/dept/tree.jsp";
+		}else if(action.equals("org")){
+			viewpath="/dept/realtree.jsp";
 		}
 		//비지니스 메소드 호출
 		DeptService service = new DeptServiceImpl();

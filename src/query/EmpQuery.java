@@ -1,6 +1,8 @@
 
 package query;
 public class EmpQuery {
+	public static String FIND_DEPTNO_EMPLIST=
+				"select * from member where deptno=?";
 	public static String IDCHECK =
 				"select * from member where id=?";
 	public static String EMP_INSERT =

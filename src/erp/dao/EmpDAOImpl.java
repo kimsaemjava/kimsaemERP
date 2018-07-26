@@ -20,9 +20,47 @@ import java.util.ArrayList;
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
+import fw.DBUtil;
 
 public class EmpDAOImpl implements EmpDAO {
-
+	public static void main(String[] args) throws Exception{
+		EmpDAOImpl testobj = new EmpDAOImpl();
+		System.out.println(
+			testobj.getTreeEmpList("d001",DBUtil.getConnect()));
+	}
+	@Override
+	public ArrayList<MemberDTO> getTreeEmpList(String deptno, Connection con) 
+						throws SQLException {
+		
+		ArrayList<MemberDTO> userlist = 
+				new ArrayList<MemberDTO>();		
+		MemberDTO user = null;
+		System.out.println("dao요청");
+		PreparedStatement ptmt = 
+				con.prepareStatement(FIND_DEPTNO_EMPLIST);
+		ptmt.setString(1, deptno);
+		ResultSet rs = ptmt.executeQuery();
+		while (rs.next()) {
+			user = new MemberDTO(rs.getString(1),
+					rs.getString(2), rs.getString(3), 
+					rs.getString(4),rs.getDate(5),
+					rs.getString(6), rs.getString(7),
+					rs.getString(8), rs.getString(9), 
+					rs.getString(10), rs.getDate(11),
+					rs.getDate(12), rs.getString(13), 
+					rs.getString(14), rs.getString(15), 
+					rs.getString(16), rs.getString(17), 
+					rs.getString(18), rs.getString(19), 
+					rs.getString(20), rs.getString(21), 
+					rs.getString(22),null);
+			// 변환이 완료되면 ArrayList에 추가
+			userlist.add(user);
+			System.out.println(user);	
+		}
+		System.out.println("ArraList의 갯수=>" + userlist.size());
+		
+		return userlist;
+	}
 	@Override
 	public int insert(MemberDTO user, Connection con) throws SQLException {
 		int result = 0;

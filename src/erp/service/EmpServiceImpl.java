@@ -14,6 +14,23 @@ import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
 public class EmpServiceImpl implements EmpService {
 	@Override
+	public ArrayList<MemberDTO> getTreeEmpList(String deptno) {
+		ArrayList<MemberDTO> userlist = null;
+		EmpDAO dao  = new EmpDAOImpl();
+		Connection con = null;
+		try{
+			System.out.println("서비스 호출");
+			con = getConnect();
+			userlist = dao.getTreeEmpList(deptno, con);
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}		
+		return userlist;
+	}
+	@Override
 	public int insert(MemberDTO user) {
 		int result=0;
 		EmpDAO dao  = new EmpDAOImpl();
