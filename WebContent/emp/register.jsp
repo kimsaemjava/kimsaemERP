@@ -85,7 +85,7 @@
 								minlength="4" required onkeyup="runAjax()">
 							
 						</div>
-						<span id="checkVal"><%=request.getAttribute("msg")%></span>
+						<span id="checkVal" style="color: red;"><%=request.getAttribute("msg")%></span>
 					</div>
 					<div class="form-group">
 						<!-- 패스워드-->

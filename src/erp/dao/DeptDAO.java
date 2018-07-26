@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import erp.dto.DeptDTO;
 
 public interface DeptDAO {
-	ArrayList<DeptDTO> getDeptName(Connection con) 
-										throws SQLException;
+	ArrayList<DeptDTO> getDeptName(Connection con) throws SQLException;
 
 }
