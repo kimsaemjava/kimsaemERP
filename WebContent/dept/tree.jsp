@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <%@page import="erp.dto.DeptDTO"%>
 <%@page import="erp.dto.LoginDTO"%>
-<%@page import="erp.dto.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
