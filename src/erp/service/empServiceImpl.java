@@ -165,6 +165,25 @@ public class empServiceImpl implements empService{
 		
 		return check;
 	}
+
+	@Override
+	public ArrayList<MemberDTO> emptree(String deptno) {
+		ArrayList<MemberDTO> dtolist = null;
+		Connection con =null;
+		empDAO dao = new empDAOImpl();
+		con = getConnect();
+		try {
+			dtolist = dao.emptree(deptno, con);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(con);
+		}
+		
+		
+		return dtolist;
+	}
 	
 
 

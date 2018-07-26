@@ -20,4 +20,5 @@ public interface empService {
 	int insert(MemberDTO dto);
 	ArrayList<DeptDTO> emplist();
 	boolean idCheck(String id);
+	ArrayList<MemberDTO> emptree(String deptno);
 }

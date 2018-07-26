@@ -24,9 +24,8 @@ public class MemberDTO {
 	private String email;
 	private String profile_photo;
 
-	
-	public MemberDTO(String id) {
-		this.id = id;
+	public MemberDTO(String name) {
+		this.name = name;
 	}
 
 	public MemberDTO(String id, String name, String duty, String phoneco) {
