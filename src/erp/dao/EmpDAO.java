@@ -9,6 +9,8 @@ import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
 
 public interface EmpDAO {
+	ArrayList<MemberDTO> getTreeEmpList(String deptno
+			,Connection con) throws SQLException;
 	int insert(MemberDTO user,Connection con) throws SQLException; 
 	ArrayList<MemberDTO> getMemberList(Connection con) 
 										throws SQLException;
