@@ -21,8 +21,6 @@ import erp.service.empServiceImpl;
 public class EmpReadServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
-		
-		
 		String id = request.getParameter("id");
 		System.out.println("read¼­ºí¸´"+id);
 		MemberDTO dto = null;

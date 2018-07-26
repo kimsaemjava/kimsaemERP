@@ -26,8 +26,10 @@ public class GetDeptNameServlet extends HttpServlet {
 		
 		if(action.equals("register")){
 			request.setAttribute("viewpath", "/emp/register.jsp");
-		}else{
+		}else if(action.equals("tree")){
 			request.setAttribute("viewpath", "/dept/tree.jsp");
+		}else if(action.equals("org")){
+			request.setAttribute("viewpath", "/dept/realtree.jsp");
 		}
 		request.setAttribute("list", list);
 		request.setAttribute("menupath", "/menu/insa_menu.jsp");
