@@ -26,7 +26,7 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				alert(xhr.responseText);
-				document.getElementById("result").innerHTML = xhr.responseXML;
+				//document.getElementById("result").innerHTML = xhr.responseXML;
 			}
 		}
 		xhr.open("GET", "/kimsaemERP/emptree.do?deptno="+deptno, true);
