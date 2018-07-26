@@ -9,7 +9,9 @@ import static query.EmpQuery.EMP_SEARCH1;
 import static query.EmpQuery.EMP_SEARCH2;
 import static query.EmpQuery.EMP_SEARCH3;
 import static query.EmpQuery.EMP_UPDATE;
-import static query.EmpQuery.*;
+import static query.EmpQuery.FIND_DEPT_EMPLIST;
+import static query.EmpQuery.IDCHECK;
+import static query.EmpQuery.LOGIN;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,8 +23,13 @@ import erp.dto.DeptDTO;
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
+import fw.DBUtil;
 
 public class EmpDAOImpl implements EmpDAO {
+	public static void main(String args[]) throws SQLException{
+		EmpDAOImpl testobj = new EmpDAOImpl();
+		System.out.println(testobj.getTreeEmpList("d001",DBUtil.getConnect()));
+	}
 
 	@Override
 	public int insert(MemberDTO user, Connection con) throws SQLException {
@@ -190,23 +197,41 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Override
 	public boolean idCheck(String id, Connection con) throws SQLException {
-		boolean idChk = false;
-		String memid = null;
-		PreparedStatement ptmt = con.prepareStatement(ID_SEARCH);
+		boolean state = false;
+		PreparedStatement ptmt = con.prepareStatement(IDCHECK);
 		ptmt.setString(1, id);
 		ResultSet rs = ptmt.executeQuery();
+		if(rs.next()){//레코드가 있다는 것은 아이디가 존재한다는 의미로 해석
+			state = true;
+		}
+		close(rs);
+		close(ptmt);
+		return state;
+	}
+
+	@Override
+	public ArrayList<MemberDTO> getTreeEmpList(String deptno, Connection con) throws SQLException {
+		ArrayList<MemberDTO> userlist = new ArrayList<MemberDTO>();
+		MemberDTO user = null;
+		PreparedStatement ptmt = con.prepareStatement(FIND_DEPT_EMPLIST);
+		ptmt.setString(1, deptno);
+		ResultSet rs = ptmt.executeQuery();
 		
-		if(rs.next()){
-			memid=rs.getString(1);
+		while(rs.next()){
+			user = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), 
+					rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8),
+					rs.getString(9), rs.getString(10), rs.getDate(11), rs.getDate(12),
+					rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), 
+					rs.getString(19), rs.getString(20), rs.getString(21), 
+					rs.getString(22));
+			//변환이 완료되면 ArrayList에 추가
+			userlist.add(user);
 		}
 		
-		if(memid!=null){	//사용자아이디가 있으면
-			idChk = true;
-		}else{	//없으면
-			idChk = false;
-		}
-		
-		return idChk;
+		close(rs);
+		close(ptmt);
+		return userlist;
 	}
 
 
