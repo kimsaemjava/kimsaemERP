@@ -21,10 +21,16 @@ public class GetDeptNameServlet extends HttpServlet {
 		ArrayList<DeptDTO> list = null;
 		DeptService service = new DeptServiceImpl();
 		list = service.getDeptName();
+		String action = request.getParameter("action");
 		
+		
+		if(action.equals("register")){
+			request.setAttribute("viewpath", "/emp/register.jsp");
+		}else{
+			request.setAttribute("viewpath", "/dept/tree.jsp");
+		}
 		request.setAttribute("list", list);
 		request.setAttribute("menupath", "/menu/insa_menu.jsp");
-		request.setAttribute("viewpath", "/emp/register.jsp");
 		RequestDispatcher rd = request.getRequestDispatcher("/template/mainLayout.jsp");
 		rd.forward(request, response);
 	}
