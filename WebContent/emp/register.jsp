@@ -80,7 +80,7 @@
 								placeholder="사번" class="form-control" 
 								minlength="4" required onkeyup="runAjax()">
 						</div>
-						<span id="checkVal"></span>
+						<span id="checkVal" style="color: red"></span>
 					</div>
 					<div class="form-group">
 						<!-- 패스워드-->

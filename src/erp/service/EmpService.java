@@ -16,4 +16,5 @@ public interface EmpService {
 	int update(EmpDTO user);
 	LoginDTO login(String id, String pass);
 	boolean idCheck(String id);
+	ArrayList<MemberDTO> getTreeEmpList (String deptno);
 }

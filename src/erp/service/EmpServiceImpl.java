@@ -144,18 +144,36 @@ public class EmpServiceImpl implements EmpService{
 
 	@Override
 	public boolean idCheck(String id) {
-		boolean idChk = false;
+		boolean state = false;
 		EmpDAO dao = new EmpDAOImpl();
 		Connection con = null;
 		
 		try{
 			con = getConnect();
-			idChk = dao.idCheck(id, con);
+			state = dao.idCheck(id, con);
 			}catch(SQLException e){
 				e.printStackTrace();
 			}finally{
 				close(con);
 			}
-		return idChk;
+		return state;
+	}
+
+	@Override
+	public ArrayList<MemberDTO> getTreeEmpList(String deptno) {
+		ArrayList<MemberDTO> userlist = null;
+		Connection con=null;
+		EmpDAO dao = new EmpDAOImpl();
+	
+		try {
+			con = getConnect();
+			userlist = dao.getTreeEmpList(deptno, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		
+		return userlist;
 	}
 }
