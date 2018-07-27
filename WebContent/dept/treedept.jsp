@@ -61,28 +61,18 @@
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
-				var myjsonObj = JSON.parse(xhr.responseText);
+				mydiv = document.getElementById("empinfo");
+				mydiv.setAttribute("style", "display:block");
 				
-				image = "/kimsaemERP/images/"+myjsonObj.userinfo.profile_photo;
-				imgnode = document.getElementById("userImage");
-				orgcode = myjsonObj.userinfo.deptno;
-				deptnonode = document.getElementById("orgcode");
-				orgcode = myjsonObj.userinfo.deptno;
-				namenode = document.getElementById("name");
-				name = myjsonObj.userinfo.name;
-				idnode = document.getElementById("id");
-				id = myjsonObj.userinfo.id;
-				positionnode = document.getElementById("position");
-				position = myjsonObj.userinfo.position;
-				dutynode = document.getElementById("duty");
-				duty = myjsonObj.userinfo.deptno;
+				var emp = JSON.parse(xhr.responseText);
 				
-				imgnode.src = image;
-				deptnonode.innerHTML = orgcode;
-				namenode.innerHTML = name;
-				idnode.innerHTML = id;
-				positionnode.innerHTML = position;
-				dutynode.innerHTML = duty;
+				image = "/kimsaemERP/images/"+emp.profile_photo;
+				document.getElementById("userImage").src = image;
+				document.getElementById("deptno").innerHTML = emp.deptno;
+				document.getElementById("name").innerHTML = emp.name;
+				document.getElementById("id").innerHTML = emp.id;
+				document.getElementById("position").innerHTML = emp.position;
+				document.getElementById("duty").innerHTML = emp.duty;
 			}
 		}
 		xhr.open("GET", "/kimsaemERP/getempinfo.do?id="+ myid,true);
@@ -94,9 +84,6 @@
 	<%
 		ArrayList<DeptDTO> deptList = (ArrayList<DeptDTO>) request.getAttribute("deptList");
 		int size = deptList.size();
-	%>
-	<%
-		LoginDTO user = (LoginDTO)session.getAttribute("loginUser");
 	%>
 	<h1>KimsaemJavaNara조직도</h1>
 	<div id="deptlist" style="margin: 20px" class="col-sm-6">
@@ -132,8 +119,8 @@
 		</ul>
 	</div>
 
-	<div style="margin-top: 20px; height: 400px; "
-		class="col-sm-5">
+	<div style="margin-top: 20px; height: 400px; display:none; "
+		class="col-sm-5" id="empinfo" >
 
 		<form role="form" class="form-horizontal"
 			action="/kimsaemERP/emp/update.do" method="POST" name="myform">
@@ -143,8 +130,7 @@
 				</div>
 				<div class="form-group">
 					<p class="col-sm-4">
-						<img src="/kimsaemERP/images/<%=user.getProfile_photo()%>"
-							id="userImage" style="width: 90px">
+						<img src="" id="userImage" style="width: 90px">
 					</p>
 					<div class="col-sm-8" style="color: blue;">직원 정보가 보여지는 곳으로
 						수정을 원하시면 부서별인사조회를 선택하고 작업하세요.</div>
@@ -153,16 +139,21 @@
 				<div class="form-group">
 					<!-- 부서코드 -->
 					<label class="control-label col-sm-4" for="orgcode">부서코드</label>
-					<div class="control-label col-sm-4" id="orgcode">
+					<div class="control-label col-sm-4" id="deptno">
 						<!-- 여기에 부서코드를 출력하세요  -->
-						<%=user.getDeptno()%>
 					</div>
+				</div>
+				<div class="form-group">
+						<!-- 부서코드 -->
+						<label class="control-label col-sm-4" for="orgcode">부서명</label>
+						<div class="control-label col-sm-3">
+							<!-- 여기에 부서명을 출력하세요  -->
+						</div>
 				</div>
 				<div class="form-group">
 					<!-- 성명-->
 					<label class="control-label col-sm-4" for="name">성명</label>
 					<div class="control-label col-sm-4" id="name">
-						<%=user.getName()%>
 					</div>
 				</div>
 				<div class="form-group">
@@ -170,7 +161,6 @@
 					<label class="control-label col-sm-4" for="id">사번</label>
 					<div class="control-label col-sm-4" id="id">
 						<!-- 여기에 사번을 출력하세요  -->
-						<%=user.getId()%>
 					</div>
 					<span id="checkVal"></span>
 				</div>
@@ -179,7 +169,6 @@
 					<label class="control-label col-sm-4" for="birthday">직위</label>
 					<div class="control-label col-sm-4" id="position">
 						<!-- 여기에 직위 출력하세요  -->
-						<%=user.getPosition()%>
 					</div>
 				</div>
 				<div class="form-group">
@@ -187,7 +176,6 @@
 					<label class="control-label col-sm-4" for="birthday">직책</label>
 					<div class="control-label col-sm-4" id="duty">
 						<!-- 여기에 직책 출력하세요  -->
-						<%=user.getDuty()%>
 					</div>
 				</div>
 			</fieldset>

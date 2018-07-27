@@ -7,7 +7,7 @@ import erp.dao.EmpDAOImpl;
 //sql은 추후에 XML파일로 관리될 것임.
 public class EmpQuery {
 	public static final String EMP_INSERT
-		="insert into member values(?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,'myphoto.jpg')";
+		="insert into member values(?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,?)";
 	
 	public static final String FIND_DEPT_EMPLIST
 		="select * from member where deptno=?";

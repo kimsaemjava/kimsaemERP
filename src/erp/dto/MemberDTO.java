@@ -40,7 +40,7 @@ public class MemberDTO {
 	// 사원등록용생성자 - 파일업로드 후에는 profile_photo 추가
 	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String deptno,
 			String zipcode, String addr, String detailaddr, String phonehome, String phoneco, String phonecell,
-			String email) {
+			String email, String profile_photo) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -56,10 +56,8 @@ public class MemberDTO {
 		this.phoneco = phoneco;
 		this.phonecell = phonecell;
 		this.email = email;
+		this.profile_photo = profile_photo;
 	}
-
-
-
 
 	// 회원목록조회용 생성자
 	public MemberDTO(String id, String pass, String name, String ssn, Date birthday, String marry, String gender,

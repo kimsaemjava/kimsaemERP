@@ -28,7 +28,7 @@ public class GetEmpInfoServlet extends HttpServlet {
 		MemberDTO emp = service.read(id);
 		
 		// db로 조회한 데이터를 json으로 변환하는 작업
-		JSONObject emproot = new JSONObject();
+		//JSONObject emproot = new JSONObject();
 		JSONObject empjson = new JSONObject();
 		empjson.put("id", emp.getId());
 		empjson.put("pass", emp.getPass());
@@ -50,14 +50,14 @@ public class GetEmpInfoServlet extends HttpServlet {
 		empjson.put("phonecell", emp.getPhonecell());
 		empjson.put("email", emp.getEmail());
 		empjson.put("profile_photo", emp.getProfile_photo());
-		emproot.put("userinfo", empjson);
+		//emproot.put("userinfo", empjson);
 		//System.out.println(emproot.toJSONString());
 
 		//Ajax로 요청될 때 
 		response.setContentType("application/json");
 		response.setHeader("cache-control", "no-cache,no-store");
 		PrintWriter pw = response.getWriter();
-		pw.print(emproot.toJSONString());
+		pw.print(empjson.toJSONString());
 	
 	}
 }
