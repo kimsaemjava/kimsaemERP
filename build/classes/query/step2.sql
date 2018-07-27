@@ -65,7 +65,7 @@ from (select  * from purchase
 where rownum=1
 
 
-
+select * from member
 
 
 

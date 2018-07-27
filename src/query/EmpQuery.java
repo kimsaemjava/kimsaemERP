@@ -6,7 +6,7 @@ public class EmpQuery {
 	public static String IDCHECK =
 				"select * from member where id=?";
 	public static String EMP_INSERT =
-			"insert into member values(?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,'myphoto.jpg')";
+			"insert into member values(?,?,?,?,?,?,?,'사원','사원','5급23호',sysdate,null,?,'수습',?,?,?,?,?,?,?,?)";
 	public static String EMP_LIST =
 			"select m.*,d.deptname from member m, dept d "
 			+"where m.deptno = d.deptno ";
