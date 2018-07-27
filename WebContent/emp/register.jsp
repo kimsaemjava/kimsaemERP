@@ -33,7 +33,7 @@
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
 				action="/kimsaemERP/emp/insert.do" method="POST" 
-				name="myform">
+				name="myform" enctype="multipart/form-data">
 				<fieldset>
 					<div id="legend">
 						<legend>아래 양식을 작성해주세요.</legend>
