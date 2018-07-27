@@ -34,7 +34,8 @@
 <body>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
-				action="/kimsaemERP/emp/insert.do" method="POST" 
+				action="/kimsaemERP/emp/insert.do" 
+				method="POST" enctype="multipart/form-data"
 				name="myform">
 				<fieldset>
 					<div id="legend">

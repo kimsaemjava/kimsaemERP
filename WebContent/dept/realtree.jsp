@@ -36,7 +36,8 @@
 			});
 	
 			$(document).on("click",".file",function(){
-				alert("test:")
+				id = $(this).attr("id");
+				alert("test:"+id)
 			})
 		})
 		//jquery를 이용하면 json이 파싱되어 객체상태로 리턴된다.

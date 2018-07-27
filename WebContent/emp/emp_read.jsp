@@ -20,7 +20,7 @@
 					</div>
 					<div class="form-group" style="padding: 40px">
 						<p class="centered">
-							<img src="/kimsaemERP/images/<%=user.getProfile_photo() %>" 
+							<img src="/kimsaemERP/upload/<%=user.getProfile_photo() %>" 
 							 id="userImage" style="width: 100px">
 						</p>
 						<div>
