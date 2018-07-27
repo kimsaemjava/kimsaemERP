@@ -46,6 +46,7 @@ public class EmpDAOImpl implements EmpDAO {
 		ptmt.setString(13, user.getPhoneco());
 		ptmt.setString(14, user.getPhonecell());
 		ptmt.setString(15, user.getEmail());
+		ptmt.setString(16, user.getProfile_photo());
 		result = ptmt.executeUpdate();
 		close(ptmt);
 		return result;

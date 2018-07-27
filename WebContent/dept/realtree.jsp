@@ -44,9 +44,11 @@
 		//alert(data.emplist[0].name);
 		myli = "";
 		for (i in data.emplist){
-			myli =  "<li><span class='file' id='"+data.emplist[i].id + "'>"+ data.emplist[i].name + "</span></li>";
+			myli =  myli + "<li><span class='file' id='"+data.emplist[i].id + "'>"+ data.emplist[i].name + "</span></li>";
 		}
 		$(ulnode).html(myli);
+
+		
 	}
 </script>
 
