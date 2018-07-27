@@ -26,9 +26,9 @@ public class EmpInsertServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//System.out.println("서블릿 요청 성공");
 
-		req.setCharacterEncoding("euc-kr");
+		//req.setCharacterEncoding("euc-kr");
 		//fileupload처리
-		String saveFolder = "/log";
+		String saveFolder = "/upload";
 		String encType = "euc-kr";
 		int size = 5*1024*1024; 
 		String realpath = "";
@@ -36,14 +36,6 @@ public class EmpInsertServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		realpath = context.getRealPath(saveFolder);
 		MultipartRequest multipart = new MultipartRequest(req, realpath, size, encType, new DefaultFileRenamePolicy());
-		
-		Enumeration<String> files = multipart.getFileNames();
-		String profile_photo = "";
-		while(files.hasMoreElements()){
-			String file = files.nextElement();
-			profile_photo = multipart.getFilesystemName(file);
-		}
-		
 		
 		// 1. 클라이언트의 요청정보 추출
 		String id = multipart.getParameter("id");
@@ -61,6 +53,7 @@ public class EmpInsertServlet extends HttpServlet {
 		String phoneco = multipart.getParameter("phoneco");
 		String phonecell = multipart.getParameter("phonecell");
 		String email = multipart.getParameter("email");
+		String profile_photo = "";
 		
 		//marry에 대한 처리
 		if(marry==null){ //체크박스를 선택하지 않은 미혼이라는 의미
@@ -75,7 +68,12 @@ public class EmpInsertServlet extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
+		//파일업로드처리
+		Enumeration<String> files = multipart.getFileNames();
+		while(files.hasMoreElements()){
+			String file = files.nextElement();
+			profile_photo = multipart.getFilesystemName(file);
+		}
 		
 		// 2. 비지니스 메소드 호출
 		EmpService service = new EmpServiceImpl();
