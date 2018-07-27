@@ -16,7 +16,6 @@ import erp.service.EmpServiceImpl;
 @WebServlet(name = "idcheck", urlPatterns = { "/emp/idcheck.do" })
 public class IdCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr");
 
 		response.setContentType("text/html;charset=euc-kr");
 		response.setHeader("cahce-control", "no-cache,no-store");
@@ -26,9 +25,9 @@ public class IdCheckServlet extends HttpServlet {
 		String msg = "";
 		
 		EmpService service = new EmpServiceImpl();
-		boolean result = service.idCheck(id);
+		boolean state = service.idCheck(id);
 		
-		if (result==false) {
+		if (state) {
 			msg = "사용 불가능 아이디";
 		} else {
 			msg = "사용 가능 아이디";
@@ -37,6 +36,4 @@ public class IdCheckServlet extends HttpServlet {
 		pw.println(msg);
 		
 	}
-	
-
 }

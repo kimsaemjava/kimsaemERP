@@ -34,7 +34,7 @@ public class MemberDTO {
 			String ssn, Date birthday, String marry, 
 			String deptno,String zipcode, String addr, 
 			String detailaddr, String phonehome, String phoneco,
-			String phonecell,String email) {
+			String phonecell,String email, String profile_photo) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -50,6 +50,7 @@ public class MemberDTO {
 		this.phoneco = phoneco;
 		this.phonecell = phonecell;
 		this.email = email;
+		this.profile_photo = profile_photo;
 	}
 
 	// 회원목록조회용 생성자

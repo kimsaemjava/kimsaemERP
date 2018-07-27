@@ -15,12 +15,6 @@ import erp.service.EmpService;
 import erp.service.EmpServiceImpl;
 @WebServlet(name="emp/list" , urlPatterns={"/emp/list.do"})
 public class EmpListServlet extends HttpServlet{
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doGet(req, resp);
-	}
-
 	public void doGet(HttpServletRequest req,
 					HttpServletResponse res)
 						throws ServletException,IOException{

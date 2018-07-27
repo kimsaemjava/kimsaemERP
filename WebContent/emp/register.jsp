@@ -34,7 +34,7 @@
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
 				action="/kimsaemERP/emp/insert.do" method="POST" 
-				name="myform">
+				name="myform" enctype="multipart/form-data">
 				<fieldset>
 					<div id="legend">
 						<legend>아래 양식을 작성해주세요.</legend>
@@ -85,7 +85,7 @@
 								minlength="4" required onkeyup="runAjax()">
 							
 						</div>
-						<span id="checkVal"><%=request.getAttribute("msg")%></span>
+						<span id="checkVal" style="color: red;"><%=request.getAttribute("msg")%></span>
 					</div>
 					<div class="form-group">
 						<!-- 패스워드-->

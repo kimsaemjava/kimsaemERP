@@ -12,18 +12,23 @@ import java.util.ArrayList;
 import erp.dto.EmpDTO;
 import erp.dto.LoginDTO;
 import erp.dto.MemberDTO;
+import fw.DBUtil;
 
 public class EmpDAOImpl implements EmpDAO {
-
+	/*
+	 * public static void main (String[] args) throws Exception{ EmpDAOImpl
+	 * testobj = new EmpDAOImpl();
+	 * System.out.println(testobj.getTreeEmpList("d001",DBUtil.getConnect())); }
+	 */
 	@Override
 	public int insert(MemberDTO user, Connection con) throws SQLException {
 		int result = 0;
-		System.out.println("dao=>"+user);
-	
-		String gender = "1";//여자
+		System.out.println("dao=>" + user);
+
+		String gender = "1";// 여자
 		String state = user.getSsn().substring(6, 8);
-		if(state.equals("1") | state.equals("3")){
-			gender = "0";//남자
+		if (state.equals("1") | state.equals("3")) {
+			gender = "0";// 남자
 		}
 		PreparedStatement ptmt = con.prepareStatement(EMP_INSERT);
 		ptmt.setString(1, user.getId());
@@ -41,6 +46,7 @@ public class EmpDAOImpl implements EmpDAO {
 		ptmt.setString(13, user.getPhoneco());
 		ptmt.setString(14, user.getPhonecell());
 		ptmt.setString(15, user.getEmail());
+		ptmt.setString(16, user.getProfile_photo());
 		result = ptmt.executeUpdate();
 		close(ptmt);
 		return result;
@@ -59,24 +65,17 @@ public class EmpDAOImpl implements EmpDAO {
 
 		while (rs.next()) {
 			// 레코드 하나의 값을 dto객체로 변환하는 작업
-			user = new MemberDTO(rs.getString(1),
-					rs.getString(2), rs.getString(3), 
-					rs.getString(4),rs.getDate(5),
-					rs.getString(6), rs.getString(7),
-					rs.getString(8), rs.getString(9), 
-					rs.getString(10), rs.getDate(11),
-					rs.getDate(12), rs.getString(13), 
-					rs.getString(14), rs.getString(15), 
-					rs.getString(16), rs.getString(17), 
-					rs.getString(18), rs.getString(19), 
-					rs.getString(20), rs.getString(21), 
-					rs.getString(22),rs.getString(23));
+			user = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
+					rs.getString(21), rs.getString(22), rs.getString(23));
 			// 변환이 완료되면 ArrayList에 추가
 			userlist.add(user);
-			System.out.println(user);	
+			System.out.println(user);
 		}
 		System.out.println("ArraList의 갯수=>" + userlist.size());
-		
+
 		return userlist;
 	}
 
@@ -99,18 +98,11 @@ public class EmpDAOImpl implements EmpDAO {
 		ResultSet rs = ptmt.executeQuery();
 		if (rs.next()) {
 			System.out.println("데이터있다~~~~~");
-			user =  new MemberDTO(rs.getString(1),
-					rs.getString(2), rs.getString(3), 
-					rs.getString(4),rs.getDate(5),
-					rs.getString(6), rs.getString(7),
-					rs.getString(8), rs.getString(9), 
-					rs.getString(10), rs.getDate(11),
-					rs.getDate(12), rs.getString(13), 
-					rs.getString(14), rs.getString(15), 
-					rs.getString(16), rs.getString(17), 
-					rs.getString(18), rs.getString(19), 
-					rs.getString(20), rs.getString(21), 
-					rs.getString(22),null);
+			user = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
+					rs.getString(21), rs.getString(22), null);
 		}
 		System.out.println(user);
 		close(ptmt);
@@ -169,7 +161,7 @@ public class EmpDAOImpl implements EmpDAO {
 		ptmt.setString(2, pass);
 		ResultSet rs = ptmt.executeQuery();
 		if (rs.next()) {
-			System.out.println("데이터있다~~~~~");
+			// System.out.println("데이터있다~~~~~");
 			user = new LoginDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
 					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
 					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15),
@@ -183,16 +175,42 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Override
 	public boolean idCheck(String id, Connection con) throws SQLException {
-		boolean result = true;
+		boolean state = false;
 		PreparedStatement ptmt = con.prepareStatement(ID_CHECK);
 		ptmt.setString(1, id);
 		ResultSet rs = ptmt.executeQuery();
-		if(rs.next()){
-			result = false;
+
+		if (rs.next()) {
+			state = true;
 		}
-		
+
 		close(ptmt);
-		return result;
+		return state;
 	}
+
+	@Override
+	public ArrayList<MemberDTO> getTreeEmpList(String deptno, Connection con) throws SQLException {
+		ArrayList<MemberDTO> userlist = new ArrayList<MemberDTO>();
+
+		MemberDTO user = null;
+		System.out.println("dao요청");
+		PreparedStatement ptmt = con.prepareStatement(FIND_DEPTNO_EMPLIST);
+		ptmt.setString(1, deptno);
+		ResultSet rs = ptmt.executeQuery();
+		while (rs.next()) {
+			user = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+					rs.getDate(11), rs.getDate(12), rs.getString(13), rs.getString(14), rs.getString(15),
+					rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
+					rs.getString(21), rs.getString(22), null);
+			// 변환이 완료되면 ArrayList에 추가
+			userlist.add(user);
+			System.out.println(user);
+		}
+		System.out.println("ArrayList의 갯수=>" + userlist.size());
+
+		return userlist;
+	}
+
 
 }

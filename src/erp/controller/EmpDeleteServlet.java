@@ -1,4 +1,4 @@
-package erp.controller;
+/*package erp.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -54,3 +54,4 @@ public class EmpDeleteServlet extends HttpServlet{
 
 
 
+*/
