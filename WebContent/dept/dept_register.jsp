@@ -26,8 +26,6 @@
 						</div>
 					</div>
 		
-					
-					
 					<div class="form-group">
 						<!-- 부서명-->
 						<label class="control-label col-sm-2" for="deptname">부서명</label>
@@ -45,7 +43,6 @@
 							<input type="text" id="deptStartDay" name="deptStartDay"
 								placeholder="부서시작일" class="form-control" 
 								minlength="15" >
-
 						</div>
 					</div>
 					<div class="form-group">
@@ -55,7 +52,6 @@
 							<input type="text" id="deptEndDay" name="deptEndDay"
 								placeholder="부서종료일" class="form-control" 
 								minlength="15" >
-
 						</div>
 					</div>
 					<div class="form-group">
@@ -65,7 +61,6 @@
 							<input type="text" id="deptlevel" name="deptlevel"
 								placeholder="부서레벨" class="form-control" 
 								minlength="15" >
-
 						</div>
 					</div>
 					<div class="form-group">
@@ -75,7 +70,6 @@
 							<input type="text" id="deptstep" name="deptstep"
 								placeholder="순서" class="form-control" 
 								minlength="15" >
-
 						</div>
 					</div>
 					<div class="form-group">
@@ -100,7 +94,6 @@
 								<option value="d010">기업영업본부
 								<option value="d011">영업2팀
 								<option value="d012">마케팅실
-								
 							</select>
 						</div>
 					</div>
