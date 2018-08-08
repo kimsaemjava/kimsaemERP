@@ -31,7 +31,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	서블릿으로 작업한 content.jsp
+	spring으로 작성하는 WEB-INF하위 content.jsp
 	<div style="background-color: #edeef1;padding: 20px;height: 800px">
 			<div class="row" style="margin-left: auto;margin-right: auto;">
 			 	<div class="col-sm-3" 

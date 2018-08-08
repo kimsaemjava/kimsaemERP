@@ -1,3 +1,17 @@
+#게시판 테이블
+drop table board CASCADE CONSTRAINTS;
+create table board(
+	boardno varchar2(10) primary key,
+	boardctg varchar2(20),
+	id varchar2(20),
+	boarddate date,
+	boardtitle varchar2(100),
+	boardtxt varchar2(1000)
+)
+create sequence board_seq;
+select * from board;
+
+
 #부서 테이블
 drop table dept CASCADE CONSTRAINTS;
 create table dept(
