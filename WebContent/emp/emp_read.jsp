@@ -19,7 +19,7 @@
 					</div>
 					<div class="form-group" style="padding: 40px">
 						<p class="centered">
-							<img src="/kimsaemERP/images/${user.profile_photo }" 
+							<img src="/kimsaemERP/upload/${user.profile_photo }" 
 							 id="userImage" style="width: 100px">
 						</p>
 						<div>
@@ -85,11 +85,11 @@
 					</div>
 					<div class="form-group">
 						<!-- 성별-->
-						<label class="control-label col-sm-2" for="pass">패스워드</label>
+						<label class="control-label col-sm-2" for="pass">성별</label>
 						<input type="radio" id="marry" name="marry"
-								placeholder="결혼유무"	minlength="15" <%if(user.getGender().equals("0")){%>checked<%} %> >남자
+								placeholder="성별" minlength="15" <%if(user.getGender().equals("0")){%>checked<%} %> >남자
 						<input type="radio" id="marry" name="marry"
-								placeholder="결혼유무"	minlength="15" <%if(user.getGender().equals("1")){%>checked<%} %>>여자
+								placeholder="성별" minlength="15" <%if(user.getGender().equals("1")){%>checked<%} %>>여자
 					</div>
 					<div class="form-group">
 						<!-- 직위-->

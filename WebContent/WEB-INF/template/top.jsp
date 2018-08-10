@@ -69,7 +69,7 @@
 					<li class="active"><a href="/kimsaemERP/index.jsp">Home</a></li>
 					<li><a href="/kimsaemERP/view.html?menupath=/menu/pub_menu.jsp&viewpath=/emp/login.jsp">업무관리</a></li>
 					<li><a href="#">자원관리</a></li>
-					<li><a href="/kimsaemERP/view.html?menupath=/menu/board_menu.jsp&viewpath=/emp/login.jsp">커뮤니티</a></li>
+					<li><a href="/kimsaemERP/board/list.do">커뮤니티</a></li>
 					<li><a href="#">일정관리</a></li>
 					<li><a href="#">휴가관리</a></li>
 					<li><a href="#">결재</a></li>
